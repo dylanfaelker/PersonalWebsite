@@ -32,8 +32,8 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  font-size: calc(10px + 2vmin);
+  margin: 2vmin;
+  font-size: calc(10px + 4vmin);
   color: #e1911b;
 }
 
@@ -48,6 +48,7 @@ code {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  margin-left: 5px;
   font-size: calc(2vmin);
   color: #cfbc5e;
   text-decoration: none;
@@ -55,7 +56,16 @@ code {
 
 .contactLink {
   text-decoration: none;
-  color: #cfbc5e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 7px;
+}
+
+.contactIcon {
+  fill:#366BA8;
+  margin-right: 5px;
 }
 
 .projectLink {
@@ -112,6 +122,112 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+.navbar {
+  background-color: #366BA8;
+  color: #0d2546;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-choice {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav {
+  margin-top:2.5vmin;
+  margin-bottom:2.5vmin;
+  margin-right:6vmin;
+  cursor: pointer;
+}
+
+.nav-name {
+  margin-top:2.5vmin;
+  margin-bottom:2.5vmin;
+  margin-left:6vmin;
+  cursor: pointer;
+}
+
+/* ************************** Start of Infinity Chess ************************* */
+
+.game {
+  margin-right: 20vmin;
+  margin-left: 20vmin;
+  margin-bottom: 10vmin;
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; 
+}
+
+.square-white {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #d4b187;
+  border: 1px solid #d4b187;
+}
+
+.square-black {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #613d11;
+  border: 1px solid #613d11;
+}
+
+.square-highlight {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #308897;
+  border: 1px solid #143b70;
+}
+
+.square-chosen {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #d49d06;
+  border: 1px solid #c49411;
+}
+
+.piece-img {
+  min-height: 9vmin;
+  max-height: 9vmin;
+  min-width: 9vmin;
+  max-width: 9vmin;
+}
+
+/* ************************** End of Infinity Chess ************************* */
 
 footer {
   margin-top: 30px;

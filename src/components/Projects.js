@@ -1,16 +1,17 @@
 import Project from './Project'
 
-const Projects = ({ projects, onHover}) => {
+const Projects = ({ projects, onHover, onClick}) => {
     return (
         <div className='section'>
             <header className='header'>
-                <h1>Projects</h1>
+                <h2>Projects</h2>
             </header>
             {projects.map((project) => (
                 <Project
                     key={project.id} 
                     project={project}
                     onHover={onHover}
+                    onClick={onClick}
                 />
             ))}
         </div>
