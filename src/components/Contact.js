@@ -8,10 +8,10 @@ const Contact = ({ contact, onHover }) => {
         onMouseEnter={() => onHover(contact.id, true)} 
         onMouseLeave={() => onHover(contact.id, false)}
 
-    >
-        {contact.hover ? contact.iconHighlight : contact.icon}
-        {contact.writting}
-    </a>
+        >
+            {contact.hover ? contact.iconHighlight : contact.icon}
+            {contact.writting}
+        </a>
     )
 }
 

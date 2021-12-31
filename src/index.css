@@ -35,11 +35,13 @@ code {
   margin: 2vmin;
   font-size: calc(10px + 4vmin);
   color: #e1911b;
+  cursor: default;
 }
 
 .paragraph {
   color: #cfbc5e;
   margin-bottom: 10px;
+  cursor: default;
 }
 
 .contact {
@@ -70,6 +72,10 @@ code {
 
 .projectLink {
   text-decoration: none;
+}
+
+.buttons {
+  margin:1vmin;
 }
 
 .btn {
@@ -105,6 +111,14 @@ code {
   justify-content: center;
   align-items: center;
   margin: 50px;
+}
+
+.section-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 .project {
@@ -150,15 +164,81 @@ code {
   margin-top:2.5vmin;
   margin-bottom:2.5vmin;
   margin-left:6vmin;
-  cursor: pointer;
+  cursor: default;
+  color: #EAB169;
+}
+
+.description {
+  min-width: 100vmin;
+  max-width: 100vmin;
+  color: #cfbc5e;
+  margin: 10px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.career {
+  width:70vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom:4vmin;
+  margin-top:1vmin
+}
+
+.job-title {
+  color: #EAB169;
+  text-indent:60px;
+  margin:4px;
+  font-size: calc(15px + 0.75vmin);
+}
+
+.job-location {
+  color: #cfbc5e;
+  text-indent:60px;
+  margin:4px;
+  font-size: calc(15px + 0.75vmin);
+}
+
+.job-period {
+  color: #42afb0;
+  margin:4px;
+  font-size: calc(15px + 0.75vmin);
 }
 
 /* ************************** Start of Infinity Chess ************************* */
+
+.link-to-github {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-size: calc(3vmin);
+  color: #cfbc5e;
+  text-decoration: none;
+}
 
 .game {
   margin-right: 20vmin;
   margin-left: 20vmin;
   margin-bottom: 10vmin;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2vmin;
+  font-size: 4vmin;
+  color: #cfbc5e;
+  cursor: default;
 }
 
 .board-row {

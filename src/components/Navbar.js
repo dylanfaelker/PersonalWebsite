@@ -4,7 +4,7 @@ import Nav from './Nav'
 const Navbar = ({ navs, onHover, onClick }) => {
     return (
         <div className='navbar'>
-            <h2 className='nav-name' style={{color:'rgb(234, 177, 105)'}}>Dylan Faelker</h2>
+            <h2 className='nav-name'>Dylan Faelker</h2>
             <div className='nav-choice'>
                 {navs.map((nav) => (
                     <Nav
