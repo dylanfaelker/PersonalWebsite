@@ -51,7 +51,7 @@ code {
   align-items: center;
   margin-bottom: 10px;
   margin-left: 5px;
-  font-size: calc(2vmin);
+  font-size: calc(10px+2vmin);
   color: #cfbc5e;
   text-decoration: none;
 }
@@ -122,10 +122,10 @@ code {
 }
 
 .project {
-  min-height: 10rem;
-  max-height: 10rem;
-  min-width: 100vh;
-  max-width: 100vh;
+  min-height: 15rem;
+  max-height: 15rem;
+  min-width: 70vw;
+  max-width: 70vw;
   color: #e1911b;
   border: 5px solid #366BA8;
   margin: 15px;
@@ -169,8 +169,8 @@ code {
 }
 
 .description {
-  min-width: 100vmin;
-  max-width: 100vmin;
+  min-width: 90vmin;
+  max-width: 90vmin;
   color: #cfbc5e;
   margin: 10px;
   cursor: default;
@@ -219,7 +219,7 @@ code {
   align-items: center;
   margin-bottom: 10px;
   margin-left: 5px;
-  font-size: calc(3vmin);
+  font-size: calc(5px+3vmin);
   color: #cfbc5e;
   text-decoration: none;
 }
@@ -227,7 +227,7 @@ code {
 .game {
   margin-right: 20vmin;
   margin-left: 20vmin;
-  margin-bottom: 10vmin;
+  /* margin-bottom: 10vmin; */
 }
 
 .game-info {

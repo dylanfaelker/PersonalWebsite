@@ -9,6 +9,7 @@ import Typer from './components/Typer'
 import Projects from './components/Projects'
 import Contacts from './components/Contacts'
 import Game from './Game'
+import Game_engine from './Game_engine'
 import Navbar from './components/Navbar'
 import Project from './components/Project'
 import Contact from './components/Contact'
@@ -18,9 +19,9 @@ function App() {
   const [projects, setProjects] = useState([   
     {
       id: 1,
-      name: <h3>Infinity Chess</h3>,
+      name: <h3>Infinity Chess + Chess AI (Abbott)</h3>,
       desc: <div>
-              <p className='paragraph'>A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I am current working on a simple engine so it can be played on this website.</p>
+              <p className='paragraph'>A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I have also made an engine so it can be played on this website, however it is weak.</p>
               <p className='paragraph'>Languages and Libraries: React.js</p>
             </div>,
       display: true,
@@ -145,7 +146,7 @@ function App() {
   ])
 
   //0=home, 1=about, 2=infinitychess, 3=infinitychess(engine)
-  const [pageNum, setPageNum] = useState(1)
+  const [pageNum, setPageNum] = useState(0)
 
   //Show description
   const showDesc = (id, display) => (
@@ -245,9 +246,9 @@ function App() {
             <div className='section'>
               <p className='description'>
                 I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM).
-                The program is like a double major in Computer Science and Finance.
-                I chose both these fields because I enjoy both creating computer science projects and the analytical side of finance.
-                I entered this program without knowing too much about fintech, which unites the two fields, but as I further my eduaction, I get more and more interested.
+                The program is similar to a double major in Computer Science and Finance.
+                I chose these fields because in high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.
+                I am also inspired by the growth of fintech and look forawrd to oppertunities to bring my knowledge of computing and financial management to use.
               </p>
             </div>
 
@@ -273,6 +274,7 @@ function App() {
             {/* Career History */}
             <Careers careers={careers}/>
           </div> :
+          (pageNum==2 ?
 
           // ************* Page with infinity chess ****************
           <div className='App'>
@@ -308,13 +310,16 @@ function App() {
                 My friends and I were part of this group and after a few months of playing, my friend Richard He appraoched me with the idea for this game which combines Pacman and Chess. 
               </p>
               <p className='description'>
+                There is a similar variant to chess called infinite chess where the board is unbounded in all directions, but the board never wraps and that's where the difference lies.
+              </p>
+              <p className='description'>
                 I was originally learning Java at the time and tried to create it in that language but after a couple bugs and not enough patience to understand how to make proper graphics, I gave up.
               </p>
               <p className='description'>
                 About a month later, I entered into a hackathon and decided to give the idea another try, but in python and starting out with a half completed chess game. This didn't go very well as the original chess game did not have any of the more complicated rules of chess and it has a bug where it becomes unplayable after about 20 moves.
               </p>
               <p className='description'>
-                I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a very simple bot.
+                I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a bot.
               </p>
             </div>
 
@@ -343,8 +348,67 @@ function App() {
               />
             </div>
             
+          </div> :
+
+          // ************* Page with infinity chess and engine ****************
+          <div className='App'>
+
+            <header className='header'>
+              <h2>Infinity Chess vs Abbott V1.0</h2>
+            </header>
+
+            <Game_engine />
+
+            {/* Descriptions and writting about infinity chess */}
+            <div className='section'>
+
+              {/* About */}
+              <header className='header'>
+                <h3>About the Engine</h3>
+              </header>
+              <p className='description'>
+                This engine (Abbott) is very simple and probably rated about 500-600. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
+              </p>
+              <p className='description'>
+                There is one line where it gets mated in 6 moves everytime. (1. e4 f6  2. c4+ h5  3. Be2 Kf7  4. Bxh5+ Rxh5  5. Qxh5+ Ke6  6. Qd5#)
+              </p>
+              <p className='description'>
+                This is only version 1 (V1) and I plan to develope it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do so in another language and restructure many of the data types. 
+              </p>
+              <p className='description'>
+                For now though, this is the only engine for Infinity Chess.
+              </p>
+
+              {/* History */}
+              <header className='header'>
+                <h3>History of Abbott</h3>
+              </header>
+              <div className='career'>
+                <p className='job-period'>––– Abbott V1.0</p>
+                <p className='job-title'>Jan 2021</p>
+                <p className='job-location'>Rating: ~500</p>
+                <p className='job-location'>Max depth: 1</p>
+            </div>
+            </div>
+
+            {/* Link to Git hub */}
+            <div className='section'>
+              <header className='header'>
+                <h4>Github page</h4>
+              </header>
+              <Contact 
+                contact={{
+                  id: 1,
+                  icon: <GithubIcon style={{fill:'#366BA8'}}/>,
+                  writting: <p className='link-to-github'>Abbott Github</p>,
+                  link: "https://github.com/dylpykill/Infinity-Chess-Engine"
+                }}
+              />
+            </div>
+            
           </div>
           )
+        )
       }
     </div>
   );

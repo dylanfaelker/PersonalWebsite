@@ -3,7 +3,7 @@ import Nav from './Nav'
 
 const Navbar = ({ navs, onHover, onClick }) => {
     return (
-        <div className='navbar'>
+        <nav className='navbar'>
             <h2 className='nav-name'>Dylan Faelker</h2>
             <div className='nav-choice'>
                 {navs.map((nav) => (
@@ -16,7 +16,7 @@ const Navbar = ({ navs, onHover, onClick }) => {
                 ))}
             </div>
             
-        </div>
+        </nav>
     )
 }
 

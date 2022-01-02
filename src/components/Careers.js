@@ -1,6 +1,6 @@
 import React from 'react'
 import Career from './Career'
-import ResumePDF from '../Resume2021.pdf'
+import ResumePDF from '../Resume.pdf'
 
 const Careers = ({ careers }) => {
     return (
