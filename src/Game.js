@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Board from './components/Board'
 import bbishop from './chessIcons/bbishop.png'
 import wbishop from './chessIcons/wbishop.png'
@@ -12,7 +12,6 @@ import bqueen from './chessIcons/bqueen.png'
 import wqueen from './chessIcons/wqueen.png'
 import bpawn from './chessIcons/bpawn.png'
 import wpawn from './chessIcons/wpawn.png'
-import { isCompositeComponent } from 'react-dom/cjs/react-dom-test-utils.production.min'
 
 class Game extends React.Component {
   constructor(props) {
@@ -512,6 +511,9 @@ class Game extends React.Component {
         pieceColor: true,
         icon: '',
       },
+      wcheck:0,
+      bcheck:0,
+      lastmove:0,
 
     }
   }
@@ -764,10 +766,13 @@ class Game extends React.Component {
 
     //------updates the game ending game states------
     if(!isPromotion(this.state.selectedPiece[1])) {
+
       //makes a new board where the move is made and able to be used
       var newSquares = pretendMove(square, this.state.selectedPiece[1], this.state.squares, this.state.enpassent)
       //determines the new 50 move rule count after the previous is made
       var newMove50 = (square.piece !== 0 || this.state.selectedPiece[1].piece === 1) ? 0 : this.state.move50+0.5
+
+      this.setState({ lastmove: square.id, wcheck: this.findCheck(true, newSquares), bcheck: this.findCheck(false, newSquares) })
 
       //determines if the next player has any moves
       if(isOver(newSquares, !this.state.turn, this.state.castling, this.state.enpassent)) {
@@ -783,6 +788,15 @@ class Game extends React.Component {
       //determines of there is a draw by repitition or 50 move rule
       } else if(newMove50===50 || numAppears(newSquares, this.state.history) >= 2) {
         this.setState({ draw:true })
+      }
+    }
+  }
+
+  findCheck(turn, newSquares) {
+    for(const square of this.state.squares) {
+      if(square.piece === 6 && square.pieceColor === turn) {
+        var check=inCheck(newSquares, turn, this.state.castling, this.state.enpassent)
+        return check ? square.id : 0
       }
     }
   }
@@ -1108,6 +1122,8 @@ class Game extends React.Component {
             }
           })
           break;
+        default:
+          break;
       }
     } else {//black
       switch (piece) {
@@ -1359,6 +1375,8 @@ class Game extends React.Component {
             }
           })
           break;
+        default:
+          break;
       }
     }
 
@@ -1366,6 +1384,8 @@ class Game extends React.Component {
 
     //makes a new board where the move is made and able to be used
     var newSquares = pretendPromotion(this.state.promoteSavedSquare, this.state.selectedPiece[1], this.state.squares, this.state.enpassent, piece)
+
+    this.setState({ lastmove: this.state.promoteSavedSquare.id, wcheck: this.findCheck(true, newSquares), bcheck: this.findCheck(false, newSquares) })
 
     //determines if the next player has any moves
     if(isOver(newSquares, !this.state.turn, this.state.castling, this.state.enpassent)) {
@@ -1428,6 +1448,9 @@ class Game extends React.Component {
             moves={this.state.moves}
             //data for which square is selected
             selectedNum={this.state.selectedPiece[1].id}
+            lastMove={this.state.lastmove}
+            wcheck={this.state.wcheck}
+            bcheck={this.state.bcheck}
           />
         </div>
       </div>
@@ -1987,6 +2010,8 @@ function pretendPromotion(newSquare, oldSquare, squares, enpassent, proPiece) {
           }
         })
         break;
+      default:
+        break;
     }
   } else {//black
     switch (proPiece) {
@@ -2106,6 +2131,8 @@ function pretendPromotion(newSquare, oldSquare, squares, enpassent, proPiece) {
           }
         })
         break;
+      default:
+        break;
     }
   }
 
@@ -2137,6 +2164,8 @@ function findMoves(square, squares, castling, enpassent) {
     case 6: //king
       moves=kingMove(square, squares, castling, enpassent)
       break;
+    default:
+      break;
   }
 
   return moves
@@ -2156,9 +2185,10 @@ function kingMove(square, squares, castling, enpassent) {
   var moves=[]
   var num=square.id
 
+  var newNum
   //adds all standard moves to the list
   if((num-1) %8 === 0) {//when infinity wraps on the left side
-    var newNum=num+1
+    newNum=num+1
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }
@@ -2191,7 +2221,7 @@ function kingMove(square, squares, castling, enpassent) {
       moves.push(newNum)
     }
   } else if ((num-1) %8 === 7) {//when infinity wraps on the right side
-    var newNum=num-7
+    newNum=num-7
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }
@@ -2224,7 +2254,7 @@ function kingMove(square, squares, castling, enpassent) {
       moves.push(newNum)
     }
   } else {//when no wrapping is occuring
-    var newNum=num+1
+    newNum=num+1
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }
@@ -2618,7 +2648,7 @@ function inCheck(squares, turn, castling, enpassent) {
 
 //determiens if a certain square is attacked by not '!turn'
 function isAttacked(square, squares, castling, enpassent, turn) {
-  var color = turn
+  // var color = turn
   var oppColor= !turn
 
   // loops through all squares on the board
@@ -2669,7 +2699,7 @@ function inCheckSafe(squares, turn, castling, enpassent) {
 }
 
 function isAttackedSafe(square, squares, castling, enpassent, turn) {
-  var color = turn
+  // var color = turn
   var oppColor= !turn
 
   for (const squareCheck of squares) { // loops through all squares on the board
@@ -2707,7 +2737,9 @@ function findMovesSafe(square, squares, castling, enpassent) {
     case 6: //king
       moves=kingMoveSafe(square, squares, castling, enpassent)
       break;
-  }
+    default:
+      break;
+    }
 
   return moves
 }
@@ -2715,8 +2747,10 @@ function findMovesSafe(square, squares, castling, enpassent) {
 function kingMoveSafe(square, squares, castling, enpassent) {
   var moves=[]
   var num=square.id
+
+  var newNum
   if((num-1) %8 === 0) {//when wraps on the left side
-    var newNum=num+1
+    newNum=num+1
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }
@@ -2749,7 +2783,7 @@ function kingMoveSafe(square, squares, castling, enpassent) {
       moves.push(newNum)
     }
   } else if ((num-1) %8 === 7) {//when wraps on the right side
-    var newNum=num-7
+    newNum=num-7
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }
@@ -2782,7 +2816,7 @@ function kingMoveSafe(square, squares, castling, enpassent) {
       moves.push(newNum)
     }
   } else {
-    var newNum=num+1
+    newNum=num+1
     if(newNum>=1 && newNum<=64 && getSquare(newNum, squares).pieceColor !== square.pieceColor){
       moves.push(newNum)
     }

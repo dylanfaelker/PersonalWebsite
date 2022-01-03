@@ -11,7 +11,7 @@ const Careers = ({ careers }) => {
 
             {/* Resume */}
             <div className='section-small'>
-              <a className='link-to-github' href={ResumePDF} target="_blank">Click for Resume</a>
+              <a className='link-to-github' href={ResumePDF} target="_blank" rel='noreferrer' >Click for Resume</a>
             </div>
 
             {careers.map((career) => (

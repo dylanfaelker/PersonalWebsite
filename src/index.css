@@ -219,7 +219,7 @@ code {
   align-items: center;
   margin-bottom: 10px;
   margin-left: 5px;
-  font-size: calc(5px+3vmin);
+  font-size: calc(10px+3vmin);
   color: #cfbc5e;
   text-decoration: none;
 }
@@ -296,8 +296,34 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center; 
-  background-color: #d49d06;
+  background-color: #d49306;
   border: 1px solid #c49411;
+}
+
+.square-last {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #06B67E;
+  border: 1px solid #06B67E;
+}
+
+.square-check {
+  min-height: 10vmin;
+  max-height: 10vmin;
+  min-width: 10vmin;
+  max-width: 10vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color: #d42f06;
+  border: 1px solid #d42f06;
 }
 
 .piece-img {

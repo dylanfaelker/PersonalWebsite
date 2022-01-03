@@ -1,6 +1,6 @@
 import Square from './Square'
 
-const Board = ({ squares, onSelect, moves, selectedNum, }) => {
+const Board = ({ squares, onSelect, moves, selectedNum, lastMove, wcheck, bcheck, }) => {
 
     return (
         <>
@@ -12,6 +12,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -23,6 +26,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -34,6 +40,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -45,6 +54,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -56,6 +68,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -67,6 +82,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -78,6 +96,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
@@ -89,6 +110,9 @@ const Board = ({ squares, onSelect, moves, selectedNum, }) => {
                         onSelect={onSelect} 
                         moves={moves}
                         selectedNum={selectedNum}
+                        lastMove={lastMove}
+                        wcheck={wcheck}
+                        bcheck={bcheck}
                     />
                 ))} 
             </div>
