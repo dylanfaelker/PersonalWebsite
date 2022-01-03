@@ -13,6 +13,16 @@
   padding: 50px;
 }
 
+@media screen and (max-width: 600px) {
+  .App-logo {
+    padding: 10px;
+  }
+
+  .App-header {
+    font-size: calc(2px + 1vmin)
+  }
+}
+
 .App-header {
   min-height: 75vh;
   display: flex;

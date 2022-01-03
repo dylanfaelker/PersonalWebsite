@@ -122,10 +122,8 @@ code {
 }
 
 .project {
-  min-height: 15rem;
-  max-height: 15rem;
-  min-width: 70vw;
-  max-width: 70vw;
+  height: 15rem;
+  width: 60vw;
   color: #e1911b;
   border: 5px solid #366BA8;
   margin: 15px;
@@ -135,6 +133,19 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .project {
+    height: 20rem;
+    width: 80vw;
+  }
+  .nav {
+    font-size: 15px
+  }
+  .nav-name {
+    font-size: 20px
+  }
 }
 
 .navbar {
