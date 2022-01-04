@@ -34,7 +34,7 @@ function App() {
               <p className='paragraph'>Languages and Libraries: Python, Numpy, Pandas, YFinance</p>
             </div>,
       display: true,
-      link: 0,
+      link: 'https://github.com/dylpykill/StockPortfolioCreater',
     },
     {
       id: 3,
