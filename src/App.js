@@ -284,6 +284,16 @@ function App() {
 
             <Game />
 
+            {/* Link to Engine version */}
+            <div className='section'>
+              <Project
+                key={1} 
+                project={{ display:true, name:<h3>Play against chess AI (Abbott)</h3>, link:3  }}
+                // onHover={onHover}
+                onClick={openInNewTab}
+              />
+            </div>
+
             {/* Descriptions and writting about infinity chess */}
             <div className='section'>
 
@@ -322,16 +332,6 @@ function App() {
               </p>
             </div>
 
-            {/* Link to Engine version */}
-            <div className='section'>
-              <Project
-                key={1} 
-                project={{ display:true, name:<h3>Infinity Chess (Engine)</h3>, link:3  }}
-                // onHover={onHover}
-                onClick={openInNewTab}
-              />
-            </div>
-
             {/* Link to Git hub */}
             <div className='section'>
               <header className='header'>
@@ -353,7 +353,7 @@ function App() {
           <div className='App'>
 
             <header className='header'>
-              <h2>Infinity Chess vs Abbott V1.0</h2>
+              <h2>Infinity Chess vs Abbott V1.1</h2>
             </header>
 
             <GameEngine />
@@ -369,7 +369,7 @@ function App() {
                 This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
               </p>
               <p className='description'>
-                This is only version 1 (V1) and I plan to develope it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
+                This is only version 1 (V1) and I plan to develope it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like imporved ordering for alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
               </p>
               <p className='description'>
                 For now though, this is the only engine for Infinity Chess.
@@ -380,7 +380,7 @@ function App() {
                 <h3>History of Abbott</h3>
               </header>
               <div className='career'>
-                <p className='job-period'>––– Abbott V1.0</p>
+                <p className='job-period'>––– Abbott V1.0-V1.1</p>
                 <p className='job-title'>Jan 2021</p>
                 <p className='job-location'>Rating: ~650</p>
                 <p className='job-location'>Max depth: 1</p>
