@@ -247,7 +247,7 @@ function App() {
                 I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM).
                 The program is similar to a double major in Computer Science and Finance.
                 I chose these fields because in high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.
-                I am also inspired by the growth of fintech and look forawrd to oppertunities to bring my knowledge of computing and financial management to use.
+                I am also inspired by the growth of fintech and look forawrd to opportunities to bring my knowledge of computing and financial management to use.
               </p>
             </div>
 
