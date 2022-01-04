@@ -535,7 +535,7 @@ class Game_engine extends React.Component {
   //called when a piece is being moved to a legal square
   //updates the board and game state variables
   makeMove(square) {
-    console.log(evaluatePos(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn, this.state.history, this.state.move50))
+    // console.log(evaluatePos(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn))
     // console.log(engine_moves(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn, this.state.history, this.state.move50, 0, true))
 
     //------updating board, and game states other than those which singify the end of the game------
@@ -1740,20 +1740,16 @@ class Game_engine extends React.Component {
 
 function engine(squares, castling, enpassent, history, move50, turn) {
 
-  var best = Infinity
-  var moveBest
-
-  var evaluation
-
-  var alpha1 = -Infinity
-  var beta1 = Infinity
+  var fullMoves = []
+  var scores=[]
+  var best
 
   //gets all possible moves by 'turn'
   for (const square of squares) { //loops through all squares in the position looking for pieces of 'turn'
     if (square.pieceColor === turn) {
       //gets all moves the piece can make in the position
       let moves = findMoves(square, squares, castling, enpassent)
-      // fullMoves = fullMoves.concat(makeFullMove(square, moves, squares))
+      fullMoves = fullMoves.concat(makeFullMove(square, moves, squares))
 
       //checks through all the moves and saves best eval in new position
       for (const move of moves) {
@@ -1765,21 +1761,14 @@ function engine(squares, castling, enpassent, history, move50, turn) {
 
           //knight promote
           let newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 3)
-          evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, alpha1, beta1)
-
-          if(evaluation < best) { moveBest=updateMove(square, move, 3) }
-          best = Math.min(best, evaluation)
-          beta1 = Math.min(beta1, evaluation)
-          if(beta1 <= alpha1) { return best }
+          let knightScore = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, false)
 
           //queen promote
           newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 5)
-          evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, alpha1, beta1)
+          let queenScore = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, false)
 
-          if(evaluation < best) { moveBest=updateMove(square, move, 5) }
-          best = Math.min(best, evaluation)
-          beta1 = Math.min(beta1, evaluation)
-          if(beta1 <= alpha1) { return best }
+          scores.push(knightScore)
+          scores.push(queenScore)
 
         } else {
 
@@ -1789,39 +1778,47 @@ function engine(squares, castling, enpassent, history, move50, turn) {
           let newMove50=(getSquare(move, squares).piece !== 0 || square.piece === 1) ? 0 : move50 + 0.5
 
           //saves the best evaluation if that move is made
-          evaluation = engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, 0.5, alpha1, beta1)
-
-          if(evaluation < best) { moveBest=updateMove(square, move, 0) }
-          best = Math.min(best, evaluation)
-          beta1 = Math.min(beta1, evaluation)
-          if(beta1 <= alpha1) { return best }
+          scores.push(engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, 0.5, false))
 
         }
       }
     }
   }
 
-  return moveBest
+  //determines which eval is best
+  best=Math.max(...scores)
+
+  //finds the move that leads to the best
+  let index
+  for(const i in scores){
+    if(scores[i]===best){
+      index=i
+    }
+  }
+
+  return fullMoves[index]
 }
 
-//alpha is worst score for white, beta is worst score for black
-function engine_moves(squares, castling, enpassent, turn, history, move50, inFuture, alpha, beta) {
-  const depth = 2
+function engine_moves(squares, castling, enpassent, turn, history, move50, inFuture, isAly) {
+  const depth = 1
 
   //base case
-  //when depth is integer, positive numbers are good for white
+  //when depth is integer, positive numbers are good for aly
   if(inFuture>=depth) {
-    return (evaluatePos(squares, castling, enpassent, turn, history, move50))
+    return 1 * (evaluatePos(squares, castling, enpassent, turn, history, move50))
   }
+
+  var scores=[]
+  var best
 
   //determines if the 'turn' has any moves
   if(isOver(squares, turn, castling, enpassent)) {
       
     //determines if it is checkmate or stalemate
     if (inCheck(squares, turn, castling, enpassent)) { //checkmate
-      if(turn){//white got mated
+      if(isAly){//aly got mated
         return -Infinity
-      }else{//black got mated
+      }else{//opp got mated
         return Infinity
       }
     } else { //stalemate
@@ -1830,111 +1827,56 @@ function engine_moves(squares, castling, enpassent, turn, history, move50, inFut
   //determines of there is a draw by repitition or 50 move rule
   } else if(move50===50 || numAppearsBoard(squares, history) >= 2) { //if drawn by other means
     return 0
-  }
-
-  var best
-  var evaluation
-
-  var alpha1 = alpha
-  var beta1 = beta
-
-  if (turn) { //white move in position
-    best = -Infinity
-
+  } else { //if the game is not over
+    //gets all possible moves by 'turn'
     for (const square of squares) { //loops through all squares in the position looking for pieces of 'turn'
       if (square.pieceColor === turn) {
         //gets all moves the piece can make in the position
         let moves = findMoves(square, squares, castling, enpassent)
-  
+
         //checks through all the moves and saves best eval in new position
         for (const move of moves) {
-  
+
           //must check for different piece that pawn can promote to
           if(isPromotion(square)) {
-  
+
             //Note bishop and rook will never be better than queen
-  
+
             //knight promote
             let newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 3)
-            evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, alpha1, beta1)
-  
-            best = Math.max(best, evaluation)
-            alpha1 = Math.max(alpha1, evaluation)
-            if(beta1 <= alpha1) { return best }
+            let knightScore = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, !isAly)
 
             //queen promote
             newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 5)
-            evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, alpha1, beta1)
-  
-            best = Math.max(best, evaluation)
-            alpha1 = Math.max(alpha1, evaluation)
-            if(beta1 <= alpha1) { return best }
-  
+            let queenScore = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, !isAly)
+
+            if(isAly) { //best eval for if aly is making next move
+              scores.push(Math.max( knightScore, queenScore ))
+            } else { //best eval for if opp is making next move
+              scores.push(Math.min( knightScore, queenScore ))
+            }
+
           } else {
-  
+
             //stores updated game state: squares, castling, enpassent
             let gameState=[[], [], 0]
             gameState=updateGameState(getSquare(move, squares), square, squares, castling, enpassent)
             let newMove50=(getSquare(move, squares).piece !== 0 || square.piece === 1) ? 0 : move50 + 0.5
-  
-            //saves the best evaluation if that move is made
-            evaluation = engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, inFuture+0.5, alpha1, beta1)
 
-            best = Math.max(best, evaluation)
-            alpha1 = Math.max(alpha1, evaluation)
-            if(beta1 <= alpha1) { return best }
+            //saves the best evaluation if that move is made
+            scores.push(engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, inFuture+0.5, !isAly))
+
           }
         }
       }
     }
 
-  } else { //blacks move in position
-    best = Infinity
-
-
-    for (const square of squares) { //loops through all squares in the position looking for pieces of 'turn'
-      if (square.pieceColor === turn) {
-        //gets all moves the piece can make in the position
-        let moves = findMoves(square, squares, castling, enpassent)
-  
-        //checks through all the moves and saves best eval in new position
-        for (const move of moves) {
-  
-          //must check for different piece that pawn can promote to
-          if(isPromotion(square)) {
-  
-            //Note bishop and rook will never be better than queen
-  
-            //knight promote
-            let newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 3)
-            evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, alpha1, beta1)  
-            best = Math.min(best, evaluation)
-            beta1 = Math.min(beta1, evaluation)
-            if(beta1 <= alpha1) { return best }
-
-            //queen promote
-            newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 5)
-            evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, inFuture+0.5, alpha1, beta1)  
-            best = Math.min(best, evaluation)
-            beta1 = Math.min(beta1, evaluation)
-            if(beta1 <= alpha1) { return best }
-  
-          } else {
-  
-            //stores updated game state: squares, castling, enpassent
-            let gameState=[[], [], 0]
-            gameState=updateGameState(getSquare(move, squares), square, squares, castling, enpassent)
-            let newMove50=(getSquare(move, squares).piece !== 0 || square.piece === 1) ? 0 : move50 + 0.5
-  
-            //saves the best evaluation if that move is made
-            evaluation = engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, inFuture+0.5, alpha1, beta1)
-  
-            best = Math.min(best, evaluation)
-            beta1 = Math.min(beta1, evaluation)
-            if(beta1 <= alpha1) { return best }
-          }
-        }
-      }
+    //opp will always be trying to make the eval as low as possible and aly will be trying to maximise it
+    //determines which eval is best for 'aly'
+    if(isAly) { //best eval for if aly is making next move
+      best=Math.max(...scores)
+    } else { //best eval for if opp is making next move
+      best=Math.min(...scores)
     }
   }
 
@@ -1951,36 +1893,45 @@ function updateGameState(newSquare, oldSquare, squares, castling, enpassent) {
   return [newSquares, newCastling, newEnpassent]
 }
 
-function updateMove(oldSquare, newMove, promotion) {
+function makeFullMove(oldSquare, moves, squares) {
+  var fullMoves = []
 
-  var newSquare
-  if(promotion === 3) {
-    newSquare= {
-      id:newMove,
-      squareColor:true,
-      piece: 3,
-      pieceColor: oldSquare.pieceColor,
-      icon: <img src={bknight} className="piece-img" alt="bknight"/>,
-    }
-  } else if (promotion === 5) {
-    newSquare= {
-      id:newMove,
-      squareColor:true,
-      piece: 5,
-      pieceColor: oldSquare.pieceColor,
-      icon: <img src={bqueen} className="piece-img" alt="bqueen"/>,
-    }
-  } else {
-    newSquare={
-      id:newMove,
-      squareColor:true,
-      piece: oldSquare.piece,
-      pieceColor: oldSquare.pieceColor,
-      icon: oldSquare.icon
+  for (const move of moves) {
+
+    let newSquare
+    let newSquare2 //for when promotion, there will be two possiblities
+    if(isPromotion(oldSquare)) { //when pormotion
+      newSquare= {
+        id:move,
+        squareColor:true,
+        piece: 3,
+        pieceColor: oldSquare.pieceColor,
+        icon: oldSquare.pieceColor ? <img src={wknight} className="piece-img" alt="wknight"/> : <img src={bknight} className="piece-img" alt="bknight"/>,
+      }
+      newSquare2= {
+        id:move,
+        squareColor:true,
+        piece: 5,
+        pieceColor: oldSquare.pieceColor,
+        icon: oldSquare.pieceColor ? <img src={wqueen} className="piece-img" alt="wqueen"/> : <img src={bqueen} className="piece-img" alt="bqueen"/>,
+      }
+
+      fullMoves.push([newSquare, oldSquare])
+      fullMoves.push([newSquare2, oldSquare])
+    } else { //when not pormotion
+      newSquare={
+        id:move,
+        squareColor:true,
+        piece: oldSquare.piece,
+        pieceColor: oldSquare.pieceColor,
+        icon: oldSquare.icon
+      }
+
+      fullMoves.push([newSquare, oldSquare])
     }
   }
 
-  return [newSquare, oldSquare]
+  return fullMoves
 }
 
 
@@ -1989,40 +1940,37 @@ function updateMove(oldSquare, newMove, promotion) {
 //evaluates a position, positive is for who plays next move
 //postive is good for 'turn'
 function evaluatePos(squares, castling, enpassent, turn, history, move50) {
+  const initiativeVal = 10
 
   //determines if the 'turn' has any moves
   if(isOver(squares, turn, castling, enpassent)) {
       
     //determines if it is checkmate or stalemate
     if (inCheck(squares, turn, castling, enpassent)) { //checkmate
-      if(turn) { //black wins
-        return -Infinity
-      } else { //white wins
-        return Infinity
-      }
+      return -Infinity
     } else { //stalemate
       return 0
     }
-  }
-  
-  //if drawn by other means
-  if(move50===50 || numAppearsBoard(squares, history) >= 2) {
+  //determines of there is a draw by repitition or 50 move rule
+  } else if(move50===50 || numAppearsBoard(squares, history) >= 2) { //if drawn by other means
     return 0
   }
 
   //advantage of playing the next move
-  var evaluation = 0
+  var evaluation = initiativeVal
 
-  evaluation+=evalMat(squares)
+  evaluation+=evalMat(squares, turn)
 
-  evaluation+=evalControl(squares, castling, enpassent, true)
-  evaluation-=evalControl(squares, castling, enpassent, false)
+  evaluation+=evalControl(squares, castling, enpassent, turn)
+  evaluation-=evalControl(squares, castling, enpassent, !turn)
 
   return evaluation
 }
 
 //evaluate king safety and control of squares
 function evalControl(squares, castling, enpassent, turn) {
+
+  // console.log(squares)
 
   const levelVal = 25
   const sameSideVal = 10
@@ -2092,8 +2040,8 @@ function evalControl(squares, castling, enpassent, turn) {
 }
 
 //evaluates material in a position
-//positive number is good for white
-function evalMat (squares) {
+//positive number is good for 'turn'
+function evalMat (squares, turn) {
   const pawnVal = 100
   const bishopVal = 400 //much higher than normal because of how tricky they are
   const knightVal = 300
@@ -2102,7 +2050,7 @@ function evalMat (squares) {
 
   var evaluation = 0
   for (const square of squares) {
-    if (square.pieceColor) { //for white
+    if (square.pieceColor === turn) { //for 'turn'
       switch(square.piece) {
         case 1: //pawn
           evaluation+=pawnVal
@@ -2124,7 +2072,7 @@ function evalMat (squares) {
         default:
           break;
       }
-    } else { //for black
+    } else { //for '!turn'
       switch(square.piece) {
         case 1: //pawn
           evaluation-=pawnVal
