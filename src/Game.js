@@ -2571,7 +2571,7 @@ function pawnMove(square, squares, castling, enpassent) {
      moves.push(num-8)
     }
     //checks if the pawn can be pushed forward 2 sqaures
-    if(row===7 && getSquare(num-16, squares).piece===0)  {
+    if(row===7 && getSquare(num-16, squares).piece===0 && getSquare(num-8, squares).piece===0)  {
       moves.push(num-16)
     }
     //checks if the pawn can take a piece diagonally left of it
@@ -2597,7 +2597,7 @@ function pawnMove(square, squares, castling, enpassent) {
       moves.push(num+8)
     }
     //checks if the pawn can be pushed forward 2 sqaures
-    if(row===2 && getSquare(num+16, squares).piece===0)  {
+    if(row===2 && getSquare(num+16, squares).piece===0 && getSquare(num+8, squares).piece===0)  {
        moves.push(num+16)
     }
     //checks if the pawn can take a piece diagonally right of it
@@ -2864,7 +2864,7 @@ function pawnMoveSafe(square, squares, castling, enpassent) {
     if(getSquare(num-8, squares).piece===0) {
      moves.push(num-8)
     }
-    if(row===7 && getSquare(num-16, squares).piece===0)  {
+    if(row===7 && getSquare(num-16, squares).piece===0 && getSquare(num-8, squares).piece===0)  {
       moves.push(num-16)
     }
     if(getSquare(infinityLeft(num-9), squares).pieceColor === !square.pieceColor) {
@@ -2883,7 +2883,7 @@ function pawnMoveSafe(square, squares, castling, enpassent) {
     if(getSquare(num+8, squares).piece===0) {
       moves.push(num+8)
      }
-     if(row===2 && getSquare(num+16, squares).piece===0)  {
+     if(row===2 && getSquare(num+16, squares).piece===0 && getSquare(num+8, squares).piece===0)  {
        moves.push(num+16)
      }
     if(getSquare(infinityRight(num+9), squares).pieceColor === !square.pieceColor) {

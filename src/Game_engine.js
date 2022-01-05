@@ -535,7 +535,7 @@ class Game_engine extends React.Component {
   //called when a piece is being moved to a legal square
   //updates the board and game state variables
   makeMove(square) {
-    // console.log(evaluatePos(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn, this.state.history, this.state.move50))
+    console.log(evaluatePos(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn, this.state.history, this.state.move50))
     // console.log(engine_moves(this.state.squares, this.state.castling, this.state.enpassent, this.state.turn, this.state.history, this.state.move50, 0, true))
 
     //------updating board, and game states other than those which singify the end of the game------
@@ -1741,7 +1741,7 @@ class Game_engine extends React.Component {
 function engine(squares, castling, enpassent, history, move50, turn) {
 
   var best = Infinity
-  var moveBest = 0
+  var moveBest
 
   var evaluation
 
@@ -1767,7 +1767,7 @@ function engine(squares, castling, enpassent, history, move50, turn) {
           let newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 3)
           evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, alpha1, beta1)
 
-          if(evaluation < best || moveBest===0) { moveBest=updateMove(square, move, 3) }
+          if(evaluation < best) { moveBest=updateMove(square, move, 3) }
           best = Math.min(best, evaluation)
           beta1 = Math.min(beta1, evaluation)
           if(beta1 <= alpha1) { return best }
@@ -1776,7 +1776,7 @@ function engine(squares, castling, enpassent, history, move50, turn) {
           newSquares = pretendPromotion(getSquare(move, squares), square, squares, enpassent, 5)
           evaluation = engine_moves(newSquares, castling, 0, !turn, history.concat([squares]), 0, 0.5, alpha1, beta1)
 
-          if(evaluation < best || moveBest===0) { moveBest=updateMove(square, move, 5) }
+          if(evaluation < best) { moveBest=updateMove(square, move, 5) }
           best = Math.min(best, evaluation)
           beta1 = Math.min(beta1, evaluation)
           if(beta1 <= alpha1) { return best }
@@ -1791,7 +1791,7 @@ function engine(squares, castling, enpassent, history, move50, turn) {
           //saves the best evaluation if that move is made
           evaluation = engine_moves(gameState[0], gameState[1], gameState[2], !turn, history.concat([squares]), newMove50, 0.5, alpha1, beta1)
 
-          if(evaluation < best || moveBest===0) { moveBest=updateMove(square, move, 0) }
+          if(evaluation < best) { moveBest=updateMove(square, move, 0) }
           best = Math.min(best, evaluation)
           beta1 = Math.min(beta1, evaluation)
           if(beta1 <= alpha1) { return best }
@@ -2178,6 +2178,8 @@ function numAppears(key, array) {
 //finds the sqaures a piece controls
 function findControl(square, squares, castling, enpassent) {
   var moves=[]
+
+  // console.log(square)
 
   switch(square.piece) {
     case 1: //pawn
@@ -3721,7 +3723,7 @@ function pawnMove(square, squares, castling, enpassent) {
      moves.push(num-8)
     }
     //checks if the pawn can be pushed forward 2 sqaures
-    if(row===7 && getSquare(num-16, squares).piece===0)  {
+    if(row===7 && getSquare(num-16, squares).piece===0 && getSquare(num-8, squares).piece===0)  {
       moves.push(num-16)
     }
     //checks if the pawn can take a piece diagonally left of it
@@ -3747,7 +3749,7 @@ function pawnMove(square, squares, castling, enpassent) {
       moves.push(num+8)
     }
     //checks if the pawn can be pushed forward 2 sqaures
-    if(row===2 && getSquare(num+16, squares).piece===0)  {
+    if(row===2 && getSquare(num+16, squares).piece===0 && getSquare(num+8, squares).piece===0)  {
        moves.push(num+16)
     }
     //checks if the pawn can take a piece diagonally right of it
@@ -4014,7 +4016,7 @@ function pawnMoveSafe(square, squares, castling, enpassent) {
     if(getSquare(num-8, squares).piece===0) {
      moves.push(num-8)
     }
-    if(row===7 && getSquare(num-16, squares).piece===0)  {
+    if(row===7 && getSquare(num-16, squares).piece===0 && getSquare(num-8, squares).piece===0)  {
       moves.push(num-16)
     }
     if(getSquare(infinityLeft(num-9), squares).pieceColor === !square.pieceColor) {
@@ -4033,7 +4035,7 @@ function pawnMoveSafe(square, squares, castling, enpassent) {
     if(getSquare(num+8, squares).piece===0) {
       moves.push(num+8)
      }
-     if(row===2 && getSquare(num+16, squares).piece===0)  {
+     if(row===2 && getSquare(num+16, squares).piece===0 && getSquare(num+8, squares).piece===0)  {
        moves.push(num+16)
      }
     if(getSquare(infinityRight(num+9), squares).pieceColor === !square.pieceColor) {
