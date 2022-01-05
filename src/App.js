@@ -316,7 +316,7 @@ function App() {
               </header>
               <p className='description'>
                 In 2020, the world was hit with a pandemic leaving many people at home. During this time people looked for things to do. Due to this, and the hit Netflix series 'The Queen's Gambit', many started playing chess.
-                My friends and I were part of this group and after a few months of playing, my friend Richard He appraoched me with the idea for this game which combines Pacman and Chess. 
+                My friends and I were part of this group and after a few months of playing, my friend Richard He approached me with the idea for this game which combines Pacman and Chess. 
               </p>
               <p className='description'>
                 There is a similar variant to chess called infinite chess where the board is unbounded in all directions, but the board never wraps and that's where the difference lies.
