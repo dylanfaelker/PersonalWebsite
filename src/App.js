@@ -381,7 +381,7 @@ function App() {
               </header>
               <div className='career'>
                 <p className='job-period'>––– Abbott V1.0-V1.1</p>
-                <p className='job-title'>Jan 2021</p>
+                <p className='job-title'>Jan 2022</p>
                 <p className='job-location'>Rating: ~650</p>
                 <p className='job-location'>Max depth: 1</p>
             </div>
