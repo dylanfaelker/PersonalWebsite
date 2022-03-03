@@ -1468,7 +1468,7 @@ class Game_engine extends React.Component {
           />
         </div>
         <p className='description'>
-          Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 1-2 seconds).
+          Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
         </p>
       </div>
     );
