@@ -120,8 +120,8 @@ function App() {
   const careers = [
     {
       id: 1,
-      title: <p className='job-title'>First Co-op Placement</p>,
-      location: <p className='job-location'>Unknown</p>,
+      title: <p className='job-title'>Software Developer</p>,
+      location: <p className='job-location'>Idea Notion Development Inc</p>,
       date: <p className='job-period'>––– May 2022 - August 2022</p>,
     },
     {
