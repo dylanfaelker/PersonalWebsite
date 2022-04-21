@@ -1,3 +1,68 @@
+:root {
+  --mainColor: #615A5C;
+  --mainColorLight: #7DCFB6;
+  --secondaryColor: #E9E4E3;
+  --neutral: #2E534B;
+  --highlight: #FD9072;
+}
+
+/* From APP */
+
+.App {
+  text-align: center;
+  background-color: var(--neutral);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.App-logo {
+  height: 60vmin;
+  pointer-events: none;
+  padding: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .App-logo {
+    padding: 10px;
+  }
+
+  .App-header {
+    font-size: calc(2px + 1vmin)
+  }
+}
+
+.App-header {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--mainColor);
+}
+
+.App-link {
+  color: var(--highlight);
+}
+
+.wrapper, html, body {
+  height:100%;
+  margin:0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* From APP */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -22,7 +87,7 @@ code {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid #366BA8;
+  border: 1px solid var(--highlight);
   padding: 30px;
   border-radius: 5px;
 }
@@ -34,12 +99,12 @@ code {
   align-items: center;
   margin: 2vmin;
   font-size: calc(10px + 4vmin);
-  color: #e1911b;
+  color: var(--mainColor);
   cursor: default;
 }
 
 .paragraph {
-  color: #cfbc5e;
+  color: var(--mainColorLight);
   margin-bottom: 10px;
   cursor: default;
 }
@@ -52,7 +117,7 @@ code {
   margin-bottom: 10px;
   margin-left: 5px;
   font-size: calc(10px+2vmin);
-  color: #cfbc5e;
+  color: var(--mainColorLight);
   text-decoration: none;
 }
 
@@ -66,7 +131,7 @@ code {
 }
 
 .contactIcon {
-  fill:#366BA8;
+  fill:var(--highlight);
   margin-right: 5px;
 }
 
@@ -80,9 +145,9 @@ code {
 
 .btn {
   display: inline-block;
-  background: #366BA8;
-  color: #42afb0;
-  border: 5px solid #366BA8;
+  background: var(--neutral);
+  color: var(--highlight);
+  border: 5px solid var(--neutral);
   padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
@@ -124,8 +189,8 @@ code {
 .project {
   height: 10rem;
   width: 60vw;
-  color: #e1911b;
-  border: 5px solid #366BA8;
+  color: var(--mainColor);
+  border: 5px solid var(--mainColorLight);
   margin: 15px;
   padding: 10px 20px;
   cursor: pointer;
@@ -149,8 +214,8 @@ code {
 }
 
 .navbar {
-  background-color: #366BA8;
-  color: #0d2546;
+  background-color: var(--mainColor);
+  color: var(--neutral);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -182,7 +247,7 @@ code {
 .description {
   min-width: 90vmin;
   max-width: 90vmin;
-  color: #cfbc5e;
+  color: var(--mainColorLight);
   margin: 10px;
   cursor: default;
   display: flex;
@@ -202,21 +267,21 @@ code {
 }
 
 .job-title {
-  color: #EAB169;
+  color: var(--secondaryColor);
   text-indent:60px;
   margin:4px;
   font-size: calc(15px + 0.75vmin);
 }
 
 .job-location {
-  color: #cfbc5e;
+  color: var(--highlight);
   text-indent:60px;
   margin:4px;
   font-size: calc(15px + 0.75vmin);
 }
 
 .job-period {
-  color: #42afb0;
+  color: var(--mainColor);
   margin:4px;
   font-size: calc(15px + 0.75vmin);
 }
@@ -231,7 +296,7 @@ code {
   margin-bottom: 10px;
   margin-left: 5px;
   font-size: calc(10px+3vmin);
-  color: #cfbc5e;
+  color: var(--mainColorLight);
   text-decoration: none;
 }
 
@@ -248,7 +313,7 @@ code {
   align-items: center;
   margin: 2vmin;
   font-size: 4vmin;
-  color: #cfbc5e;
+  color: var(--mainColorLight);
   cursor: default;
 }
 

@@ -202,7 +202,7 @@ function App() {
               <h1 >
                 Dylan Faelker
               </h1>
-              <h4 style={{color: 'rgb(207,188,94)'}}>
+              <h4 style={{color: 'rgb(125, 207, 182)'}}>
                 I am a
                 Software Developer,
                 CFM student at UWaterloo,
