@@ -1,14 +1,155 @@
+@font-face {
+  font-family: BeVietnamPro;
+  src: url(Be_Vietnam_Pro/BeVietnamPro-Medium.ttf);
+}
+
 :root {
-  --mainColor: #615A5C;
+  --mainColor: #2E534B;
   --mainColorLight: #7DCFB6;
-  --secondaryColor: #E9E4E3;
-  --neutral: #2E534B;
+  --secondaryColor: #F6F4F4;
+  --tertiaryColor: #530C0C;
+  --neutral: #434648;
   --highlight: #FD9072;
+}
+
+* {
+  font-family: BeVietnamPro;
+
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.topnav {
+  background: var(--neutral);
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.main {
+  background: var(--mainColor);
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 200px;
+  font-weight: 500;
+  line-height: 253px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.first {
+  color: var(--secondaryColor);
+  position: relative;
+
+  animation: enterFirst 1s ease-out forwards;
+}
+
+.last {
+  color: var(--mainColorLight);
+  position: relative;
+
+  animation: enterLast 1s ease-out forwards;
+}
+
+@keyframes enterFirst {
+  0% {
+    opacity: 0%;
+    bottom: 50%;
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    bottom: -10%;
+  }
+}
+
+@keyframes enterLast {
+  0% {
+    opacity: 0%;
+    top: 50%;
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    top: -9%;
+  }
+}
+
+.lowerStart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30px;
+  margin-bottom: 1vh;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 30px;
+  width: 30vh;
+  margin-right: 1vw;
+}
+
+/* make these bigger */
+.contact { 
+  fill: var(--mainColorLight);
+  height: 30px;
+  width: 30px;
+
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.spacer {
+  width: 30vh;
+}
+
+.scrollArrow {
+  fill: var(--mainColorLight);
+  height: 52px;
+  width: 52px;
+  margin-left: calc((30vh - 52px) / 2);
+  margin-right: calc((30vh - 52px) / 2);
+  position: relative;
+  bottom: 100%;
+
+  animation: bounceArrow 1s ease-in-out infinite;
+}
+
+
+@keyframes bounceArrow {
+  0% {
+    bottom:150%;
+  }
+  50% {
+    bottom:100%;
+  }
+  100% {
+    bottom:150%;
+  }
 }
 
 /* From APP */
 
-.App {
+/* .App {
   text-align: center;
   background-color: var(--neutral);
   display: flex;
@@ -59,11 +200,11 @@
   justify-content: center;
   margin-left: 100px;
   margin-right: 100px;
-}
+} */
 
 /* From APP */
 
-body {
+/* body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -254,6 +395,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: left;
 }
 
 .career {
@@ -284,11 +426,11 @@ code {
   color: var(--mainColor);
   margin:4px;
   font-size: calc(15px + 0.75vmin);
-}
+} */
 
 /* ************************** Start of Infinity Chess ************************* */
 
-.link-to-github {
+/* .link-to-github {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -303,7 +445,7 @@ code {
 .game {
   margin-right: 20vmin;
   margin-left: 20vmin;
-  /* margin-bottom: 10vmin; */
+  margin-bottom: 10vmin;
 }
 
 .game-info {
@@ -407,11 +549,11 @@ code {
   max-height: 9vmin;
   min-width: 9vmin;
   max-width: 9vmin;
-}
+} */
 
 /* ************************** End of Infinity Chess ************************* */
 
-footer {
+/* footer {
   margin-top: 30px;
   text-align: center;
-}
+} */
