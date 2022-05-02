@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import profile from './ProfileCircle.png';
 import { ReactComponent as InstagramIcon } from './instagram.svg'
 import { ReactComponent as GithubIcon } from './github.svg'
@@ -181,6 +181,20 @@ function App() {
     )
   )
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+  };
+
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
+
 
 
   //opens a link in a new tab or changes pageNum
@@ -196,282 +210,70 @@ function App() {
 
   return (
     <div>
-      <nav class="topnav">
-        {/*
-        <h4>
-          DYLAN FAELKER
-        </h4>
-        <h4 class="navLinks">
-          PROJECTS
-        </h4>
-        */}
-        <h1 class="name first">
-          DYLAN
-        </h1>
-      </nav>
-      <div class="main">
-        <h1 class="name last">
-          FAELKER
-        </h1>
-        <div class="lowerStart">
-          <div class="spacer"/* Used to help position the other elements in lowerStart */></div>
-          <DownArrow class="scrollArrow"/>
-          <div class="contacts">
-          <a
-              href={ResumePDF}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <PageIcon class="contact"/>
-            </a>
+      {(scrollPosition <= 20) ?
+      <div style={{height: '1100px'}}>
+        <nav class="topnav">
+          {/*
+          <h4>
+            DYLAN FAELKER
+          </h4>
+          <h4 class="navLinks">
+            PROJECTS
+          </h4>
+          */}
+          <h1 class="name first">
+            DYLAN
+          </h1>
+        </nav>
+        <div class="main">
+          <h1 class="name last">
+            FAELKER
+          </h1>
+          <div class="lowerStart">
+            <div class="spacer"/* Used to help position the other elements in lowerStart */></div>
+            <DownArrow class="scrollArrow"/>
+            <div class="contacts">
             <a
-              href="mailto:faelkerd@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <EmailIcon class="contact"/>
-            </a>
-            <a
-              href="https://github.com/dylpykill"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dylanfaelker/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.instagram.com/d_faelker/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon class="contact"/>
-            </a>
+                href={ResumePDF}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <PageIcon class="contact"/>
+              </a>
+              <a
+                href="mailto:faelkerd@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <EmailIcon class="contact"/>
+              </a>
+              <a
+                href="https://github.com/dylpykill"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon class="contact"/>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dylanfaelker/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedinIcon class="contact"/>
+              </a>
+              <a
+                href="https://www.instagram.com/d_faelker/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon class="contact"/>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </div> :
+      <div style={{height: '1100px'}}></div>}
     </div>
-    
-    // <div>
-    //   <Navbar navs={navs} onHover={highlightNav} onClick={openInNewTab} />
-    //   {pageNum === 0 ?
-    //     <div className="App">
-    //       <header className='wrapper'>
-    //         <img src={profile} className="App-logo" alt="logo"/>
-    //         <header className='App-header'>
-    //           <h1 >
-    //             Dylan Faelker
-    //           </h1>
-    //           <h4 style={{color: 'rgb(125, 207, 182)'}}>
-    //             I am a
-    //             Software Developer,
-    //             CFM student at UWaterloo,
-    //             Runner and
-    //             Amateur Investor
-    //           </h4>
-    //           {/* <h4>
-    //             I am a 
-    //             <Typer 
-    //               cycleWords={['Software Developer',
-    //                           'CFM student at UWaterloo',
-    //                           'Amature investor', 
-    //                           'Runner']}
-    //             />
-    //           </h4> */}
-    //         </header>
-    //       </header>
-
-    //       <Projects 
-    //         projects={projects}
-    //         onHover={showDesc}
-    //         onClick={openInNewTab}
-    //       />
-
-    //       <Contacts 
-    //         contacts={contacts}
-    //         onHover={highlightContact}
-    //       />
-    //     </div> :
-    //     (pageNum===1 ? 
-
-    //       // ************* About Page ****************
-    //       <div className='App'>
-
-    //         <header className='header'>
-    //           <h2>About Me</h2>
-    //         </header>
-
-    //         {/* About Me */}
-    //         <div className='section'>
-    //           <p className='description'>
-    //             I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM).
-    //             The program is similar to a double major in Computer Science and Finance.
-    //             I chose these fields because in high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.
-    //             I am also inspired by the growth of fintech and look forawrd to opportunities to bring my knowledge of computing and financial management to use.
-    //           </p>
-    //         </div>
-
-    //         {/* Hobbies */}
-    //         <div className='section'>
-    //           <header className='header'>
-    //             <h3>Hobbies</h3>
-    //           </header>
-    //           <p className='description'>
-    //             Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
-    //             In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
-    //             In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
-    //             I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
-    //           </p>
-    //           <p className='description'>
-    //             In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
-    //           </p>
-    //           <p className='description'>
-    //             My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
-    //           </p>
-    //         </div>
-
-    //         {/* Career History */}
-    //         <Careers careers={careers}/>
-    //       </div> :
-    //       (pageNum===2 ?
-
-    //       // ************* Page with infinity chess ****************
-    //       <div className='App'>
-
-    //         <header className='header'>
-    //           <h2>Infinity Chess</h2>
-    //         </header>
-
-    //         <Game />
-
-    //         {/* Link to Engine version */}
-    //         <div className='section'>
-    //           <Project
-    //             key={1} 
-    //             project={{ display:true, name:<h3>Play against chess AI (Abbott)</h3>, link:3  }}
-    //             // onHover={onHover}
-    //             onClick={openInNewTab}
-    //           />
-    //         </div>
-
-    //         {/* Descriptions and writting about infinity chess */}
-    //         <div className='section'>
-
-    //           {/* Rules */}
-    //           <header className='header'>
-    //             <h3>Rules</h3>
-    //           </header>
-    //           <p className='description'>
-    //             Pieces all move the same as normal chess including enpassent and castling. The only change is, like Pacman, if you go off one side of the board, you will appear on the other.
-    //             This only applies to the files (left to right). You cannot go from the first rank (row) to the eigth rank since white would win on the first move. 
-    //           </p>
-    //           <p className='description'>
-    //             For example, if a rook was on a1 and there was a bishop on c1, the rook could get to d1 by sliding off the left side of the board, appearing on the right, and continuing to d1.
-    //             It may be helpful to think of it as there being 3 of the exact same boards laid beside eachother. If the white queen from the middle board sees the black king on the right board, black is in check.
-    //           </p>
-
-    //           {/* About */}
-    //           <header className='header'>
-    //             <h3>About</h3>
-    //           </header>
-    //           <p className='description'>
-    //             In 2020, the world was hit with a pandemic leaving many people at home. During this time people looked for things to do. Due to this, and the hit Netflix series 'The Queen's Gambit', many started playing chess.
-    //             My friends and I were part of this group and after a few months of playing, my friend Richard He approached me with the idea for this game which combines Pacman and Chess. 
-    //           </p>
-    //           <p className='description'>
-    //             There is a similar variant to chess called infinite chess where the board is unbounded in all directions, but the board never wraps and that's where the difference lies.
-    //           </p>
-    //           <p className='description'>
-    //             I was originally learning Java at the time and tried to create it in that language but after a couple bugs and not enough patience to understand how to make proper graphics, I gave up.
-    //           </p>
-    //           <p className='description'>
-    //             About a month later, I entered into a hackathon and decided to give the idea another try, except in python and starting out with a half completed chess game. This didn't go very well as the original chess game did not have any of the more complicated rules of chess and it has a bug where it becomes unplayable after about 20 moves.
-    //           </p>
-    //           <p className='description'>
-    //             I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a chess bot.
-    //           </p>
-    //         </div>
-
-    //         {/* Link to Git hub */}
-    //         <div className='section'>
-    //           <header className='header'>
-    //             <h4>Github page</h4>
-    //           </header>
-    //           <Contact 
-    //             contact={{
-    //               id: 1,
-    //               icon: <GithubIcon style={{fill:'#366BA8'}}/>,
-    //               writting: <p className='link-to-github'>Infinity-Chess Github</p>,
-    //               link: "https://github.com/dylpykill/Infinity-Chess"
-    //             }}
-    //           />
-    //         </div>
-            
-    //       </div> :
-
-    //       // ************* Page with infinity chess and engine ****************
-    //       <div className='App'>
-
-    //         <header className='header'>
-    //           <h2>Infinity Chess vs Abbott V1.1</h2>
-    //         </header>
-
-    //         <GameEngine />
-
-    //         {/* Descriptions and writting about infinity chess */}
-    //         <div className='section'>
-
-    //           {/* About */}
-    //           <header className='header'>
-    //             <h3>About the Engine</h3>
-    //           </header>
-    //           <p className='description'>
-    //             This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
-    //           </p>
-    //           <p className='description'>
-    //             This is only version 1 (V1) and I plan to develop it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like improved ordering for alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
-    //           </p>
-    //           <p className='description'>
-    //             For now though, this is the only engine for Infinity Chess.
-    //           </p>
-
-    //           {/* History */}
-    //           <header className='header'>
-    //             <h3>History of Abbott</h3>
-    //           </header>
-    //           <div className='career'>
-    //             <p className='job-period'>––– Abbott V1.0-V1.1</p>
-    //             <p className='job-title'>Jan 2022</p>
-    //             <p className='job-location'>Rating: ~650</p>
-    //             <p className='job-location'>Max depth: 1</p>
-    //         </div>
-    //         </div>
-
-    //         {/* Link to Git hub */}
-    //         <div className='section'>
-    //           <header className='header'>
-    //             <h4>Github page</h4>
-    //           </header>
-    //           <Contact 
-    //             contact={{
-    //               id: 1,
-    //               icon: <GithubIcon style={{fill:'#366BA8'}}/>,
-    //               writting: <p className='link-to-github'>Abbott Github</p>,
-    //               link: "https://github.com/dylpykill/Infinity-Chess-Engine"
-    //             }}
-    //           />
-    //         </div>
-            
-    //       </div>
-    //       )
-    //     )
-    //   }
-    // </div>
   );
 }
 
