@@ -209,70 +209,101 @@ function App() {
   }
 
   return (
-    <div>
-      {(scrollPosition <= 20) ?
-      <div style={{height: '1100px'}}>
-        <nav class="topnav">
-          {/*
-          <h4>
-            DYLAN FAELKER
-          </h4>
-          <h4 class="navLinks">
-            PROJECTS
-          </h4>
-          */}
-          <h1 class="name first">
-            DYLAN
-          </h1>
-        </nav>
-        <div class="main">
-          <h1 class="name last">
-            FAELKER
-          </h1>
-          <div class="lowerStart">
-            <div class="spacer"/* Used to help position the other elements in lowerStart */></div>
-            <DownArrow class="scrollArrow"/>
-            <div class="contacts">
+    <div style={{height: '1100px'}}>
+      {(scrollPosition <= 0) ?
+      <div>
+        <nav class="upperLanding">
+          <div class="contactsLanding">
             <a
-                href={ResumePDF}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <PageIcon class="contact"/>
-              </a>
-              <a
-                href="mailto:faelkerd@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <EmailIcon class="contact"/>
-              </a>
-              <a
-                href="https://github.com/dylpykill"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon class="contact"/>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/dylanfaelker/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedinIcon class="contact"/>
-              </a>
-              <a
-                href="https://www.instagram.com/d_faelker/?hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstagramIcon class="contact"/>
-              </a>
-            </div>
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
           </div>
+          <h1 class="name first">DYLAN</h1>
+        </nav>
+        <div class="lowerLanding">
+          <h1 class="name last">FAELKER</h1>
+          <DownArrow class="scrollArrow"/>
         </div>
       </div> :
-      <div style={{height: '1100px'}}></div>}
+      <div>
+        <nav class="upperLanding">
+          <h4 class="smallName appear">DYLAN FAELKER</h4>
+          <div class="contactsLanding">
+            <a
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
+          </div>
+          <h1 class="name first firstNameScroll">DYLAN</h1>
+        </nav>
+        <div class="lowerLanding">
+          <h1 class="name last lastNameScroll">FAELKER</h1>
+          <DownArrow class="scrollArrow disapear"/>
+        </div>
+      </div>}
     </div>
   );
 }

@@ -10,6 +10,8 @@
   --tertiaryColor: #530C0C;
   --neutral: #434648;
   --highlight: #FD9072;
+
+  --scrollTime: 0.3s;
 }
 
 * {
@@ -25,7 +27,7 @@
   padding-left: 0px;
 }
 
-.topnav {
+.upperLanding {
   background: var(--neutral);
   height: 50vh;
   width: 100vw;
@@ -34,7 +36,7 @@
   justify-content: flex-end;
 }
 
-.main {
+.lowerLanding {
   background: var(--mainColor);
   height: 50vh;
   width: 100vw;
@@ -44,68 +46,67 @@
 }
 
 .name {
-  font-size: clamp(50px, 21vh, 250px);
+  font-size: clamp(50px, 21vmin, 250px);
   font-weight: 500;
-  line-height: 253px;
   letter-spacing: 0em;
   text-align: center;
 }
 
 .first {
   color: var(--secondaryColor);
-  position: relative;
+  position: fixed;
+  bottom: 49vh;
+  left:50%;
+  transform: translate(-50%,0);
+  line-height: 0.74em;
 
-  animation: enterFirst 1s ease-out forwards;
+  animation: enterFirst var(--scrollTime) ease-out;
+}
+@keyframes enterFirst {
+  0% {
+    opacity: 0%;
+    bottom: 80vh
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    bottom: 49vh;
+  }
 }
 
 .last {
   color: var(--mainColorLight);
-  position: relative;
+  position: fixed;
+  top: 51vh;
+  left:50%;
+  transform: translate(-50%,0);
+  line-height: 0.77em;
 
-  animation: enterLast 1s ease-out forwards;
+  animation: enterLast var(--scrollTime) ease-out;
 }
-
-@keyframes enterFirst {
-  0% {
-    opacity: 0%;
-    bottom: 50%;
-  }
-  95% {
-    opacity: 100%;
-  }
-  100% {
-    bottom: -10%;
-  }
-}
-
 @keyframes enterLast {
   0% {
     opacity: 0%;
-    top: 50%;
+    top: 80vh;
   }
   95% {
     opacity: 100%;
   }
   100% {
-    top: -9%;
+    top: 51vh;
   }
 }
 
-.lowerStart {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 30px;
-  margin-bottom: 1vh;
-}
-
-.contacts {
+.contactsLanding {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   height: 30px;
-  width: 30vh;
-  margin-right: 1vw;
+  width: calc((8px + 30px) * 4);;
+  position: fixed;
+  right: 2vw;
+  top: 3vh;
 }
 
 .contact { 
@@ -113,450 +114,151 @@
   height: 30px;
   width: 30px;
 
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin-right: 4px;
+  margin-left: 4px;
 }
 
 .contact:hover {
   fill: var(--highlight);
 }
 
-.spacer {
-  width: 30vh;
-}
-
 .scrollArrow {
   fill: var(--mainColorLight);
   height: 52px;
   width: 52px;
-  margin-left: calc((30vh - 52px) / 2);
-  margin-right: calc((30vh - 52px) / 2);
-  position: relative;
-  bottom: 100%;
+  position: fixed;
+  bottom: 1vh;
+  left:50%;
+  transform: translate(-50%,0);
 
   animation: bounceArrow 1s ease-in-out infinite;
 }
-
-
 @keyframes bounceArrow {
   0% {
-    bottom:150%;
+    bottom:3vh;
   }
   50% {
-    bottom:100%;
+    bottom:1vh;
   }
   100% {
-    bottom:150%;
+    bottom:3vh;
   }
 }
 
-/* From APP */
+/* ---------------------------- Scrolling ---------------------------- */
 
-/* .App {
-  text-align: center;
-  background-color: var(--neutral);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-}
-
-.App-logo {
-  height: 60vmin;
-  pointer-events: none;
-  padding: 50px;
-}
-
-@media screen and (max-width: 600px) {
-  .App-logo {
-    padding: 10px;
-  }
-
-  .App-header {
-    font-size: calc(2px + 1vmin)
-  }
-}
-
-.App-header {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--mainColor);
-}
-
-.App-link {
-  color: var(--highlight);
-}
-
-.wrapper, html, body {
-  height:100%;
-  margin:0;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: 100px;
-  margin-right: 100px;
-} */
-
-/* From APP */
-
-/* body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid var(--highlight);
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 2vmin;
-  font-size: calc(10px + 4vmin);
-  color: var(--mainColor);
-  cursor: default;
-}
-
-.paragraph {
-  color: var(--mainColorLight);
-  margin-bottom: 10px;
-  cursor: default;
-}
-
-.contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  font-size: calc(10px+2vmin);
-  color: var(--mainColorLight);
-  text-decoration: none;
-}
-
-.contactLink {
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 7px;
-}
-
-.contactIcon {
-  fill:var(--highlight);
-  margin-right: 5px;
-}
-
-.projectLink {
-  text-decoration: none;
-}
-
-.buttons {
-  margin:1vmin;
-}
-
-.btn {
-  display: inline-block;
+.topnav {
   background: var(--neutral);
-  color: var(--highlight);
-  border: 5px solid var(--neutral);
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-}
-
-.section {
+  height: 10vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 50px;
-}
+  justify-content: flex-end;
 
-.section-small {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
+  position:fixed;
+  top: 0;
 
-.project {
-  height: 10rem;
-  width: 60vw;
-  color: var(--mainColor);
-  border: 5px solid var(--mainColorLight);
-  margin: 15px;
-  padding: 10px 20px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  animation: scrollNav var(--scrollTime);
 }
-
-@media screen and (max-width: 600px) {
-  .project {
-    height: 20rem;
-    width: 90vw;
+@keyframes scrollNav {
+  0% {
+    height: 50vh;
   }
-  .nav {
-    font-size: 15px
-  }
-  .nav-name {
-    font-size: 20px
+  100% {
+    height: 10vh;
   }
 }
 
-.navbar {
-  background-color: var(--mainColor);
-  color: var(--neutral);
+.main {
+  background: var(--mainColor);
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+
+  animation: scrollMain car(--scrollTime);
+}
+@keyframes scrollMain {
+  0% {
+    height: 50vh;
+  }
+  100% {
+    height: 100vh;
+  }
 }
 
-.nav-choice {
+.disapear {
+  animation: disapear var(--scrollTime) forwards;
+}
+@keyframes disapear {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+.appear {
+  animation: appear var(--scrollTime) forwards;
+}
+@keyframes appear {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.firstNameScroll {
+  animation: exitFirstName var(--scrollTime) ease-out forwards;
+}
+@keyframes exitFirstName {
+  0% {
+    bottom: 49vh;
+    opacity: 100%;
+  }
+  100% {
+    bottom: 80vh;
+    opacity: 0%;
+  }
+}
+
+.lastNameScroll {
+  animation: exitLastName var(--scrollTime) ease-out forwards;
+}
+@keyframes exitLastName {
+  0% {
+    top: 51vh;
+    opacity: 100%;
+  }
+  100% {
+    top: 80vh;
+    opacity: 0%;
+  }
+}
+
+.smallName {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--secondaryColor);
+
+  position: fixed;
+  top: 2vh;
+  left: 1vw;
+}
+
+.contactsScroll {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: center;
+  height: 30px;
+  width: 30vh;
+
+  position: fixed;
+  top: 3vh;
+  right: 2vw;
 }
-
-.nav {
-  margin-top:2.5vmin;
-  margin-bottom:2.5vmin;
-  margin-right:6vmin;
-  cursor: pointer;
-}
-
-.nav-name {
-  margin-top:2.5vmin;
-  margin-bottom:2.5vmin;
-  margin-left:6vmin;
-  cursor: default;
-  color: #EAB169;
-}
-
-.description {
-  min-width: 90vmin;
-  max-width: 90vmin;
-  color: var(--mainColorLight);
-  margin: 10px;
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-}
-
-.career {
-  width:70vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom:4vmin;
-  margin-top:1vmin
-}
-
-.job-title {
-  color: var(--secondaryColor);
-  text-indent:60px;
-  margin:4px;
-  font-size: calc(15px + 0.75vmin);
-}
-
-.job-location {
-  color: var(--highlight);
-  text-indent:60px;
-  margin:4px;
-  font-size: calc(15px + 0.75vmin);
-}
-
-.job-period {
-  color: var(--mainColor);
-  margin:4px;
-  font-size: calc(15px + 0.75vmin);
-} */
-
-/* ************************** Start of Infinity Chess ************************* */
-
-/* .link-to-github {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  font-size: calc(10px+3vmin);
-  color: var(--mainColorLight);
-  text-decoration: none;
-}
-
-.game {
-  margin-right: 20vmin;
-  margin-left: 20vmin;
-  margin-bottom: 10vmin;
-}
-
-.game-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 2vmin;
-  font-size: 4vmin;
-  color: var(--mainColorLight);
-  cursor: default;
-}
-
-.board-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; 
-}
-
-.square-white {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #d4b187;
-  border: 1px solid #d4b187;
-}
-
-.square-black {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #613d11;
-  border: 1px solid #613d11;
-}
-
-.square-highlight {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #308897;
-  border: 1px solid #143b70;
-}
-
-.square-chosen {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #d49306;
-  border: 1px solid #c49411;
-}
-
-.square-last {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #06B67E;
-  border: 1px solid #06B67E;
-}
-
-.square-check {
-  min-height: 10vmin;
-  max-height: 10vmin;
-  min-width: 10vmin;
-  max-width: 10vmin;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  background-color: #d42f06;
-  border: 1px solid #d42f06;
-}
-
-.piece-img {
-  min-height: 9vmin;
-  max-height: 9vmin;
-  min-width: 9vmin;
-  max-width: 9vmin;
-} */
-
-/* ************************** End of Infinity Chess ************************* */
-
-/* footer {
-  margin-top: 30px;
-  text-align: center;
-} */
