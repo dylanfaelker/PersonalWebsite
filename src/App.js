@@ -182,18 +182,42 @@ function App() {
   )
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [navbarSize, setNavbarSize] = useState(0);
+  const navstyle = {
+    height: navbarSize
+  }
+
   const handleScroll = () => {
       const position = window.pageYOffset;
       setScrollPosition(position);
+
+      const size = Math.max(0.1*window.innerHeight, 0.5*window.innerHeight - position);
+      setNavbarSize(size);
+  };
+
+  const handleResize = () => {
+    const position = window.pageYOffset;
+    const size = Math.max(0.1*window.innerHeight, 0.5*window.innerHeight - position);
+    setNavbarSize(size);
   };
 
   useEffect(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll, { passive: true });
 
       return () => {
           window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener('resize', handleScroll);
       };
   }, []);
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0
+    });
+  };
+
+
 
 
 
@@ -209,11 +233,11 @@ function App() {
   }
 
   return (
-    <div style={{height: '1100px'}}>
+    <div class="page" style={{height: '1100px'}}>
       {(scrollPosition <= 0) ?
       <div>
         <nav class="upperLanding">
-          <div class="contactsLanding">
+          <div class="contacts">
             <a
               href={ResumePDF}
               target="_blank"
@@ -252,15 +276,15 @@ function App() {
           </div>
           <h1 class="name first">DYLAN</h1>
         </nav>
-        <div class="lowerLanding">
+        <div>
           <h1 class="name last">FAELKER</h1>
           <DownArrow class="scrollArrow"/>
         </div>
       </div> :
       <div>
-        <nav class="upperLanding">
-          <h4 class="smallName appear">DYLAN FAELKER</h4>
-          <div class="contactsLanding">
+        <nav class="topnav" style={{height: navbarSize}}>
+          <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>
+          <div class="contacts">
             <a
               href={ResumePDF}
               target="_blank"
@@ -299,7 +323,7 @@ function App() {
           </div>
           <h1 class="name first firstNameScroll">DYLAN</h1>
         </nav>
-        <div class="lowerLanding">
+        <div>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="scrollArrow disapear"/>
         </div>

@@ -11,7 +11,7 @@
   --neutral: #434648;
   --highlight: #FD9072;
 
-  --scrollTime: 0.3s;
+  --scrollTime: 0.2s;
 }
 
 * {
@@ -27,13 +27,16 @@
   padding-left: 0px;
 }
 
+.page {
+  background: var(--mainColor);
+  display: flex;
+  flex-direction: column;
+}
+
 .upperLanding {
   background: var(--neutral);
   height: 50vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  width: 100%;
 }
 
 .lowerLanding {
@@ -55,7 +58,7 @@
 .first {
   color: var(--secondaryColor);
   position: fixed;
-  bottom: 49vh;
+  bottom: 51vh;
   left:50%;
   transform: translate(-50%,0);
   line-height: 0.74em;
@@ -71,7 +74,7 @@
     opacity: 100%;
   }
   100% {
-    bottom: 49vh;
+    bottom: 51vh;
   }
 }
 
@@ -98,15 +101,16 @@
   }
 }
 
-.contactsLanding {
+.contacts {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   height: 30px;
-  width: calc((8px + 30px) * 4);;
+  width: calc((8px + 30px) * 4);
+
   position: fixed;
   right: 2vw;
-  top: 3vh;
+  top: 19px;
 }
 
 .contact { 
@@ -114,8 +118,8 @@
   height: 30px;
   width: 30px;
 
-  margin-right: 4px;
-  margin-left: 4px;
+  margin-right: 3px;
+  margin-left: 10px;
 }
 
 .contact:hover {
@@ -149,43 +153,14 @@
 
 .topnav {
   background: var(--neutral);
-  height: 10vh;
   width: 100vw;
+  min-height: 72px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   position:fixed;
   top: 0;
-
-  animation: scrollNav var(--scrollTime);
-}
-@keyframes scrollNav {
-  0% {
-    height: 50vh;
-  }
-  100% {
-    height: 10vh;
-  }
-}
-
-.main {
-  background: var(--mainColor);
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  animation: scrollMain car(--scrollTime);
-}
-@keyframes scrollMain {
-  0% {
-    height: 50vh;
-  }
-  100% {
-    height: 100vh;
-  }
 }
 
 .disapear {
@@ -216,7 +191,7 @@
 }
 @keyframes exitFirstName {
   0% {
-    bottom: 49vh;
+    bottom: 51vh;
     opacity: 100%;
   }
   100% {
@@ -246,19 +221,9 @@
   text-align: center;
   color: var(--secondaryColor);
 
-  position: fixed;
-  top: 2vh;
-  left: 1vw;
-}
-
-.contactsScroll {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  height: 30px;
-  width: 30vh;
+  cursor: pointer;
 
   position: fixed;
-  top: 3vh;
-  right: 2vw;
+  top: 15px;
+  left: calc(1vw + 4px);
 }
