@@ -132,6 +132,7 @@ p {
   position: fixed;
   right: 2vw;
   top: 19px;
+  z-index:1001;
 }
 
 .contact { 
@@ -182,6 +183,7 @@ p {
 
   position:fixed;
   top: 0;
+  z-index:1000;
 }
 
 .disapear {
@@ -247,6 +249,7 @@ p {
   position: fixed;
   top: 15px;
   left: calc(1vw + 4px);
+  z-index:1001;
 }
 
 /* Main Page */
@@ -308,7 +311,7 @@ p {
   margin-right: 5vw;
 }
 
-.project::before {
+.project::after {
   content: '';
   top: 0;
   /* left: -0.01%;
@@ -317,7 +320,7 @@ p {
   height: 10em;
   background-color: var(--mainColorLight);
 }
-.project:hover::before {
+.project:hover::after {
   animation: reveal cubic-bezier(0.63, 0.02, 0.28, 1.02) 1s;
 }
 @keyframes reveal {
@@ -335,7 +338,7 @@ p {
 	}
 }
 
-.project::after {
+.project::before {
   content: attr(data-description);
 
   font-size: 18px;
@@ -353,7 +356,7 @@ p {
   transform: translate(-50%,-50%);
   width: 80%;
 }
-.project:hover::after {
+.project:hover::before {
   animation: show forwards;
   animation-delay: 0.5s;
 }
