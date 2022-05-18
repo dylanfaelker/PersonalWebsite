@@ -1,8 +1,8 @@
 const Project = ({ project, onHover, onClick}) => {
     return (
-        <div class="project" data-description={project.desc}>
+        <a class="project" data-description={project.desc} href={project.link} target="_blank" rel="noreferrer">
             {project.name}
-        </div>
+        </a>
     // <div
         //     className='project' 
         //     onMouseEnter={() => onHover(project.id, false)} 
