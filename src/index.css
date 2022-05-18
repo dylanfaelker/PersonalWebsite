@@ -34,6 +34,7 @@ h2 {
   letter-spacing: 0em;
   text-align: center;
   color: var(--secondaryColor);
+  margin-bottom: 1vh;
 }
 
 p {
@@ -46,6 +47,22 @@ p {
 
   margin-left: 20vw;
   margin-right: 20vw;
+}
+
+.flex-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+}
+.text-left {
+ text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 
 .page {
@@ -143,8 +160,13 @@ p {
   margin-right: 3px;
   margin-left: 10px;
 }
-
-.contact:hover {
+.contact-large { 
+  fill: var(--mainColorLight);
+  height: 60px;
+  width: 60px;
+  margin-left: 25%;
+}
+.contact:hover, .contact-large:hover {
   fill: var(--highlight);
 }
 
@@ -367,4 +389,67 @@ p {
   100% {
     color: var(--secondaryColor);
   }
+}
+
+/* Career */
+
+.job {
+  position: relative; 
+  width: 40vw;
+  height: 127px;
+}
+
+.job-period {
+  color: var(--mainColorLight);
+  margin-left: 1vw !important;
+  margin-right: 1vw !important;
+}
+
+.job-title {
+  margin-left: 1vw !important;
+  margin-right: 1vw !important;
+
+}
+
+.job-location {
+  margin-left: 1vw !important;
+  margin-right: 1vw !important;
+
+}
+
+.career-point{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.timeline {
+  position: relative;
+  height: 127px;
+  width:36px;
+}
+
+.doughnut { 
+  border: 7px solid var(--tertiaryColor);
+  border-radius: 100px;
+  height:21px;
+  width:21px;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,0);
+}
+
+.line {
+  background-color: var(--tertiaryColor);
+  width: 7px;
+  height: 100px;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,0);
+  top:30px;
+}
+
+.spacer {
+  width: 40vw;
+  height:127px;
 }

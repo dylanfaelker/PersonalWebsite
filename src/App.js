@@ -107,28 +107,28 @@ function App() {
 
   const careers = [
     {
-      id: 1,
-      title: <p className='job-title'>Software Developer</p>,
-      location: <p className='job-location'>Idea Notion Development Inc</p>,
-      date: <p className='job-period'>––– May 2022 - August 2022</p>,
-    },
-    {
-      id: 2,
-      title: <p className='job-title'>Lifeguard and Swim Instructor</p>,
-      location: <p className='job-location'>Town of Oakville</p>,
-      date: <p className='job-period'>––– September 2019 - September 2021</p>,
+      id: 4,
+      title: "SOFTWARE DEVELOPER",
+      location: "Idea Notion Development Inc",
+      date: "May 2022 - August 2022",
     },
     {
       id: 3,
-      title: <p className='job-title'>Slide Attendant and Cashier</p>,
-      location: <p className='job-location'>Town of Oakville</p>,
-      date: <p className='job-period'>––– September 2018 - September 2019</p>,
+      title: "LIFEGUARD/SWIM INSTRUCTOR",
+      location: "Town of Oakville",
+      date: "September 2019 - September 2021",
     },
     {
-      id: 4,
-      title: <p className='job-title'>Soccer Referee</p>,
-      location: <p className='job-location'>Oakville Soccer Club</p>,
-      date: <p className='job-period'>––– June 2018 - August 2018</p>,
+      id: 2,
+      title: "SLIDE GUARD/CASHIER",
+      location: "Town of Oakville",
+      date: "September 2018 - September 2019",
+    },
+    {
+      id: 1,
+      title: "SOCCER REFEREE",
+      location: "Oakville Soccer Club",
+      date: "June 2018 - August 2018",
     },
   ]
 
@@ -327,6 +327,24 @@ function App() {
             onHover={showDesc}
             onClick={openInNewTab}
           />
+          <Careers careers={careers}/>
+          <div className='section'>
+            <h2>HOBBIES</h2>
+            <p>
+              Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
+              In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
+              In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
+              I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
+            </p>
+            <br></br>
+            <p>
+              In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
+            </p>
+            <br></br>
+            <p>
+              My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
+            </p>
+          </div>
         </div>
       </div>}
     </div>
