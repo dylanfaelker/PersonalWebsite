@@ -309,6 +309,7 @@ p {
   justify-content: center;
   align-items: center;
   position: relative;
+  text-decoration: none;
 }
 
 .project:hover {
@@ -362,6 +363,7 @@ p {
 
 .project::before {
   content: attr(data-description);
+  white-space: pre-wrap;
 
   font-size: 18px;
   font-weight: 500;
@@ -455,7 +457,7 @@ p {
 }
 
 .hobby-pic {
-  max-width: 10vw;
+  max-width: clamp(100px, 10vw, 10vw);
   /* TODO make it so photos are 2rows on tablet and under desc on phone */
 }
 

@@ -31,7 +31,7 @@ function App() {
       name: <h3>Infinity Chess + Chess AI (Abbott)</h3>,
       desc: "A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I have also made an engine so it can be played on this website, however it is weak. \n \n Languages and Libraries: React.js",
       display: true,
-      link: 2,
+      link: null,
     },
     {
       id: 2,
@@ -114,16 +114,10 @@ function App() {
 
   const careers = [
     {
-      id: 4,
-      title: "SOFTWARE DEVELOPER",
-      location: "Idea Notion Development Inc",
-      date: "May 2022 - August 2022",
-    },
-    {
-      id: 3,
-      title: "LIFEGUARD/SWIM INSTRUCTOR",
-      location: "Town of Oakville",
-      date: "September 2019 - September 2021",
+      id: 1,
+      title: "SOCCER REFEREE",
+      location: "Oakville Soccer Club",
+      date: "June 2018 - August 2018",
     },
     {
       id: 2,
@@ -132,10 +126,16 @@ function App() {
       date: "September 2018 - September 2019",
     },
     {
-      id: 1,
-      title: "SOCCER REFEREE",
-      location: "Oakville Soccer Club",
-      date: "June 2018 - August 2018",
+      id: 3,
+      title: "LIFEGUARD/SWIM INSTRUCTOR",
+      location: "Town of Oakville",
+      date: "September 2019 - September 2021",
+    },
+    {
+      id: 4,
+      title: "SOFTWARE DEVELOPER",
+      location: "Idea Notion Development Inc",
+      date: "May 2022 - August 2022",
     },
   ]
 
