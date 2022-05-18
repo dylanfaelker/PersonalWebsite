@@ -1,17 +1,16 @@
 import React from 'react'
 import Career from './Career'
 import ResumePDF from '../Resume.pdf'
+import { ReactComponent as PageIcon } from '../page.svg'
 
 const Careers = ({ careers }) => {
     return (
         <div className='section'>
-            <header className='header'>
-                <h3>Career History</h3>
-            </header>
-
-            {/* Resume */}
-            <div className='section-small'>
-              <a className='link-to-github' href={ResumePDF} target="_blank" rel='noreferrer' >Click for Resume</a>
+            <div class="flex-row">
+                <h2>CAREER</h2>
+                <a href={ResumePDF} target="_blank" rel="noreferrer">
+                    <PageIcon class="contact-large"/>
+                </a>
             </div>
 
             {careers.map((career) => (
