@@ -453,3 +453,22 @@ p {
   width: 40vw;
   height:127px;
 }
+
+.hobby-pic {
+  max-width: 10vw;
+  /* TODO make it so photos are 2rows on tablet and under desc on phone */
+}
+
+.photo-gallery {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1vh 2vw;
+  width: 37vw;
+}
+
+.hobbies p {
+  margin-left: 0;
+  margin-right: 0;
+  width: 50vw;
+}

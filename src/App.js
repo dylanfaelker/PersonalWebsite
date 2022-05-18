@@ -17,6 +17,13 @@ import Contact from './components/Contact'
 import Careers from './components/Careers'
 import ResumePDF from './Resume.pdf'
 
+import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
+import HobbyAdventureRun from './HobbyPics/AdventureRun.jpg'
+import HobbyCityBike from './HobbyPics/CityBike.jpg'
+import HobbyNiagaraBike from './HobbyPics/NiagaraBike.jpg'
+import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
+import HobbySantaRun from './HobbyPics/SantaRun.png'
+
 function App() {
   const [projects, setProjects] = useState([   
     {
@@ -328,22 +335,34 @@ function App() {
             onClick={openInNewTab}
           />
           <Careers careers={careers}/>
-          <div className='section'>
+          <div class='section'>
             <h2>HOBBIES</h2>
-            <p>
-              Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
-              In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
-              In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
-              I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
-            </p>
-            <br></br>
-            <p>
-              In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
-            </p>
-            <br></br>
-            <p>
-              My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
-            </p>
+            <div class="flex-row">
+              <div class="photo-gallery">
+                <img src={Hobby10kmRun} alt="Running a 10km" class="hobby-pic"/>
+                <img src={HobbyAdventureRun} alt="Running an Adventure Run" class="hobby-pic"/>
+                <img src={HobbyCityBike} alt="Riding a bike in a city" class="hobby-pic"/>
+                <img src={HobbyNiagaraBike} alt="Bike a Niagara Falls" class="hobby-pic"/>
+                <img src={HobbyOFSAA} alt="Group photo at OFSAA" class="hobby-pic"/>
+                <img src={HobbySantaRun} alt="Group photo at Santa race" class="hobby-pic"/>
+              </div>
+              <div class="hobbies">
+                <p>
+                  Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
+                  In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
+                  In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
+                  I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
+                </p>
+                <br></br>
+                <p>
+                  In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
+                </p>
+                <br></br>
+                <p>
+                  My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>}
