@@ -1,3 +1,42 @@
+.engine-button {
+    padding: 0.8em 1.8em;
+    border: 2px solid var(--mainColorLight);
+    margin-top: 5vh;
+    width: 140px;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--mainColorLight);
+}
+   
+.engine-button::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--mainColorLight);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+   
+.engine-button:hover::before {
+    width: 105%;
+}
+   
+.engine-button:hover {
+    color: var(--mainColor);
+}
+
 .link-to-github {
     display: flex;
     flex-direction: column;

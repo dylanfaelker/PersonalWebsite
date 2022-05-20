@@ -9,7 +9,6 @@ import { ReactComponent as DownArrow } from './downArrow.svg'
 import './App.css'
 import Projects from './components/Projects'
 import Contacts from './components/Contacts'
-import GameEngine from './Game_engine'
 import Navbar from './components/Navbar'
 import Project from './components/Project'
 import Contact from './components/Contact'
@@ -26,6 +25,7 @@ import HobbySantaRun from './HobbyPics/SantaRun.png'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import Home from './Home'
 import Game from './Game'
+import GameEngine from './Game_engine'
 
 function App() {
   const [projects, setProjects] = useState([   
@@ -233,6 +233,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/InfinityChess" element={<Game />} /> 
+          <Route path="/InfinityChess/Engine" element={<GameEngine />} /> 
         </Routes>
       </BrowserRouter>
     </div>

@@ -1517,9 +1517,13 @@ class Game extends React.Component {
               bcheck={this.state.bcheck}
             />
           </div>
+
+          <button class='engine-button'>ABBOTT ENGINE</button>
         </div>
 
         <div className='section'>
+          
+
           <h2>RULES</h2>
           <p className='description'>
             Pieces all move the same as normal chess including enpassent and castling. The only change is, like Pacman, if you go off one side of the board, you will appear on the other.
