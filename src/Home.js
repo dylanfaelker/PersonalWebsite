@@ -9,6 +9,7 @@ import { ReactComponent as DownArrow } from './downArrow.svg'
 import './App.css'
 import Projects from './components/Projects'
 import Contacts from './components/Contacts'
+import Game from './Game'
 import GameEngine from './Game_engine'
 import Navbar from './components/Navbar'
 import Project from './components/Project'
@@ -23,11 +24,7 @@ import HobbyNiagaraBike from './HobbyPics/NiagaraBike.jpg'
 import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
 import HobbySantaRun from './HobbyPics/SantaRun.png'
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import Home from './Home'
-import Game from './Game'
-
-function App() {
+function Home() {
   const [projects, setProjects] = useState([   
     {
       id: 1,
@@ -35,6 +32,7 @@ function App() {
       desc: "A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I have also made an engine so it can be played on this website, however it is weak. \n \n Languages and Libraries: React.js",
       display: true,
       link: null,
+      inLink: "/InfinityChess",
     },
     {
       id: 2,
@@ -228,15 +226,149 @@ function App() {
   }
 
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} /> 
-          <Route path="/InfinityChess" element={<Game />} /> 
-        </Routes>
-      </BrowserRouter>
+    <div class="page">
+      {(scrollPosition <= 0) ?
+      <div>
+        <div class="upperLanding">
+          <div class="contacts">
+            <a
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
+          </div>
+          <h1 class="name first">DYLAN</h1>
+        </div>
+        <div class="lowerLanding">
+          <h1 class="name last">FAELKER</h1>
+          <DownArrow class="scrollArrow"/>
+        </div>
+      </div> :
+      <div>
+        <nav class="topnav" style={{height: navbarSize}}>
+          <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>
+          <div class="contacts">
+            <a
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
+          </div>
+          <h1 class="name first firstNameScroll">DYLAN</h1>
+        </nav>
+        <div>
+          <h1 class="name last lastNameScroll">FAELKER</h1>
+          <DownArrow class="scrollArrow disapear"/>
+        </div>
+        <div class="main">
+          <div class="section">
+            <img src={profile} className="profile" alt="logo"/>
+            <h2 >ABOUT ME</h2>
+            <p>I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.</p>
+            <br></br>
+            <p>In high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.</p>
+            <br></br>
+            <p>I am also inspired by the growth of fintech and look forawrd to opportunities to bring my knowledge of computing and financial management to use.</p>
+          </div>
+          <Projects 
+            projects={projects}
+            onHover={showDesc}
+            onClick={openInNewTab}
+          />
+          <Careers careers={careers}/>
+          <div class='section'>
+            <h2>HOBBIES</h2>
+            <div class="flex-row">
+              <div class="photo-gallery">
+                <img src={Hobby10kmRun} alt="Running a 10km" class="hobby-pic"/>
+                <img src={HobbyAdventureRun} alt="Running an Adventure Run" class="hobby-pic"/>
+                <img src={HobbyCityBike} alt="Riding a bike in a city" class="hobby-pic"/>
+                <img src={HobbyNiagaraBike} alt="Bike a Niagara Falls" class="hobby-pic"/>
+                <img src={HobbyOFSAA} alt="Group photo at OFSAA" class="hobby-pic"/>
+                <img src={HobbySantaRun} alt="Group photo at Santa race" class="hobby-pic"/>
+              </div>
+              <div class="hobbies">
+                <p>
+                  Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
+                  In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
+                  In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
+                  I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
+                </p>
+                <br></br>
+                <p>
+                  In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
+                </p>
+                <br></br>
+                <p>
+                  My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>}
     </div>
   );
 }
 
-export default App;
+export default Home;
