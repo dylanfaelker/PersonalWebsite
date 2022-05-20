@@ -1459,6 +1459,16 @@ class Game extends React.Component {
             </a>
           </div>
         </nav>
+        <div style={{height:'100px'}}></div>
+
+        <div class="section">
+          <div class="flex-row">
+            <h2>INFINITY CHESS</h2>
+            <a href="https://github.com/dylanfaelker/Infinity-Chess" target="_blank" rel="noreferrer">
+              <GithubIcon class="contact-large"/>
+            </a>
+          </div>
+        </div>
 
         <div className='section'>
           <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>

@@ -35,6 +35,7 @@ h2 {
   text-align: center;
   color: var(--secondaryColor);
   margin-bottom: 1vh;
+  white-space: pre-wrap;
 }
 
 p {
@@ -47,6 +48,7 @@ p {
 
   margin-left: 20vw;
   margin-right: 20vw;
+  white-space: pre-wrap;
 }
 
 .flex-col {
