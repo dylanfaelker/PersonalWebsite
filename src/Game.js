@@ -1518,7 +1518,10 @@ class Game extends React.Component {
             />
           </div>
 
-          <button class='engine-button'>ABBOTT ENGINE</button>
+          <Link to="/InfinityChess/Engine">
+            <button class='engine-button'>ABBOTT ENGINE</button>
+          </Link>
+          
         </div>
 
         <div className='section'>
