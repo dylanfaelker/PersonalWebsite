@@ -267,6 +267,7 @@ p {
   color: var(--secondaryColor);
 
   cursor: pointer;
+  text-decoration: none;
 
   position: fixed;
   top: 15px;

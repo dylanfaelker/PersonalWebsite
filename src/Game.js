@@ -1,4 +1,5 @@
 import React from 'react'
+import './Game.css'
 import Board from './components/Board'
 import bbishop from './chessIcons/bbishop.png'
 import wbishop from './chessIcons/wbishop.png'
@@ -12,6 +13,15 @@ import bqueen from './chessIcons/bqueen.png'
 import wqueen from './chessIcons/wqueen.png'
 import bpawn from './chessIcons/bpawn.png'
 import wpawn from './chessIcons/wpawn.png'
+
+import { ReactComponent as InstagramIcon } from './instagram.svg'
+import { ReactComponent as GithubIcon } from './github.svg'
+import { ReactComponent as EmailIcon } from './email.svg'
+import { ReactComponent as LinkedinIcon } from './linkedin.svg'
+import { ReactComponent as PageIcon } from './page.svg'
+import ResumePDF from './Resume.pdf'
+
+import { Link } from "react-router-dom"
 
 class Game extends React.Component {
   constructor(props) {
@@ -1405,53 +1415,135 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        {/*determines what to display above the board: will say whos turn or the result of the game */}
-        <h1 className='game-info'>{this.state.draw ? 'Draw' : (this.state.checkmate ? 'Checkmate!' : (this.state.stalemate ? 'Stalemate' : (this.state.turn ? 'White\'s Turn' : 'Black\'s Turn')))}</h1>
-        
-        {/* Promotion buttons which appear only when promoting */}
-        {this.state.promoting ? 
-          <div className='buttons'>
-            <button
-              onClick={() => this.pickPromotion(5)}
-              className='btn'
+      <div className='page'>
+
+        <nav class="topnav">
+          <Link to="/" class="smallName appear">
+            <h4>DYLAN FAELKER</h4>
+          </Link>
+          <div class="contacts">
+            <a
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
             >
-              {'Queen'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(4)}
-              className='btn'
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {'Rook'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(3)}
-              className='btn'
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {'Knight'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(2)}
-              className='btn'
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {'Bishop'}
-            </button>
-          </div> : <div></div>} 
-        
-        <div className="game">
-          <Board 
-            //data about each square
-            squares={this.state.squares}
-            //function for what to do when a square is clicked on
-            onSelect={this.selecting.bind(this)}
-            //data for which moves are legal and should be highlighted
-            moves={this.state.moves}
-            //data for which square is selected
-            selectedNum={this.state.selectedPiece[1].id}
-            lastMove={this.state.lastmove}
-            wcheck={this.state.wcheck}
-            bcheck={this.state.bcheck}
-          />
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
+          </div>
+        </nav>
+
+        <div className='section'>
+          <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
+          
+          {this.state.promoting ? 
+            <div className='promotion-buttons'>
+              <button
+                onClick={() => this.pickPromotion(5)}
+                className='btn'
+              >
+                {'Queen'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(4)}
+                className='btn'
+              >
+                {'Rook'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(3)}
+                className='btn'
+              >
+                {'Knight'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(2)}
+                className='btn'
+              >
+                {'Bishop'}
+              </button>
+            </div> : <div></div>
+          } 
+          
+          <div className="game">
+            <Board 
+              //data about each square
+              squares={this.state.squares}
+              //function for what to do when a square is clicked on
+              onSelect={this.selecting.bind(this)}
+              //data for which moves are legal and should be highlighted
+              moves={this.state.moves}
+              //data for which square is selected
+              selectedNum={this.state.selectedPiece[1].id}
+              lastMove={this.state.lastmove}
+              wcheck={this.state.wcheck}
+              bcheck={this.state.bcheck}
+            />
+          </div>
+        </div>
+
+        <div className='section'>
+          <h2>RULES</h2>
+          <p className='description'>
+            Pieces all move the same as normal chess including enpassent and castling. The only change is, like Pacman, if you go off one side of the board, you will appear on the other.
+            This only applies to the files (left to right). You cannot go from the first rank (row) to the eigth rank since white would win on the first move. 
+          </p>
+          <br></br>
+          <p className='description'>
+            For example, if a rook was on a1 and there was a bishop on c1, the rook could get to d1 by sliding off the left side of the board, appearing on the right, and continuing to d1.
+            It may be helpful to think of it as there being 3 of the exact same boards laid beside eachother. If the white queen from the middle board sees the black king on the right board, black is in check.
+          </p>
+        </div>
+
+        <div className='section'>
+          <h2>ABOUT</h2>
+          <p className='description'>
+            In 2020, the world was hit with a pandemic leaving many people at home. During this time people looked for things to do. Due to this, and the hit Netflix series 'The Queen's Gambit', many started playing chess.
+            My friends and I were part of this group and after a few months of playing, my friend Richard He approached me with the idea for this game which combines Pacman and Chess. 
+          </p>
+          <br></br>
+          <p className='description'>
+            There is a similar variant to chess called infinite chess where the board is unbounded in all directions, but the board never wraps and that's where the difference lies.
+          </p>
+          <br></br>
+          <p className='description'>
+            I was originally learning Java at the time and tried to create it in that language but after a couple bugs and not enough patience to understand how to make proper graphics, I gave up.
+          </p>
+          <br></br>
+          <p className='description'>
+            About a month later, I entered into a hackathon and decided to give the idea another try, except in python and starting out with a half completed chess game. This didn't go very well as the original chess game did not have any of the more complicated rules of chess and it has a bug where it becomes unplayable after about 20 moves.
+          </p>
+          <br></br>
+          <p className='description'>
+            I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a chess bot.
+          </p>
         </div>
       </div>
     );

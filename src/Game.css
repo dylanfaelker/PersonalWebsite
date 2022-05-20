@@ -1,0 +1,121 @@
+.link-to-github {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-size: calc(10px+3vmin);
+    color: #cfbc5e;
+    text-decoration: none;
+  }
+  
+  .game {
+    margin-right: 20vmin;
+    margin-left: 20vmin;
+    /* margin-bottom: 10vmin; */
+  }
+  
+  .game-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vmin;
+    font-size: 4vmin;
+    color: var(--secondaryColor);
+
+    margin-top: 100px;
+  }
+  
+  .board-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .square-white {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: #d4b187;
+    border: 1px solid #d4b187;
+  }
+  
+  .square-black {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: #613d11;
+    border: 1px solid #613d11;
+  }
+  
+  .square-highlight {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--secondaryColor);
+    border: 1px solid var(--neutral);
+  }
+  
+  .square-chosen {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--mainColorLight) !important;
+    border: 1px solid var(--mainColor) !important;
+  }
+  
+  .square-last {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--tertiaryColor);
+    border: 1px solid var(--tertiaryColor);
+  }
+  
+  .square-check {
+    min-height: 10vmin;
+    max-height: 10vmin;
+    min-width: 10vmin;
+    max-width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--highlight);
+    border: 1px solid var(--tertiaryColor);
+  }
+  
+  .piece-img {
+    min-height: 9vmin;
+    max-height: 9vmin;
+    min-width: 9vmin;
+    max-width: 9vmin;
+  }
