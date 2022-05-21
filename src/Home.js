@@ -9,7 +9,7 @@ import ResumePDF from './Resume.pdf'
 import { ReactComponent as DownArrow } from './downArrow.svg'
 import './App.css'
 import Projects from './components/Projects'
-// import Navbar from './components/Navbar'
+import Navbar from './components/Navbar'
 import Careers from './components/Careers'
 
 import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
@@ -87,16 +87,11 @@ function Home() {
   ]
 
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [navbarSize, setNavbarSize] = useState(0);
 
   const handleScroll = () => {
       const position = window.pageYOffset;
       setScrollPosition(position);
-
-      const size = Math.max(0.01*window.innerHeight, 0.5*window.innerHeight - position);
-      setNavbarSize(size);
   };
-
   // const handleResize = () => {
   //   const position = window.pageYOffset;
   //   const size = Math.max(0.01*window.innerHeight, 0.5*window.innerHeight - position);
@@ -118,21 +113,6 @@ function Home() {
         top: 0
     });
   };
-
-
-
-
-
-  // //opens a link in a new tab or changes pageNum
-  // const openInNewTab = (url) => {
-  //   if(isNaN(url)) {
-  //     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-  //     if (newWindow) newWindow.opener = null
-  //   }
-  //   else {
-  //     setPageNum(url)
-  //   }
-  // }
 
   return (
     <div class="page">
@@ -184,47 +164,9 @@ function Home() {
         </div>
       </div> :
       <div>
-        <nav class="topnav" style={{height: navbarSize}}>
-          <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>
-          <div class="contacts">
-            <a
-              href={ResumePDF}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <PageIcon class="contact"/>
-            </a>
-            <a
-              href="mailto:faelkerd@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <EmailIcon class="contact"/>
-            </a>
-            <a
-              href="https://github.com/dylanfaelker"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dylanfaelker/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.instagram.com/d_faelker/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon class="contact"/>
-            </a>
-          </div>
-          <h1 class="name first firstNameScroll">DYLAN</h1>
-        </nav>
+        <Navbar isToTop={true} />
+        <h1 class="name first firstNameScroll">DYLAN</h1>
+        <div class="upperLanding"></div>
         <div>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="scrollArrow disapear"/>

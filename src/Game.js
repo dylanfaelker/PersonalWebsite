@@ -23,6 +23,8 @@ import ResumePDF from './Resume.pdf'
 
 import { Link } from "react-router-dom"
 
+import Navbar from './components/Navbar'
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -1417,48 +1419,7 @@ class Game extends React.Component {
     return (
       <div className='page'>
 
-        <nav class="topnav">
-          <Link to="/" class="smallName appear">
-            <h4>DYLAN FAELKER</h4>
-          </Link>
-          <div class="contacts">
-            <a
-              href={ResumePDF}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <PageIcon class="contact"/>
-            </a>
-            <a
-              href="mailto:faelkerd@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <EmailIcon class="contact"/>
-            </a>
-            <a
-              href="https://github.com/dylanfaelker"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dylanfaelker/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.instagram.com/d_faelker/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon class="contact"/>
-            </a>
-          </div>
-        </nav>
+        <Navbar isToTop={false} />
         <div style={{height:'100px'}}></div>
 
         <div class="section">
