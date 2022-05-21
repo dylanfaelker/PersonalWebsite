@@ -108,12 +108,6 @@ function Home() {
       };
   }, []);
 
-  const goToTop = () => {
-    window.scrollTo({
-        top: 0
-    });
-  };
-
   return (
     <div class="page">
       {(scrollPosition <= 0) ?
