@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react'
 import profile from './ProfileCircle.png';
-import { ReactComponent as InstagramIcon } from './instagram.svg'
-import { ReactComponent as GithubIcon } from './github.svg'
-import { ReactComponent as EmailIcon } from './email.svg'
-import { ReactComponent as LinkedinIcon } from './linkedin.svg'
-import { ReactComponent as PageIcon } from './page.svg'
-import ResumePDF from './Resume.pdf'
 import { ReactComponent as DownArrow } from './downArrow.svg'
 import './App.css'
 import Projects from './components/Projects'
