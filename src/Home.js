@@ -11,6 +11,7 @@ import './App.css'
 import Projects from './components/Projects'
 import Navbar from './components/Navbar'
 import Careers from './components/Careers'
+import Contacts from './components/Contacts'
 
 import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
 import HobbyAdventureRun from './HobbyPics/AdventureRun.jpg'
@@ -113,43 +114,7 @@ function Home() {
       {(scrollPosition <= 0) ?
       <div>
         <div class="upperLanding">
-          <div class="contacts">
-            <a
-              href={ResumePDF}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <PageIcon class="contact"/>
-            </a>
-            <a
-              href="mailto:faelkerd@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <EmailIcon class="contact"/>
-            </a>
-            <a
-              href="https://github.com/dylanfaelker"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dylanfaelker/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIcon class="contact"/>
-            </a>
-            <a
-              href="https://www.instagram.com/d_faelker/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon class="contact"/>
-            </a>
-          </div>
+          <Contacts/>
           <h1 class="name first">DYLAN</h1>
         </div>
         <div class="lowerLanding">
