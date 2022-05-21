@@ -60,6 +60,9 @@ p {
   flex-direction: row !important;
   align-items: center;
 }
+.align-center {
+  align-items: center;
+}
 .text-left {
  text-align: left;
 }

@@ -16,11 +16,23 @@ import wpawn from './chessIcons/wpawn.png'
 import { ReactComponent as GithubIcon } from './github.svg'
 
 import Navbar from './components/Navbar'
+import Timeline from './components/Timeline'
 
 class Game_engine extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      //contains the version history
+      versions: [
+        {
+          id: 1,
+          title: "Jan 2022",
+          sub: "Rating: ~650\nMax depth: 1",
+          date: "Abbott V1.0-V1.1",
+        }
+      ],
+
       //contains info on each square for the current board
       //id is the square identifier: 1 is top right, 8 is top left, 64 is bottom right
       //square color doesnt actually do anything, im just too lazy to remove it from everywhere
@@ -1500,12 +1512,7 @@ class Game_engine extends React.Component {
           <header className='header'>
             <h2>HISTORY</h2>
           </header>
-          <div className='career'>
-            <p className='job-period'>Abbott V1.0-V1.1</p>
-            <p className='job-title'>Jan 2022</p>
-            <p className='job-location'>Rating: ~650</p>
-            <p className='job-location'>Max depth: 1</p>
-          </div>
+          <Timeline points={this.state.versions}/>
         </div>
 
         <div class="section">

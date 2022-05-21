@@ -58,25 +58,25 @@ function Home() {
     {
       id: 1,
       title: "SOFTWARE DEVELOPER",
-      location: "Idea Notion Development Inc",
+      sub: "Idea Notion Development Inc",
       date: "May 2022 - August 2022",
     },
     {
       id: 2,
       title: "LIFEGUARD/SWIM INSTRUCTOR",
-      location: "Town of Oakville",
+      sub: "Town of Oakville",
       date: "September 2019 - September 2021",
     },
     {
       id: 3,
       title: "SLIDE GUARD/CASHIER",
-      location: "Town of Oakville",
+      sub: "Town of Oakville",
       date: "September 2018 - September 2019",
     },
     {
       id: 4,
       title: "SOCCER REFEREE",
-      location: "Oakville Soccer Club",
+      sub: "Oakville Soccer Club",
       date: "June 2018 - August 2018",
     },
   ]
@@ -137,7 +137,7 @@ function Home() {
           <Projects 
             projects={projects}
           />
-          <Careers careers={careers} title={"CAREER"}/>
+          <Careers careers={careers}/>
           <div class='section'>
             <h2>HOBBIES</h2>
             <div class="flex-row">
