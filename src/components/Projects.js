@@ -3,9 +3,7 @@ import Project from './Project'
 const Projects = ({ projects, onHover, onClick}) => {
     return (
         <div className='section'>
-            <header className='header'>
-                <h2>Projects</h2>
-            </header>
+            <h2>PROJECTS</h2>
             {projects.map((project) => (
                 <Project
                     key={project.id} 

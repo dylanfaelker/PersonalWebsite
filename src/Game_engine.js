@@ -13,6 +13,15 @@ import wqueen from './chessIcons/wqueen.png'
 import bpawn from './chessIcons/bpawn.png'
 import wpawn from './chessIcons/wpawn.png'
 
+import { ReactComponent as InstagramIcon } from './instagram.svg'
+import { ReactComponent as GithubIcon } from './github.svg'
+import { ReactComponent as EmailIcon } from './email.svg'
+import { ReactComponent as LinkedinIcon } from './linkedin.svg'
+import { ReactComponent as PageIcon } from './page.svg'
+import ResumePDF from './Resume.pdf'
+
+import { Link } from "react-router-dom"
+
 class Game_engine extends React.Component {
   constructor(props) {
     super(props);
@@ -1419,57 +1428,142 @@ class Game_engine extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        {/*determines what to display above the board: will say whos turn or the result of the game */}
-        <h1 className='game-info'>{this.state.draw ? 'Draw' : (this.state.checkmate ? 'Checkmate!' : (this.state.stalemate ? 'Stalemate' : (this.state.turn ? 'White\'s Turn' : 'Black\'s Turn')))}</h1>
-        
-        {/* Promotion buttons which appear only when promoting */}
-        {this.state.promoting ? 
-          <div className='buttons'>
-            <button
-              onClick={() => this.pickPromotion(5)}
-              className='btn'
-            >
-              {'Queen'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(4)}
-              className='btn'
-            >
-              {'Rook'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(3)}
-              className='btn'
-            >
-              {'Knight'}
-            </button>
-            <button
-              onClick={() => this.pickPromotion(2)}
-              className='btn'
-            >
-              {'Bishop'}
-            </button>
-          </div> : <div></div>} 
+      <div className='page'>
 
-        <div className="game">
-          <Board 
-            //data about each square
-            squares={this.state.squares}
-            //function for what to do when a square is clicked on
-            onSelect={this.selecting.bind(this)}
-            //data for which moves are legal and should be highlighted
-            moves={this.state.moves}
-            //data for which square is selected
-            selectedNum={this.state.selectedPiece[1].id}
-            lastMove={this.state.lastmove}
-            wcheck={this.state.wcheck}
-            bcheck={this.state.bcheck}
-          />
+        <nav class="topnav">
+          <Link to="/" class="smallName appear">
+            <h4>DYLAN FAELKER</h4>
+          </Link>
+          <div class="contacts">
+            <a
+              href={ResumePDF}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PageIcon class="contact"/>
+            </a>
+            <a
+              href="mailto:faelkerd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon class="contact"/>
+            </a>
+            <a
+              href="https://github.com/dylanfaelker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dylanfaelker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="contact"/>
+            </a>
+            <a
+              href="https://www.instagram.com/d_faelker/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon class="contact"/>
+            </a>
+          </div>
+        </nav>
+        <div style={{height:'100px'}}></div>
+
+        <div class="section">
+          <div class="flex-row">
+            <h2>ABBOTT</h2>
+            <a href="https://github.com/dylanfaelker/Abbott-Chess-Engine" target="_blank" rel="noreferrer">
+              <GithubIcon class="contact-large"/>
+            </a>
+          </div>
         </div>
-        <p className='description'>
-          Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
-        </p>
+
+        <div class="section">
+          <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
+          
+          {this.state.promoting ? 
+            <div className='buttons'>
+              <button
+                onClick={() => this.pickPromotion(5)}
+                className='btn'
+              >
+                {'Queen'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(4)}
+                className='btn'
+              >
+                {'Rook'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(3)}
+                className='btn'
+              >
+                {'Knight'}
+              </button>
+              <button
+                onClick={() => this.pickPromotion(2)}
+                className='btn'
+              >
+                {'Bishop'}
+              </button>
+            </div> : <div></div>
+          } 
+
+          <div className="game">
+            <Board 
+              //data about each square
+              squares={this.state.squares}
+              //function for what to do when a square is clicked on
+              onSelect={this.selecting.bind(this)}
+              //data for which moves are legal and should be highlighted
+              moves={this.state.moves}
+              //data for which square is selected
+              selectedNum={this.state.selectedPiece[1].id}
+              lastMove={this.state.lastmove}
+              wcheck={this.state.wcheck}
+              bcheck={this.state.bcheck}
+            />
+          </div>
+          <p className='description'>
+            Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
+          </p>
+        </div>
+
+        <div className='section'>
+          <header className='header'>
+            <h2>ABOUT</h2>
+          </header>
+          <p>
+            This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
+          </p>
+          <br></br>
+          <p>
+            This is only version 1 (V1) and I plan to develop it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like improved ordering for alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
+          </p>
+          <br></br>
+          <p>
+            For now though, this is the only engine for Infinity Chess.
+          </p>
+        </div>
+
+        <div className='section'>
+          <header className='header'>
+            <h2>HISTORY</h2>
+          </header>
+          <div className='career'>
+            <p className='job-period'>––– Abbott V1.0-V1.1</p>
+            <p className='job-title'>Jan 2022</p>
+            <p className='job-location'>Rating: ~650</p>
+            <p className='job-location'>Max depth: 1</p>
+          </div>
+        </div>
+
       </div>
     );
   }
