@@ -1,6 +1,6 @@
 import React from 'react'
 
-const career = ({ career }) => {
+const career = ({ career, length }) => {
     return (
         <div>
             {(career.id % 2 === 0) ?
@@ -12,7 +12,9 @@ const career = ({ career }) => {
                 </div>
                 <div class="timeline flex-column">
                     <div class="doughnut"></div>
-                    <div class="line"></div>
+                    {career.id === length ?
+                    <div class="line-end"></div> :
+                    <div class="line"></div>}
                 </div>
                 <div class="spacer"></div>
             </div> :
