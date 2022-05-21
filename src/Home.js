@@ -119,7 +119,7 @@ function Home() {
       <div>
         <Navbar isToTop={true} />
         <h1 class="name first firstNameScroll">DYLAN</h1>
-        <div class="upperLanding"></div>
+        <div class="upperLandingScroll"></div>
         <div>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="scrollArrow disapear"/>

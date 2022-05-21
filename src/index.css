@@ -80,6 +80,11 @@ p {
   height: 50vh;
   width: 100%;
 }
+.upperLandingScroll {
+  background: var(--neutral);
+  height: calc(50vh - 72px);
+  width: 100%;
+}
 
 .lowerLanding {
   background: var(--mainColor);
@@ -168,7 +173,12 @@ p {
   width: 60px;
   margin-left: 25%;
 }
-.contact:hover, .contact-large:hover {
+.github-link { 
+  fill: var(--mainColorLight);
+  height: 100px;
+  width: 100px;
+}
+.contact:hover, .contact-large:hover, .github-link:hover {
   fill: var(--highlight);
 }
 
@@ -200,7 +210,7 @@ p {
 .topnav {
   background: var(--neutral);
   width: 100vw;
-  min-height: 72px;
+  height: 72px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -208,6 +218,10 @@ p {
   position:fixed;
   top: 0;
   z-index:1000;
+}
+
+.nav-spacer {
+  height: 72px; /* same as navbar */
 }
 
 .disapear {
@@ -276,6 +290,22 @@ p {
   position: fixed;
   top: 15px;
   left: calc(1vw + 4px);
+  z-index:1001;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--secondaryColor);
+
+  text-decoration: none;
+
+  position: fixed;
+  top: 15px;
+  left:50%;
+  transform: translate(-50%,0);
   z-index:1001;
 }
 

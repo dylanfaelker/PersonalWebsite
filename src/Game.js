@@ -1415,7 +1415,6 @@ class Game extends React.Component {
       <div className='page'>
 
         <Navbar isToTop={false} pageTitle={"INFINITY CHESS"}/>
-        <div style={{height:'100px'}}></div>
 
         <div className='section'>
           <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
@@ -1507,7 +1506,7 @@ class Game extends React.Component {
             I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a chess bot.
           </p>
         </div>
-        
+
         <div class="section">
           <a
             href="https://github.com/dylanfaelker/Infinity-Chess"

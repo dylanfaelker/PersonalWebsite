@@ -1426,7 +1426,6 @@ class Game_engine extends React.Component {
       <div className='page'>
 
         <Navbar isToTop={false} pageTitle={"ABBOTT"}/>
-        <div style={{height:'100px'}}></div>
 
         <div class="section">
           <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
