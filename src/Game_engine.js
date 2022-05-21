@@ -1425,17 +1425,8 @@ class Game_engine extends React.Component {
     return (
       <div className='page'>
 
-        <Navbar isToTop={false} />
+        <Navbar isToTop={false} pageTitle={"ABBOTT"}/>
         <div style={{height:'100px'}}></div>
-
-        <div class="section">
-          <div class="flex-row">
-            <h2>ABBOTT</h2>
-            <a href="https://github.com/dylanfaelker/Abbott-Chess-Engine" target="_blank" rel="noreferrer">
-              <GithubIcon class="contact-large"/>
-            </a>
-          </div>
-        </div>
 
         <div class="section">
           <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
@@ -1516,6 +1507,16 @@ class Game_engine extends React.Component {
             <p className='job-location'>Rating: ~650</p>
             <p className='job-location'>Max depth: 1</p>
           </div>
+        </div>
+
+        <div class="section">
+          <a
+            href="https://github.com/dylanfaelker/Abbott-Chess-Engine"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon class="github-link"/>
+          </a>
         </div>
 
       </div>

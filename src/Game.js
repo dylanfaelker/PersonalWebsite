@@ -1414,17 +1414,8 @@ class Game extends React.Component {
     return (
       <div className='page'>
 
-        <Navbar isToTop={false} />
+        <Navbar isToTop={false} pageTitle={"INFINITY CHESS"}/>
         <div style={{height:'100px'}}></div>
-
-        <div class="section">
-          <div class="flex-row">
-            <h2>INFINITY CHESS</h2>
-            <a href="https://github.com/dylanfaelker/Infinity-Chess" target="_blank" rel="noreferrer">
-              <GithubIcon class="contact-large"/>
-            </a>
-          </div>
-        </div>
 
         <div className='section'>
           <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
@@ -1481,8 +1472,6 @@ class Game extends React.Component {
         </div>
 
         <div className='section'>
-          
-
           <h2>RULES</h2>
           <p className='description'>
             Pieces all move the same as normal chess including enpassent and castling. The only change is, like Pacman, if you go off one side of the board, you will appear on the other.
@@ -1517,6 +1506,16 @@ class Game extends React.Component {
           <p className='description'>
             I eventually decided to give it another go in React.js since I was working on resumes and a personal website when I realised I did not have many interesting side projects. I was already using React.js for my website and it seemed a lot easier to get working. I have since finished this project and I'm now working on a chess bot.
           </p>
+        </div>
+        
+        <div class="section">
+          <a
+            href="https://github.com/dylanfaelker/Infinity-Chess"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon class="github-link"/>
+          </a>
         </div>
       </div>
     );
