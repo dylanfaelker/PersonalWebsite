@@ -13,14 +13,7 @@ import wqueen from './chessIcons/wqueen.png'
 import bpawn from './chessIcons/bpawn.png'
 import wpawn from './chessIcons/wpawn.png'
 
-import { ReactComponent as InstagramIcon } from './instagram.svg'
 import { ReactComponent as GithubIcon } from './github.svg'
-import { ReactComponent as EmailIcon } from './email.svg'
-import { ReactComponent as LinkedinIcon } from './linkedin.svg'
-import { ReactComponent as PageIcon } from './page.svg'
-import ResumePDF from './Resume.pdf'
-
-import { Link } from "react-router-dom"
 
 import Navbar from './components/Navbar'
 
