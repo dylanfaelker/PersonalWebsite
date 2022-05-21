@@ -10,16 +10,19 @@ const Navbar = ({ isToTop, pageTitle }) => {
     };
 
     return (
-        <nav class="topnav">
-            {isToTop ?
-                <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>:
-                <Link to="/" class="smallName">
-                    <h4 onClick={goToTop}>DYLAN FAELKER</h4>
-                </Link>
-            }
-            <h4 class="page-title">{pageTitle}</h4>
-            <Contacts/>
-        </nav>
+        <div>
+            <nav class="topnav">
+                {isToTop ?
+                    <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>:
+                    <Link to="/" class="smallName">
+                        <h4 onClick={goToTop}>DYLAN FAELKER</h4>
+                    </Link>
+                }
+                <h4 class="page-title">{pageTitle}</h4>
+                <Contacts/>
+            </nav>
+            <div class='nav-spacer'></div>
+        </div>
     )
 }
 
