@@ -132,7 +132,7 @@ function Home() {
             <br></br>
             <p>In high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.</p>
             <br></br>
-            <p>I am also inspired by the growth of fintech and look forawrd to opportunities to bring my knowledge of computing and financial management to use.</p>
+            <p>I am also inspired by the growth of fintech and look forward to opportunities to bring my knowledge of computing and financial management to use.</p>
           </div>
           <Projects 
             projects={projects}
