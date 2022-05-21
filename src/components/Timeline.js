@@ -1,0 +1,20 @@
+import React from 'react'
+import Timepoint from './Timepoint'
+
+const Timeline = ({ points }) => {
+    return (
+        <div class='flex-col align-center'>
+            <div class="timeline-start">
+                <div class="line-start"></div>
+            </div>
+            {points.map((point) => (
+                <Timepoint
+                    point={point}
+                    length={points.length}
+                />
+            ))}
+        </div>
+    )
+}
+
+export default Timeline
