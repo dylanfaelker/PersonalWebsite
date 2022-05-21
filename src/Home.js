@@ -9,12 +9,7 @@ import ResumePDF from './Resume.pdf'
 import { ReactComponent as DownArrow } from './downArrow.svg'
 import './App.css'
 import Projects from './components/Projects'
-import Contacts from './components/Contacts'
-import Game from './Game'
-import GameEngine from './Game_engine'
-import Navbar from './components/Navbar'
-import Project from './components/Project'
-import Contact from './components/Contact'
+// import Navbar from './components/Navbar'
 import Careers from './components/Careers'
 
 import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
@@ -25,7 +20,7 @@ import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
 import HobbySantaRun from './HobbyPics/SantaRun.png'
 
 function Home() {
-  const [projects, setProjects] = useState([   
+  const [projects] = useState([   
     {
       id: 1,
       name: <h3>Infinity Chess + Chess AI (Abbott)</h3>,
@@ -44,7 +39,7 @@ function Home() {
     {
       id: 3,
       name: <h3>Personal Website</h3>,
-      desc: "What you are currently looking at. \n \n Languages and Libraries: React.js",
+      desc: "What you are currently looking at. \n \n Designed with Figma. Languages and Libraries: React.js",
       display: true,
       link: 'https://github.com/dylpykill/PersonalWebsite'
     },
@@ -62,55 +57,6 @@ function Home() {
       display: true,
       link: 'https://github.com/dylpykill/Santa-s-Elf'
     },
-  ])
-
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      icon: <InstagramIcon style={{fill:'#366BA8'}}/>,
-      iconHighlight: <InstagramIcon style={{fill:'#42afb0'}}/>,
-      writting: <p className='contact'>@d_faelker</p>,
-      link: "https://www.instagram.com/d_faelker/?hl=en"
-    },
-    {
-      id: 2,
-      icon: <GithubIcon style={{fill:'#366BA8'}}/>,
-      iconHighlight: <GithubIcon style={{fill:'#42afb0'}}/>,
-      writting: <p className='contact'>Dylan Faelker</p>,
-      link: "mailto:faelkerd@gmail.com"
-    },
-    {
-      id: 3,
-      icon: <EmailIcon style={{fill:'#366BA8'}}/>,
-      iconHighlight: <EmailIcon style={{fill:'#42afb0'}}/>,
-      writting: <p className='contact'>faelkerd@gmail.com</p>,
-      link: "https://github.com/dylpykill"
-    },
-    {
-      id: 4,
-      icon: <LinkedinIcon style={{fill:'#366BA8'}}/>,
-      iconHighlight: <LinkedinIcon style={{fill:'#42afb0'}}/>,
-      writting: <p className='contact'>Dylan Faelker</p>,
-      link: "https://www.linkedin.com/in/dylanfaelker/"
-    },
-  ])
-
-  const [navs, setNavs] = useState([
-    {
-      id:1,
-      name:<h3>Home</h3>,
-      link:0,
-    },
-    {
-      id:2,
-      name:<h3>About</h3>,
-      link:1,
-    },
-    {
-      id:3,
-      name:<h3>Infinity Chess</h3>,
-      link:2,
-    }
   ])
 
   const careers = [
@@ -140,45 +86,8 @@ function Home() {
     },
   ]
 
-  //0=home, 1=about, 2=infinitychess, 3=infinitychess(engine)
-  const [pageNum, setPageNum] = useState(0)
-
-  //Show description
-  const showDesc = (id, display) => (
-    setProjects(
-      projects.map((project) => 
-        project.id === id ? 
-          {...project, display:display} : 
-          project
-      )
-    )
-  )
-
-  const highlightContact =  (id, hover) => (
-    setContacts(
-      contacts.map((contact) => 
-        contact.id === id ? 
-          {...contact, hover:hover} : 
-          contact
-      )
-    )
-  )
-
-  const highlightNav =  (id, hover) => (
-    setNavs(
-      navs.map((nav) => 
-        nav.id === id ? 
-          {...nav, hover:hover} : 
-          nav
-      )
-    )
-  )
-
   const [scrollPosition, setScrollPosition] = useState(0);
   const [navbarSize, setNavbarSize] = useState(0);
-  const navstyle = {
-    height: navbarSize
-  }
 
   const handleScroll = () => {
       const position = window.pageYOffset;
@@ -188,11 +97,11 @@ function Home() {
       setNavbarSize(size);
   };
 
-  const handleResize = () => {
-    const position = window.pageYOffset;
-    const size = Math.max(0.01*window.innerHeight, 0.5*window.innerHeight - position);
-    setNavbarSize(size);
-  };
+  // const handleResize = () => {
+  //   const position = window.pageYOffset;
+  //   const size = Math.max(0.01*window.innerHeight, 0.5*window.innerHeight - position);
+  //   setNavbarSize(size);
+  // };
 
   useEffect(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
@@ -214,16 +123,16 @@ function Home() {
 
 
 
-  //opens a link in a new tab or changes pageNum
-  const openInNewTab = (url) => {
-    if(isNaN(url)) {
-      const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-      if (newWindow) newWindow.opener = null
-    }
-    else {
-      setPageNum(url)
-    }
-  }
+  // //opens a link in a new tab or changes pageNum
+  // const openInNewTab = (url) => {
+  //   if(isNaN(url)) {
+  //     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+  //     if (newWindow) newWindow.opener = null
+  //   }
+  //   else {
+  //     setPageNum(url)
+  //   }
+  // }
 
   return (
     <div class="page">
@@ -332,8 +241,6 @@ function Home() {
           </div>
           <Projects 
             projects={projects}
-            onHover={showDesc}
-            onClick={openInNewTab}
           />
           <Careers careers={careers}/>
           <div class='section'>
@@ -344,8 +251,8 @@ function Home() {
                 <img src={HobbyAdventureRun} alt="Running an Adventure Run" class="hobby-pic"/>
                 <img src={HobbyCityBike} alt="Riding a bike in a city" class="hobby-pic"/>
                 <img src={HobbyNiagaraBike} alt="Bike a Niagara Falls" class="hobby-pic"/>
-                <img src={HobbyOFSAA} alt="Group photo at OFSAA" class="hobby-pic"/>
-                <img src={HobbySantaRun} alt="Group photo at Santa race" class="hobby-pic"/>
+                <img src={HobbyOFSAA} alt="Group pic at OFSAA" class="hobby-pic"/>
+                <img src={HobbySantaRun} alt="Group pic at Santa race" class="hobby-pic"/>
               </div>
               <div class="hobbies">
                 <p>

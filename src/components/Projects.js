@@ -1,6 +1,6 @@
 import Project from './Project'
 
-const Projects = ({ projects, onHover, onClick}) => {
+const Projects = ({ projects }) => {
     return (
         <div className='section'>
             <h2>PROJECTS</h2>
@@ -8,8 +8,6 @@ const Projects = ({ projects, onHover, onClick}) => {
                 <Project
                     key={project.id} 
                     project={project}
-                    onHover={onHover}
-                    onClick={onClick}
                 />
             ))}
         </div>

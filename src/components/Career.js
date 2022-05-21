@@ -3,7 +3,7 @@ import React from 'react'
 const career = ({ career }) => {
     return (
         <div>
-            {(career.id % 2 == 0) ?
+            {(career.id % 2 === 0) ?
             <div class="career-point">
                 <div class='job'>
                     <p class='job-period text-right'>{career.date}</p>
