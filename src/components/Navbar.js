@@ -1,6 +1,7 @@
 import React from 'react'
 import Contacts from './Contacts'
 import { Link } from "react-router-dom"
+import '../Navbar.css'
 
 const Navbar = ({ isToTop, pageTitle }) => {
     const goToTop = () => {

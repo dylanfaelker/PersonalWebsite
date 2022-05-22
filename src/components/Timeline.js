@@ -1,5 +1,6 @@
 import React from 'react'
 import Timepoint from './Timepoint'
+import '../Timeline.css'
 
 const Timeline = ({ points }) => {
     return (
