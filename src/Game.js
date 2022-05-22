@@ -1,5 +1,6 @@
 import React from 'react'
 import './Game.css'
+import './Contacts.css'
 import Board from './components/Board'
 import bbishop from './chessIcons/bbishop.png'
 import wbishop from './chessIcons/wbishop.png'

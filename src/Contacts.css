@@ -1,0 +1,35 @@
+.contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 30px;
+    width: calc((8px + 30px) * 4);
+
+    position: fixed;
+    right: 2vw;
+    top: 19px;
+    z-index:1001;
+}
+
+.contact { 
+    fill: var(--mainColorLight);
+    height: 30px;
+    width: 30px;
+
+    margin-right: 3px;
+    margin-left: 10px;
+}
+.contact-large { 
+    fill: var(--mainColorLight);
+    height: 60px;
+    width: 60px;
+    margin-left: 25%;
+}
+.github-link { 
+    fill: var(--mainColorLight);
+    height: 100px;
+    width: 100px;
+}
+.contact:hover, .contact-large:hover, .github-link:hover {
+    fill: var(--highlight);
+}

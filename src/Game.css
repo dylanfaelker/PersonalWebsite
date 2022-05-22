@@ -36,18 +36,6 @@
 .engine-button:hover {
     color: var(--mainColor);
 }
-
-.link-to-github {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    font-size: calc(10px+3vmin);
-    color: #cfbc5e;
-    text-decoration: none;
-  }
   
   .game {
     margin-right: 20vmin;

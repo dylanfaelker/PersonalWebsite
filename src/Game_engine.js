@@ -18,6 +18,8 @@ import { ReactComponent as GithubIcon } from './github.svg'
 import Navbar from './components/Navbar'
 import Timeline from './components/Timeline'
 
+import './Contacts.css'
+
 class Game_engine extends React.Component {
   constructor(props) {
     super(props);

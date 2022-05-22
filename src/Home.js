@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import profile from './ProfileCircle.png';
 import { ReactComponent as DownArrow } from './downArrow.svg'
-import './App.css'
 import Projects from './components/Projects'
 import Navbar from './components/Navbar'
 import Careers from './components/Careers'
 import Contacts from './components/Contacts'
+
+import './Home.css'
+import './Contacts.css'
 
 import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
 import HobbyAdventureRun from './HobbyPics/AdventureRun.jpg'
@@ -122,7 +124,7 @@ function Home() {
         <div class="upperLandingScroll"></div>
         <div>
           <h1 class="name last lastNameScroll">FAELKER</h1>
-          <DownArrow class="scrollArrow disapear"/>
+          <DownArrow class="disapear scrollArrow"/>
         </div>
         <div class="main">
           <div class="section">
