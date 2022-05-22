@@ -30,7 +30,7 @@
 .first {
   color: var(--secondaryColor);
   position: fixed;
-  bottom: 51vh;
+  bottom: 51%;
   line-height: 0.74em;
 
   animation: enterFirst var(--scrollTime) ease-out;
