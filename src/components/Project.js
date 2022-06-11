@@ -8,7 +8,7 @@ const Project = ({ project }) => {
                 {project.name}
             </a>:
             <Link to={project.inLink} class="project" data-description={project.desc}>
-                {project.name}
+                <h3>{project.name}</h3>
             </Link>}
         </div>
     )

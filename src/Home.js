@@ -20,7 +20,7 @@ function Home() {
   const [projects] = useState([   
     {
       id: 1,
-      name: <h3>Infinity Chess + Chess AI (Abbott)</h3>,
+      name: "Infinity Chess + Chess AI (Abbott)",
       desc: "A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I have also made an engine so it can be played on this website, however it is weak. \n \n Languages and Libraries: React.js",
       display: true,
       link: null,
@@ -28,28 +28,28 @@ function Home() {
     },
     {
       id: 2,
-      name: <h3>Stock Porfolio Creater</h3>,
+      name: "Stock Porfolio Creater",
       desc: "Creates an investment portfolio of ten SP500 stocks that is considered risky. It uses data analytics with panda's and numpy to ensure a risky portfolio is chosen. \n \n Languages and Libraries: Python, Numpy, Pandas, YFinance",
       display: true,
       link: 'https://github.com/dylpykill/StockPortfolioCreater',
     },
     {
       id: 3,
-      name: <h3>Personal Website</h3>,
+      name: "Personal Website",
       desc: "What you are currently looking at. \n \n Designed with Figma. Languages and Libraries: React.js",
       display: true,
       link: 'https://github.com/dylpykill/PersonalWebsite'
     },
     {
       id: 4,
-      name: <h3>FEN Decoder</h3>,
+      name: "FEN Decoder",
       desc: "FEN (Forsyth–Edwards Notation) is a chess notation used by computers to easily understand a position. To humans, it can be difficult to quickly recognize what is happening. This program parses the FEN chess notation into a visual chess board. \n \n Languages and Libraries: Java",
       display: true,
       link: 'https://github.com/dylpykill/FENDecoder'
     },
     {
       id: 5,
-      name: <h3>Santa's Elf (Incomplete)</h3>,
+      name: "Santa's Elf (Incomplete)",
       desc: "A discord bot that will organise secret Santa without the need for a human organiser making it quicker and easier to arrange. \n \n Languages and Libraries: Python, Discord Bot API",
       display: true,
       link: 'https://github.com/dylpykill/Santa-s-Elf'
@@ -58,25 +58,25 @@ function Home() {
 
   const careers = [
     {
-      id: 1,
+      id: 4,
       title: "SOFTWARE DEVELOPER",
       sub: "Idea Notion Development Inc",
       date: "May 2022 - August 2022",
     },
     {
-      id: 2,
+      id: 3,
       title: "LIFEGUARD/SWIM INSTRUCTOR",
       sub: "Town of Oakville",
       date: "September 2019 - September 2021",
     },
     {
-      id: 3,
+      id: 2,
       title: "SLIDE GUARD/CASHIER",
       sub: "Town of Oakville",
       date: "September 2018 - September 2019",
     },
     {
-      id: 4,
+      id: 1,
       title: "SOCCER REFEREE",
       sub: "Oakville Soccer Club",
       date: "June 2018 - August 2018",
