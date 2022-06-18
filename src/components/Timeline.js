@@ -10,6 +10,7 @@ const Timeline = ({ points }) => {
             </div>
             {points.map((point) => (
                 <Timepoint
+                    key={point.id} 
                     point={point}
                     length={points.length}
                 />
