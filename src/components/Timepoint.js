@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Timepoint = ({ point, length }) => {
+    point.date = point.date.replaceAll('\\n', '\n');
+    point.title = point.title.replaceAll('\\n', '\n');
+    point.sub = point.sub.replaceAll('\\n', '\n');
     return (
         <div>
             {(point.id % 2 === 0) ?

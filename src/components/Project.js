@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 
 const Project = ({ project }) => {
+    project.desc = project.desc.replaceAll('\\n', '\n');
+    project.name = project.name.replaceAll('\\n', '\n');
     return (
         <div>
             {project.link ?
@@ -8,7 +10,7 @@ const Project = ({ project }) => {
                 {project.name}
             </a>:
             <Link to={project.inLink} class="project" data-description={project.desc}>
-                <h3>{project.name}</h3>
+                {project.name}
             </Link>}
         </div>
     )
