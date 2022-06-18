@@ -16,72 +16,11 @@ import HobbyNiagaraBike from './HobbyPics/NiagaraBike.jpg'
 import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
 import HobbySantaRun from './HobbyPics/SantaRun.png'
 
-function Home() {
-  const [projects] = useState([   
-    {
-      id: 1,
-      name: "Infinity Chess + Chess AI (Abbott)",
-      desc: "A game which extends upon the traditional chess experience by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess. I have also made an engine so it can be played on this website, however it is weak. \n \n Languages and Libraries: React.js",
-      display: true,
-      link: null,
-      inLink: "/InfinityChess",
-    },
-    {
-      id: 2,
-      name: "Stock Porfolio Creater",
-      desc: "Creates an investment portfolio of ten SP500 stocks that is considered risky. It uses data analytics with panda's and numpy to ensure a risky portfolio is chosen. \n \n Languages and Libraries: Python, Numpy, Pandas, YFinance",
-      display: true,
-      link: 'https://github.com/dylpykill/StockPortfolioCreater',
-    },
-    {
-      id: 3,
-      name: "Personal Website",
-      desc: "What you are currently looking at. \n \n Designed with Figma. Languages and Libraries: React.js",
-      display: true,
-      link: 'https://github.com/dylpykill/PersonalWebsite'
-    },
-    {
-      id: 4,
-      name: "FEN Decoder",
-      desc: "FEN (Forsyth–Edwards Notation) is a chess notation used by computers to easily understand a position. To humans, it can be difficult to quickly recognize what is happening. This program parses the FEN chess notation into a visual chess board. \n \n Languages and Libraries: Java",
-      display: true,
-      link: 'https://github.com/dylpykill/FENDecoder'
-    },
-    {
-      id: 5,
-      name: "Santa's Elf (Incomplete)",
-      desc: "A discord bot that will organise secret Santa without the need for a human organiser making it quicker and easier to arrange. \n \n Languages and Libraries: Python, Discord Bot API",
-      display: true,
-      link: 'https://github.com/dylpykill/Santa-s-Elf'
-    },
-  ])
+import db from './firebaseConnection.js'
+import { query, where, orderBy, collection } from 'firebase/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 
-  const careers = [
-    {
-      id: 4,
-      title: "SOFTWARE DEVELOPER",
-      sub: "Idea Notion Development Inc",
-      date: "May 2022 - August 2022",
-    },
-    {
-      id: 3,
-      title: "LIFEGUARD/SWIM INSTRUCTOR",
-      sub: "Town of Oakville",
-      date: "September 2019 - September 2021",
-    },
-    {
-      id: 2,
-      title: "SLIDE GUARD/CASHIER",
-      sub: "Town of Oakville",
-      date: "September 2018 - September 2019",
-    },
-    {
-      id: 1,
-      title: "SOCCER REFEREE",
-      sub: "Oakville Soccer Club",
-      date: "June 2018 - August 2018",
-    },
-  ]
+function Home() {
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -103,7 +42,7 @@ function Home() {
           window.removeEventListener('scroll', handleScroll);
           window.removeEventListener('resize', handleScroll);
       };
-  }, []);
+  });
 
   return (
     <div class="page">
@@ -136,10 +75,8 @@ function Home() {
             <br></br>
             <p>I am also inspired by the growth of fintech and look forward to opportunities to bring my knowledge of computing and financial management to use.</p>
           </div>
-          <Projects 
-            projects={projects}
-          />
-          <Careers careers={careers}/>
+          <ProjectsDatabase/>
+          <CareersDatabase/>
           <div class='section'>
             <h2>HOBBIES</h2>
             <div class="flex-row">
@@ -173,6 +110,38 @@ function Home() {
       </div>}
     </div>
   );
+}
+
+// Gets the Timeline for the bot's history from the database
+function CareersDatabase() {
+  const careerQuery = query(collection(db, 'careers'), orderBy('id', 'desc'));
+  const [careers, loading, error] = useCollectionData(careerQuery, {idField: 'id'});
+
+  if (loading) {
+      return (
+          <p>Loading</p>
+      )
+  } else {
+      return (
+        <Careers careers={careers}/>
+      )
+  }
+}
+
+// Gets the Timeline for the bot's history from the database
+function ProjectsDatabase() {
+  const projectQuery = query(collection(db, 'projects'), orderBy('id', 'asc'));
+  const [projects, loading, error] = useCollectionData(projectQuery, {idField: 'id'});
+
+  if (loading) {
+      return (
+          <p>Loading</p>
+      )
+  } else {
+      return (
+        <Projects projects={projects}/>
+      )
+  }
 }
 
 export default Home;

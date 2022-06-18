@@ -20,20 +20,15 @@ import Timeline from './components/Timeline'
 
 import './Contacts.css'
 
+import db from './firebaseConnection.js'
+import { query, where, orderBy, collection } from 'firebase/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
 class Game_engine extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-
-      //contains the version history
-      versions: [
-        {
-          id: 1,
-          title: "Jan 2022",
-          sub: "Rating: ~650\nMax depth: 1",
-          date: "Abbott V1.0-V1.1",
-        }
-      ],
 
       //contains info on each square for the current board
       //id is the square identifier: 1 is top right, 8 is top left, 64 is bottom right
@@ -1514,7 +1509,7 @@ class Game_engine extends React.Component {
           <header className='header'>
             <h2>HISTORY</h2>
           </header>
-          <Timeline points={this.state.versions}/>
+          <EngineHistoryDatabase/>
         </div>
 
         <div class="section">
@@ -1790,6 +1785,22 @@ class Game_engine extends React.Component {
       this.setState({ draw:true })
     }
   }
+}
+
+// Gets the Timeline for the bot's history from the database
+function EngineHistoryDatabase() {
+    const versionQuery = query(collection(db, 'versions'), orderBy('id', 'asc'));
+    const [versions, loading, error] = useCollectionData(versionQuery, {idField: 'id'});
+
+    if (loading) {
+        return (
+            <p>Loading</p>
+        )
+    } else {
+        return (
+            <Timeline points={versions}/>
+        )
+    }
 }
 
 // ***************** Chess Engine ******************
