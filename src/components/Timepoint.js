@@ -12,7 +12,7 @@ const Timepoint = ({ point, length }) => {
                 </div>
                 <div class="timeline">
                     <div class="doughnut"></div>
-                    {point.id === length ?
+                    {point.id === 1 ?
                     <div class="line-end"></div> :
                     <div class="line"></div>}
                 </div>
@@ -22,7 +22,7 @@ const Timepoint = ({ point, length }) => {
                 <div class="spacer"></div>
                 <div class="timeline">
                     <div class="doughnut"></div>
-                    {point.id === length ?
+                    {point.id === 1 ?
                     <div class="line-end"></div> :
                     <div class="line"></div>}
                 </div>
