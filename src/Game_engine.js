@@ -21,7 +21,7 @@ import Timeline from './components/Timeline'
 import './Contacts.css'
 
 import db from './firebaseConnection.js'
-import { query, where, orderBy, collection } from 'firebase/firestore';
+import { query, orderBy, collection } from 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 class Game_engine extends React.Component {
@@ -1790,7 +1790,7 @@ class Game_engine extends React.Component {
 // Gets the Timeline for the bot's history from the database
 function EngineHistoryDatabase() {
     const versionQuery = query(collection(db, 'versions'), orderBy('id', 'asc'));
-    const [versions, loading, error] = useCollectionData(versionQuery, {idField: 'id'});
+    const [versions, loading] = useCollectionData(versionQuery, {idField: 'id'});
 
     if (loading) {
         return (

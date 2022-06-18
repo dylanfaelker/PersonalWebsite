@@ -17,7 +17,7 @@ import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
 import HobbySantaRun from './HobbyPics/SantaRun.png'
 
 import db from './firebaseConnection.js'
-import { query, where, orderBy, collection } from 'firebase/firestore';
+import { query, orderBy, collection } from 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 function Home() {
@@ -115,7 +115,7 @@ function Home() {
 // Gets the Timeline for the bot's history from the database
 function CareersDatabase() {
   const careerQuery = query(collection(db, 'careers'), orderBy('id', 'desc'));
-  const [careers, loading, error] = useCollectionData(careerQuery, {idField: 'id'});
+  const [careers, loading] = useCollectionData(careerQuery, {idField: 'id'});
 
   if (loading) {
       return (
@@ -131,7 +131,7 @@ function CareersDatabase() {
 // Gets the Timeline for the bot's history from the database
 function ProjectsDatabase() {
   const projectQuery = query(collection(db, 'projects'), orderBy('id', 'asc'));
-  const [projects, loading, error] = useCollectionData(projectQuery, {idField: 'id'});
+  const [projects, loading] = useCollectionData(projectQuery, {idField: 'id'});
 
   if (loading) {
       return (
