@@ -225,21 +225,16 @@
     }
 }
 
-.hobby-pic {
-    max-width: clamp(100px, 10vw, 10vw);
-    /* TODO make it so photos are 2rows on tablet and under desc on phone */
+.hobbies {
+    width: 100%;
+    justify-content: center;
 }
 
-.photo-gallery {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 1vh 2vw;
-    width: 37vw;
+.hobbies div {
+    width: 45%;
 }
 
 .hobbies p {
     margin-left: 0;
     margin-right: 0;
-    width: 50vw;
 }

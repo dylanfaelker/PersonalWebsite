@@ -1,0 +1,20 @@
+.photo-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    width: 40vw !important;
+    height: 40vw !important;
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%
+}

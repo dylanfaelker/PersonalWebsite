@@ -5,16 +5,10 @@ import Projects from './components/Projects'
 import Navbar from './components/Navbar'
 import Careers from './components/Careers'
 import Contacts from './components/Contacts'
+import PhotoGallery from './components/PhotoGallery'
 
 import './Home.css'
 import './Contacts.css'
-
-import Hobby10kmRun from './HobbyPics/10kmRun.jpg'
-import HobbyAdventureRun from './HobbyPics/AdventureRun.jpg'
-import HobbyCityBike from './HobbyPics/CityBike.jpg'
-import HobbyNiagaraBike from './HobbyPics/NiagaraBike.jpg'
-import HobbyOFSAA from './HobbyPics/OFSAA.jpg'
-import HobbySantaRun from './HobbyPics/SantaRun.png'
 
 import db from './firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
@@ -79,16 +73,11 @@ function Home() {
           <CareersDatabase/>
           <div class='section'>
             <h2>HOBBIES</h2>
-            <div class="flex-row">
-              <div class="photo-gallery">
-                <img src={Hobby10kmRun} alt="Running a 10km" class="hobby-pic"/>
-                <img src={HobbyAdventureRun} alt="Running an Adventure Run" class="hobby-pic"/>
-                <img src={HobbyCityBike} alt="Riding a bike in a city" class="hobby-pic"/>
-                <img src={HobbyNiagaraBike} alt="Bike a Niagara Falls" class="hobby-pic"/>
-                <img src={HobbyOFSAA} alt="Group pic at OFSAA" class="hobby-pic"/>
-                <img src={HobbySantaRun} alt="Group pic at Santa race" class="hobby-pic"/>
+            <div class="flex-row hobbies">
+              <div>
+                <PhotoGallery/>
               </div>
-              <div class="hobbies">
+              <div>
                 <p>
                   Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
                   In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
