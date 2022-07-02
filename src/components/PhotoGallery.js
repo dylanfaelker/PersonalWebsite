@@ -23,7 +23,7 @@ export default function PhotoGallery() {
 
     return (
         <div class="photo-gallery fill">
-            <img src={currentImage} class="hobby-pic"/>
+            <img src={currentImage} class="hobby-pic" alt="pciture of hobby"/>
         </div>
     )
 }
