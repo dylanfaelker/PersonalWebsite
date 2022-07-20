@@ -14,7 +14,7 @@
 
 .graph-title-wrapper {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     margin: 24px;
     margin-bottom: 0px;
@@ -98,7 +98,7 @@
 
 .stats-group-wrapper-wrapper {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     margin: 24px 24px 0px;
 }
 

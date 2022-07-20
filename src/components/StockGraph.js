@@ -33,80 +33,78 @@ function StockGraph(props) {
   // Measures how much percent it outpreforms the market
   const [compareToSP500, setCompareToSP500] = useState();
 
-  useEffect(() => {
-    fetch("./stocks.json", {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(jsondata => {
-      let numDates = Object.keys(jsondata).length;
+  fetch("./stocks.json", {
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(jsondata => {
+    let numDates = Object.keys(jsondata).length;
 
-      let array = new Array(numDates);
-      let i = 0;
-      for (var key in jsondata) {
-        array[i] = {
-          x: key,
-          y: jsondata[key]['Total Value']
-        };
-        i++;
-      }
-      setRiskyData(array);
-      series[0]['data'] = array;
+    let array = new Array(numDates);
+    let i = 0;
+    for (var key in jsondata) {
+      array[i] = {
+        x: key,
+        y: jsondata[key]['Total Value']
+      };
+      i++;
+    }
+    setRiskyData(array);
+    series[0]['data'] = array;
 
-      setSeries([
-        {
-          data: getTimeIntervalData(timeLength, array),
-          name: "Risky Portfolio"
-        },
-        {
-          data: series[1]['data'],
-          name: series[1]['name']
-        }
-      ]);
-      setRiskyValue(series[0].data[series[0].data.length - 1].y);
-    });
-
-    fetch("./stocks.json", {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+    setSeries([
+      {
+        data: getTimeIntervalData(timeLength, array),
+        name: "Risky Portfolio"
+      },
+      {
+        data: series[1]['data'],
+        name: series[1]['name']
       }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(jsondata => {
-      let numDates = Object.keys(jsondata).length;
-      let array = new Array(numDates);
-      let i = 0;
-      for (var key in jsondata) {
-        array[i] = {
-          x: key,
-          y: jsondata[key]['SP500']
-        };
-        i++;
-      }
-      setSP500Data(array);
-      series[1]['data'] = array;
+    ]);
+    setRiskyValue(series[0].data[series[0].data.length - 1].y);
+  });
 
-      setSeries([
-        {
-          data: series[0]['data'],
-          name: series[0]['name']
-        },
-        {
-          data: getTimeIntervalData(timeLength, array),
-          name: "S&P 500"
-        }
-      ]);
-      setSP500Value(series[1].data[series[1].data.length - 1].y);
-    });
-  }, [])
+  fetch("./stocks.json", {
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(jsondata => {
+    let numDates = Object.keys(jsondata).length;
+    let array = new Array(numDates);
+    let i = 0;
+    for (var key in jsondata) {
+      array[i] = {
+        x: key,
+        y: jsondata[key]['SP500']
+      };
+      i++;
+    }
+    setSP500Data(array);
+    series[1]['data'] = array;
+
+    setSeries([
+      {
+        data: series[0]['data'],
+        name: series[0]['name']
+      },
+      {
+        data: getTimeIntervalData(timeLength, array),
+        name: "S&P 500"
+      }
+    ]);
+    setSP500Value(series[1].data[series[1].data.length - 1].y);
+  });
 
   // Updates key stats when the series is updated
   useEffect(() => {
@@ -275,14 +273,14 @@ function StockGraph(props) {
     setSeries([
       {
         data: newRisky,
-        name: series[0]['name']
+        name: "Portfolio"
       },
       {
         data: newSP500,
-        name: series[1]['name']
+        name: "S&P 500"
       }
     ])
-  }, [timeLength])
+  }, [timeLength, riskyData, sp500Data])
 
 
 
