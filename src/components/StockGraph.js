@@ -1,9 +1,3 @@
-// import Paper from '@mui/material/Paper';
-// import Chip from '@mui/material/Chip';
-// import Typography from '@mui/material/Typography';
-// import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-// import { Tooltip } from '@mui/material';
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import ReactApexChart from 'react-apexcharts';
 import './StockGraph.css';
 import { useEffect, useState } from 'react';
