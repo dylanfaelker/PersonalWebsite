@@ -7,7 +7,7 @@ function PortfolioGenerator() {
   return (
     <div class="page">
       <div>
-        <Navbar isToTop={true} />
+        <Navbar isToTop={false} />
         <div class="section">
           <StockGraph portfolioType="Risky"/>
         </div>
