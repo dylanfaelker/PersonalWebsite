@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import StockGraph from './components/StockGraph'
+import { ReactComponent as GithubIcon } from './github.svg'
 
 function PortfolioGenerator() {
 
@@ -36,6 +37,15 @@ function PortfolioGenerator() {
             When deciding the distribution of cash, 35% is given to the riskiest stock and 5% is automatically given to the other 9.
             The top 3 most correlated are then tested on the best way to distribute the remaining 20% to optimise standard deviation.
           </p>
+        </div>
+        <div class="section">
+          <a
+            href="https://github.com/dylanfaelker/StockPortfolioCreater"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon class="github-link"/>
+          </a>
         </div>
         <div className="section">
           <p>* Credit is given to Brashan Mohanakumar, Abirami Karthikeyan and Jingling Ye for their work on the project</p>
