@@ -18,8 +18,8 @@ function PortfolioGenerator() {
             <li>Must always have 10 Stocks in portfolio</li>
             <li>Start with $100000 cash in the portfolio</li>
             <li>Stocks must be in the S&P 500</li>
-            <li>At stock must make up a minimum of 5% of a portfolio</li>
-            <li>At stock must make up a maximum of 35% of a portfolio</li>
+            <li>All stock must make up a minimum of 5% of a portfolio</li>
+            <li>All stock must make up a maximum of 35% of a portfolio</li>
             <li>Partial shares are allowed</li>
           </ul>
           <br></br>
