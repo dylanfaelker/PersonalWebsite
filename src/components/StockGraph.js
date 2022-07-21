@@ -33,83 +33,60 @@ function StockGraph(props) {
   // Measures how much percent it outpreforms the market
   const [compareToSP500, setCompareToSP500] = useState();
 
-  fetch("./stocks.json", {
-    headers : { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    return response.json();
-  })
-  .then(jsondata => {
-    let numDates = Object.keys(jsondata).length;
-
-    let array = new Array(numDates);
-    let i = 0;
-    for (var key in jsondata) {
-      array[i] = {
-        x: key,
-        y: jsondata[key]['Total Value']
-      };
-      i++;
-    }
-    setRiskyData(array);
-    series[0]['data'] = array;
-
-    setSeries([
-      {
-        data: getTimeIntervalData(timeLength, array),
-        name: "Risky Portfolio"
-      },
-      {
-        data: series[1]['data'],
-        name: series[1]['name']
+  useEffect(() => {
+    fetch("./stocks.json", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
-    ]);
-    setRiskyValue(series[0].data[series[0].data.length - 1].y);
-  });
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(jsondata => {
+      let numDates = Object.keys(jsondata).length;
 
-  fetch("./stocks.json", {
-    headers : { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    return response.json();
-  })
-  .then(jsondata => {
-    let numDates = Object.keys(jsondata).length;
-    let array = new Array(numDates);
-    let i = 0;
-    for (var key in jsondata) {
-      array[i] = {
-        x: key,
-        y: jsondata[key]['SP500']
-      };
-      i++;
-    }
-    setSP500Data(array);
-    series[1]['data'] = array;
-
-    setSeries([
-      {
-        data: series[0]['data'],
-        name: series[0]['name']
-      },
-      {
-        data: getTimeIntervalData(timeLength, array),
-        name: "S&P 500"
+      let array = new Array(numDates);
+      let i = 0;
+      for (let key in jsondata) {
+        array[i] = {
+          x: key,
+          y: jsondata[key]['Total Value']
+        };
+        i++;
       }
-    ]);
-    setSP500Value(series[1].data[series[1].data.length - 1].y);
-  });
+      setRiskyData(array);
+
+      let array2 = new Array(numDates);
+      let j = 0;
+      for (let key in jsondata) {
+        array2[j] = {
+          x: key,
+          y: jsondata[key]['SP500']
+        };
+        j++;
+      }
+      setSP500Data(array2);
+
+      setSeries([
+        {
+          data: array,
+          name: "Risky Portfolio"
+        },
+        {
+          data: array2,
+          name: "S&P 500"
+        }
+      ]);
+    });
+  }, [])
 
   // Updates key stats when the series is updated
   useEffect(() => {
+    setSP500Value(series[1].data[series[1].data.length - 1].y);
     setSP500PercentChange(((series[1].data[series[1].data.length - 1].y) / (series[1].data[0].y)) * 100 - 100);
     setSP500DollarChange((series[1].data[series[1].data.length - 1].y) - (series[1].data[0].y));
+    setRiskyValue(series[0].data[series[0].data.length - 1].y);
     setRiskyPercentChange(((series[0].data[series[0].data.length - 1].y) / (series[0].data[0].y)) * 100 - 100);
     setRiskyDOllarChange((series[0].data[series[0].data.length - 1].y) - (series[0].data[0].y));
   }, [series])
