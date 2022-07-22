@@ -11,12 +11,12 @@ function StockGraph(props) {
   const [series, setSeries] = useState([
     {
       data: [{x: '07/04/03', y:100000}],
-      name: "Portfolio"
+      name: "S&P 500"
     },
     {
       data: [{x: '07/04/03', y:100000}],
-      name: "S&P 500"
-    }
+      name: "Portfolio"
+    },
   ]);
 
   // Main Data
@@ -70,13 +70,13 @@ function StockGraph(props) {
 
       setSeries([
         {
+          data: array2,
+          name: "S&P 500"
+        },
+        {
           data: array,
           name: "Risky Portfolio"
         },
-        {
-          data: array2,
-          name: "S&P 500"
-        }
       ]);
     });
   }, [])
@@ -98,8 +98,10 @@ function StockGraph(props) {
 
 
 
-  const primaryLight = '#7DCFB6';
-  const primaryDark = '#2E534B';
+  const sp500Line = '#530C0C';
+  const sp500Fill = '#2E534B';
+  const portfolioLine = '#2E534B';
+  const portfolioFill = '#7DCFB6';
   const textColor = '#2E534B';
   const divider = '#434648';
   const chartOptions = {
@@ -118,12 +120,12 @@ function StockGraph(props) {
         enabled: false,
       },
     },
-    colors: [primaryLight, primaryLight],
+    colors: [sp500Line, portfolioLine],
     dataLabels: {
       enabled: false,
     },
     fill: {
-      colors: [primaryDark, primaryLight],
+      colors: [sp500Fill, portfolioFill],
       opacity: 0.5,
     },
     grid: {
@@ -249,13 +251,13 @@ function StockGraph(props) {
 
     setSeries([
       {
+        data: newSP500,
+        name: "S&P 500"
+      },
+      {
         data: newRisky,
         name: "Portfolio"
       },
-      {
-        data: newSP500,
-        name: "S&P 500"
-      }
     ])
   }, [timeLength, riskyData, sp500Data])
 
