@@ -83,12 +83,12 @@ function StockGraph(props) {
 
   // Updates key stats when the series is updated
   useEffect(() => {
+    setRiskyValue(series[1].data[series[1].data.length - 1].y);
+    setRiskyPercentChange(((series[1].data[series[1].data.length - 1].y) / (series[1].data[0].y)) * 100 - 100);
+    setRiskyDOllarChange((series[1].data[series[1].data.length - 1].y) - (series[1].data[0].y));
     setSP500Value(series[0].data[series[0].data.length - 1].y);
     setSP500PercentChange(((series[0].data[series[0].data.length - 1].y) / (series[0].data[0].y)) * 100 - 100);
     setSP500DollarChange((series[0].data[series[0].data.length - 1].y) - (series[0].data[0].y));
-    setRiskyValue(series[1].data[series[1].data.length - 1].y);
-    setRiskyPercentChange(((series[1].data[series[1].data.length - 1].y) / (series[1].data[0].y)) * 100 - 100);
-    setRiskyDOllarChange((series[1].data[series[1].data.length - 1].y) - (series[1].data[1].y));
   }, [series])
 
   // Updates comparison value after risky and sp500 values have been changed
