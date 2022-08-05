@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import StockGraph from './components/StockGraph'
+import StockPieChart from './components/StockPieChart'
 import { ReactComponent as GithubIcon } from './github.svg'
 
 function PortfolioGenerator() {
@@ -11,6 +12,7 @@ function PortfolioGenerator() {
         <Navbar isToTop={false} />
         <div class="section">
           <StockGraph portfolioType="Risky"/>
+          <StockPieChart />
         </div>
         <div class="section">
           <h2 >Requirements</h2>
