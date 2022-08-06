@@ -1,7 +1,7 @@
 import React from 'react'
 import Timeline from './Timeline'
-import ResumePDF from '../Resume.pdf'
-import { ReactComponent as PageIcon } from '../page.svg'
+import ResumePDF from '../content/Resume.pdf'
+import { ReactComponent as PageIcon } from '../content/page.svg'
 
 const Careers = ({ careers }) => {
     return (

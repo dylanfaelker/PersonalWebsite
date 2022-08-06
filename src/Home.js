@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import profile from './ProfileCircle.png';
-import { ReactComponent as DownArrow } from './downArrow.svg'
+import profile from './content/ProfileCircle.png';
+import { ReactComponent as DownArrow } from './content/downArrow.svg'
 import Projects from './components/Projects'
 import Navbar from './components/Navbar'
 import Careers from './components/Careers'

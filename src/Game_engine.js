@@ -13,7 +13,7 @@ import wqueen from './chessIcons/wqueen.png'
 import bpawn from './chessIcons/bpawn.png'
 import wpawn from './chessIcons/wpawn.png'
 
-import { ReactComponent as GithubIcon } from './github.svg'
+import { ReactComponent as GithubIcon } from './content/github.svg'
 
 import Navbar from './components/Navbar'
 import Timeline from './components/Timeline'

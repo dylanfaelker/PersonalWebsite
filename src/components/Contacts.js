@@ -1,9 +1,9 @@
-import { ReactComponent as InstagramIcon } from '../instagram.svg'
-import { ReactComponent as GithubIcon } from '../github.svg'
-import { ReactComponent as EmailIcon } from '../email.svg'
-import { ReactComponent as LinkedinIcon } from '../linkedin.svg'
-import { ReactComponent as PageIcon } from '../page.svg'
-import ResumePDF from '../Resume.pdf'
+import { ReactComponent as InstagramIcon } from '../content/instagram.svg'
+import { ReactComponent as GithubIcon } from '../content/github.svg'
+import { ReactComponent as EmailIcon } from '../content/email.svg'
+import { ReactComponent as LinkedinIcon } from '../content/linkedin.svg'
+import { ReactComponent as PageIcon } from '../content/page.svg'
+import ResumePDF from '../content/Resume.pdf'
 
 import '../Contacts.css'
 
