@@ -8,7 +8,7 @@ import Contacts from './components/Contacts'
 import PhotoGallery from './components/PhotoGallery'
 
 import './Home.css'
-import './Contacts.css'
+import './components/Contacts.css'
 
 import db from './firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';

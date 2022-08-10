@@ -5,7 +5,7 @@ import { ReactComponent as LinkedinIcon } from '../content/linkedin.svg'
 import { ReactComponent as PageIcon } from '../content/page.svg'
 import ResumePDF from '../content/Resume.pdf'
 
-import '../Contacts.css'
+import './Contacts.css'
 
 const Contacts = () => {
     return (

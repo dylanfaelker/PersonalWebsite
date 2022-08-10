@@ -18,7 +18,7 @@ import { ReactComponent as GithubIcon } from './content/github.svg'
 import Navbar from './components/Navbar'
 import Timeline from './components/Timeline'
 
-import './Contacts.css'
+import './components/Contacts.css'
 
 import db from './firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';

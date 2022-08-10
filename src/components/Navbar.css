@@ -1,0 +1,48 @@
+.topnav {
+    background: var(--neutral);
+    width: 100vw;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position:fixed;
+    top: 0;
+    z-index:1000;
+}
+
+.nav-spacer {
+    height: 72px; /* same as navbar */
+}
+
+.smallName {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--secondaryColor);
+
+    cursor: pointer;
+    text-decoration: none;
+
+    position: fixed;
+    top: 15px;
+    left: calc(1vw + 4px);
+    z-index:1001;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--secondaryColor);
+
+    text-decoration: none;
+
+    position: fixed;
+    top: 15px;
+    left:50%;
+    transform: translate(-50%,0);
+    z-index:1001;
+}

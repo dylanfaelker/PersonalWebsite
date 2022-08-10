@@ -1,0 +1,83 @@
+.job {
+    position: relative; 
+    width: 40vw;
+    height: 127px;
+}
+
+.job-period {
+    color: var(--mainColorLight);
+    margin-left: 1vw !important;
+    margin-right: 1vw !important;
+}
+
+.job-title {
+    margin-left: 1vw !important;
+    margin-right: 1vw !important;
+
+}
+
+.job-location {
+    margin-left: 1vw !important;
+    margin-right: 1vw !important;
+}
+
+.career-point{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.timeline {
+    position: relative;
+    height: 127px;
+    width:36px;
+}
+
+.doughnut { 
+    border: 7px solid var(--tertiaryColor);
+    border-radius: 100px;
+    height:21px;
+    width:21px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0);
+}
+
+.line {
+    background-color: var(--tertiaryColor);
+    width: 7px;
+    height: 100px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0);
+    top:30px;
+}
+
+.timeline-start {
+    position: relative;
+    height: 100px;
+    width:36px;
+}
+.line-start {
+    background-image: linear-gradient(var(--mainColor), var(--tertiaryColor));
+    width: 7px;
+    height: 100px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0);
+    top:3px;
+}
+.line-end {
+    background-image: linear-gradient(var(--tertiaryColor), var(--mainColor));
+    width: 7px;
+    height: 100px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0);
+    top:30px;
+}
+
+.spacer {
+    width: 40vw;
+    height:127px;
+}
