@@ -1,0 +1,240 @@
+.upperLanding {
+    background: var(--neutral);
+    height: 50vh;
+    width: 100%;
+}
+.upperLandingScroll {
+    background: var(--neutral);
+    height: calc(50vh - 72px);
+    width: 100%;
+}
+
+.lowerLanding {
+  background: var(--mainColor);
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: clamp(50px, 21vmin, 250px);
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: center;
+  left:50%;
+  transform: translate(-50%,0);
+}
+
+.first {
+  color: var(--secondaryColor);
+  position: fixed;
+  bottom: 51%;
+  line-height: 0.74em;
+
+  animation: enterFirst var(--scrollTime) ease-out;
+}
+@keyframes enterFirst {
+  0% {
+    opacity: 0%;
+    bottom: 80vh
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    bottom: 51vh;
+  }
+}
+
+.last {
+  color: var(--mainColorLight);
+  position: fixed;
+  top: 51vh;
+  line-height: 0.77em;
+
+  animation: enterLast var(--scrollTime) ease-out;
+}
+@keyframes enterLast {
+  0% {
+    opacity: 0%;
+    top: 80vh;
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    top: 51vh;
+  }
+}
+
+.scrollArrow {
+    fill: var(--mainColorLight);
+    height: 52px;
+    width: 52px;
+    position: fixed;
+    bottom: 1vh;
+    left:50%;
+    transform: translate(-50%,0);
+
+    animation: bounceArrow 1s ease-in-out infinite;
+}
+@keyframes bounceArrow {
+    0% {
+        bottom:3vh;
+    }
+    50% {
+        bottom:1vh;
+    }
+    100% {
+        bottom:3vh;
+    }
+}
+
+.firstNameScroll {
+    animation: exitFirstName var(--scrollTime) ease-out forwards;
+}
+@keyframes exitFirstName {
+    0% {
+        bottom: 51vh;
+        opacity: 100%;
+    }
+    100% {
+        bottom: 80vh;
+        opacity: 0%;
+        display: none;
+    }
+}
+
+.lastNameScroll {
+    animation: exitLastName var(--scrollTime) ease-out forwards;
+}
+@keyframes exitLastName {
+    0% {
+        top: 51vh;
+        opacity: 100%;
+    }
+    100% {
+        top: 80vh;
+        opacity: 0%;
+        display: none;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    margin-top: 50vh;
+}
+
+.profile {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.project {
+    height: 10em;
+    width: 60vw;
+    color: var(--mainColorLight);
+    border: 5px solid var(--mainColorLight);
+    margin: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+}
+
+.project:hover {
+    animation: hide forwards;
+    animation-delay: 0.5s;
+}
+
+.project p {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--secondaryColor);
+    text-align: left;
+
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.project::after {
+    content: '';
+    top: 0;
+    position: absolute;
+    height: 10em;
+    background-color: var(--mainColorLight);
+}
+.project:hover::after {
+    animation: reveal cubic-bezier(0.63, 0.02, 0.28, 1.02) 1s;
+}
+
+@keyframes reveal {
+    0% {
+        left: 0;
+        width: 0%;
+    }
+    50% {
+        left: 0;
+        width: 100%;
+    }
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+.project::before {
+    content: attr(data-description);
+    white-space: pre-wrap;
+
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--secondaryColor);
+    text-align: left;
+
+    color: transparent;
+
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+.project:hover::before {
+    animation: show forwards;
+    animation-delay: 0.5s;
+}
+@keyframes show{
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: var(--secondaryColor);
+    }
+}
+
+.hobbies {
+    width: 100%;
+    justify-content: center;
+}
+
+.hobbies div {
+    width: 45%;
+}
+
+.hobbies p {
+    margin-left: 0;
+    margin-right: 0;
+}
