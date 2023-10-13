@@ -38,13 +38,6 @@ const Contacts = () => {
             >
             <LinkedinIcon class="contact"/>
             </a>
-            <a
-            href="https://www.instagram.com/d_faelker/?hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <InstagramIcon class="contact"/>
-            </a>
         </div>
     )
 }
