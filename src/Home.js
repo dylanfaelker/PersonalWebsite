@@ -79,18 +79,21 @@ function Home() {
               </div>
               <div>
                 <p>
-                  Running has always been important to me. In grade 3, I joined the cross country team and continued with the sport all the way until grade 12 where it was cancelled due to COVID.
-                  In grade 9, I started taking it seriously when I signed up for my first race with my mom. It was a 10km and I came 3rd in my age group.
+                  Running has always been important to me since I was able I small child.
                   In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
-                  I took a break for a while but once COVID hit, I used running as something to do and ran over 1000 miles in 2020. 
+                  Since then, I continued to set PRs year after year but taken things a little easier.
                 </p>
                 <br></br>
                 <p>
-                  In the first summer of the pandemic, I started road biking with a couple big goals in mind. The first two were biking to the CN Tower in Toronto and back (100km), something I have now done 3 times, and biking to Niagara Falls and back (200km).
+                  In the first summer of the pandemic, I started road biking with a couple big goals in mind. The biggest was biking to Niagara Falls and back (200km) in a day, which I successfully completed in 2020.
                 </p>
                 <br></br>
                 <p>
-                  My final goal was a half Ironman. I had planned to try one in the summer of 2021 but COVID had other plans. I still hope to do one soon, and eventually complete even a full Ironman.
+                  In 2022 I decided to try another new sport. Rock climbing. This is now one my favourites and something I regularlly do.
+                </p>
+                <br></br>
+                <p>
+                  Once again in 2023, I tried yet another sport, this time it was dragon boat for the UWaterloo Dargon Warriors. We have competed at nationals and have podiumed in multiple regattas.
                 </p>
               </div>
             </div>
