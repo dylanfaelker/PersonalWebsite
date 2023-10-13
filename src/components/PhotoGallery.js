@@ -7,7 +7,7 @@ import Img03 from '../HobbyPics/HobbyPic03.jpg';
 import Img04 from '../HobbyPics/HobbyPic04.jpg';
 import Img05 from '../HobbyPics/HobbyPic05.jpg';
 import Img06 from '../HobbyPics/HobbyPic06.jpg';
-import Img06 from '../HobbyPics/HobbyPic07.jpg';
+import Img07 from '../HobbyPics/HobbyPic07.jpg';
 
 const images = [Img01, Img02, Img03, Img04, Img05, Img06, Img07];
 
