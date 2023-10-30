@@ -39,6 +39,17 @@ h2 {
   text-transform: uppercase;
 }
 
+h4 {
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--secondaryColor);
+  margin-bottom: 0.5vh;
+  white-space: pre-wrap;
+  text-transform: uppercase;
+}
+
 p {
   font-size: 18px;
   font-weight: 500;
@@ -96,6 +107,14 @@ li {
   align-items: center;
 
   margin-bottom: 10vh;
+}
+
+.sub-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 5vh;
 }
 
 @keyframes hide{

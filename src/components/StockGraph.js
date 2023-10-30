@@ -2,10 +2,13 @@ import ReactApexChart from 'react-apexcharts';
 import './StockGraph.css';
 import { useEffect, useState } from 'react';
 
-function StockGraph(props) {
-  const { portfolioType } = props;
+function StockGraph() {
 
-
+  const portfolios = [
+    "Risky",
+    "Safe"
+  ]
+  const [portfolioType, setPortfolioType] = useState(portfolios[0]);
 
   // Data being graphed
   const [series, setSeries] = useState([
@@ -20,21 +23,21 @@ function StockGraph(props) {
   ]);
 
   // Main Data
-  const [riskyData, setRiskyData] = useState();
+  const [portfolioData, setPortfolioData] = useState();
   const [sp500Data, setSP500Data] = useState();
-  const [riskyValue, setRiskyValue] = useState();
+  const [portfolioValue, setPortfolioValue] = useState();
   const [SP500Value, setSP500Value] = useState();
 
   // Key stats
-  const [riskyPercentChange, setRiskyPercentChange] = useState();
-  const [riskyDollarChange, setRiskyDOllarChange] = useState();
+  const [portfolioPercentChange, setPortfolioPercentChange] = useState();
+  const [portfolioDollarChange, setPortfolioDOllarChange] = useState();
   const [SP500PercentChange, setSP500PercentChange] = useState();
   const [SP500DollarChange, setSP500DollarChange] = useState();
   // Measures how much percent it outpreforms the market
   const [compareToSP500, setCompareToSP500] = useState();
 
   useEffect(() => {
-    fetch("./stocks.json", {
+    fetch("./stocks/" + portfolioType + ".json", {
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -55,7 +58,7 @@ function StockGraph(props) {
         };
         i++;
       }
-      setRiskyData(array);
+      setPortfolioData(array);
 
       let array2 = new Array(numDates);
       let j = 0;
@@ -75,26 +78,26 @@ function StockGraph(props) {
         },
         {
           data: array,
-          name: "Risky Portfolio"
+          name: portfolioType + " Portfolio"
         },
       ]);
     });
-  }, [])
+  }, [portfolioType])
 
   // Updates key stats when the series is updated
   useEffect(() => {
-    setRiskyValue(series[1].data[series[1].data.length - 1].y);
-    setRiskyPercentChange(((series[1].data[series[1].data.length - 1].y) / (series[1].data[0].y)) * 100 - 100);
-    setRiskyDOllarChange((series[1].data[series[1].data.length - 1].y) - (series[1].data[0].y));
+    setPortfolioValue(series[1].data[series[1].data.length - 1].y);
+    setPortfolioPercentChange(((series[1].data[series[1].data.length - 1].y) / (series[1].data[0].y)) * 100 - 100);
+    setPortfolioDOllarChange((series[1].data[series[1].data.length - 1].y) - (series[1].data[0].y));
     setSP500Value(series[0].data[series[0].data.length - 1].y);
     setSP500PercentChange(((series[0].data[series[0].data.length - 1].y) / (series[0].data[0].y)) * 100 - 100);
     setSP500DollarChange((series[0].data[series[0].data.length - 1].y) - (series[0].data[0].y));
   }, [series])
 
-  // Updates comparison value after risky and sp500 values have been changed
+  // Updates comparison value after portfolio and sp500 values have been changed
   useEffect(() => {
-    setCompareToSP500(riskyPercentChange - SP500PercentChange);
-  }, [riskyPercentChange, SP500PercentChange])
+    setCompareToSP500(portfolioPercentChange - SP500PercentChange);
+  }, [portfolioPercentChange, SP500PercentChange])
 
 
 
@@ -243,10 +246,10 @@ function StockGraph(props) {
   }
 
   useEffect(() => {
-    if (!riskyData || !sp500Data) {
+    if (!portfolioData || !sp500Data) {
       return
     }
-    var newRisky = getTimeIntervalData(timeLength, riskyData);
+    var newPortfolio = getTimeIntervalData(timeLength, portfolioData);
     var newSP500 = getTimeIntervalData(timeLength, sp500Data);
 
     setSeries([
@@ -255,58 +258,78 @@ function StockGraph(props) {
         name: "S&P 500"
       },
       {
-        data: newRisky,
+        data: newPortfolio,
         name: "Portfolio"
       },
     ])
-  }, [timeLength, riskyData, sp500Data])
+  }, [timeLength, portfolioData, sp500Data])
 
 
 
   return (
-    <div className="stock-graph-wrapper">
-      <div className="graph-title-wrapper">
-        <div className="graph-title">
-          {portfolioType} Portfolio vs the Market
-        </div>
-        <TimePicker/>
+    <div>
+      <div className="portfolio-picker-wrapper">
+        {portfolios.map((portfolio) => (
+          <div>
+            {(portfolioType === portfolio) && <div>
+              <div className="portfolio-option">
+                {portfolio}
+              </div>
+              <div className='underline-portfolio-chosen'></div>
+            </div>}
+            {(portfolioType !== portfolio) && <div onClick={() => {setPortfolioType(portfolio)}}>
+              <div className="portfolio-option">
+                {portfolio}
+              </div>
+              <div className='underline-portfolio-unchosen'></div>
+            </div>}
+          </div>
+        ))}
       </div>
-
-      <div className="stats-group-wrapper-wrapper">
-        <div className="stats-group-wrapper">
-
-          <GraphStat
-            title="Risky Portfolio"
-            mainVal={"$" + (riskyValue !== undefined ? +riskyValue.toFixed(2) : "")}
-            secondaryVal={(riskyDollarChange >= 0 ? "+" : "") + (riskyDollarChange !== undefined ? +riskyDollarChange.toFixed(2) : "")}
-            percentage={"" + (riskyPercentChange !== undefined ? +riskyPercentChange.toFixed(2) : "") + "%"}
-            positive={riskyPercentChange >= 0 || riskyDollarChange >= 0}
-          />
-          <GraphStat
-            title="S&P 500"
-            mainVal={"$" + (SP500Value !== undefined ? +SP500Value.toFixed(2) : "")}
-            secondaryVal={(SP500DollarChange >= 0 ? "+" : "") + (SP500DollarChange !== undefined ? +SP500DollarChange.toFixed(2) : "")}
-            percentage={"" + (SP500PercentChange !== undefined ? +SP500PercentChange.toFixed(2) : "") + "%"}
-            positive={SP500PercentChange >= 0 || SP500DollarChange >= 0}
-          />
-
-          <GraphStat
-            title="Portfolio vs Market"
-            mainVal={"" + (compareToSP500 !== undefined ? +compareToSP500.toFixed(2) : "") + "%"}
-            positive={compareToSP500 >= 0}
-          />
-
+      <div className="stock-graph-wrapper">
+        <div className="graph-title-wrapper">
+          <div className="graph-title">
+            {portfolioType} Portfolio vs the Market
+          </div>
+          <TimePicker/>
         </div>
-      </div>
 
-      <div className="graph-wrapper">
-        <ReactApexChart
-          className="graph"
-          options={chartOptions}
-          series={series}
-          type={chartOptions.chart.type}
-          height={chartOptions.chart.height}
-        />
+        <div className="stats-group-wrapper-wrapper">
+          <div className="stats-group-wrapper">
+
+            <GraphStat
+              title={portfolioType + " Portfolio"}
+              mainVal={"$" + (portfolioValue !== undefined ? +portfolioValue.toFixed(2) : "")}
+              secondaryVal={(portfolioDollarChange >= 0 ? "+" : "") + (portfolioDollarChange !== undefined ? +portfolioDollarChange.toFixed(2) : "")}
+              percentage={"" + (portfolioPercentChange !== undefined ? +portfolioPercentChange.toFixed(2) : "") + "%"}
+              positive={portfolioPercentChange >= 0 || portfolioDollarChange >= 0}
+            />
+            <GraphStat
+              title="S&P 500"
+              mainVal={"$" + (SP500Value !== undefined ? +SP500Value.toFixed(2) : "")}
+              secondaryVal={(SP500DollarChange >= 0 ? "+" : "") + (SP500DollarChange !== undefined ? +SP500DollarChange.toFixed(2) : "")}
+              percentage={"" + (SP500PercentChange !== undefined ? +SP500PercentChange.toFixed(2) : "") + "%"}
+              positive={SP500PercentChange >= 0 || SP500DollarChange >= 0}
+            />
+
+            <GraphStat
+              title="Portfolio vs Market"
+              mainVal={"" + (compareToSP500 !== undefined ? +compareToSP500.toFixed(2) : "") + "%"}
+              positive={compareToSP500 >= 0}
+            />
+
+          </div>
+        </div>
+
+        <div className="graph-wrapper">
+          <ReactApexChart
+            className="graph"
+            options={chartOptions}
+            series={series}
+            type={chartOptions.chart.type}
+            height={chartOptions.chart.height}
+          />
+        </div>
       </div>
     </div>
   );

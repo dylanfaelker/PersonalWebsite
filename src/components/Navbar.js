@@ -14,12 +14,12 @@ const Navbar = ({ isToTop, pageTitle }) => {
         <div>
             <nav class="topnav">
                 {isToTop ?
-                    <h4 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h4>:
+                    <h5 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h5>:
                     <Link to="/" class="smallName">
-                        <h4 onClick={goToTop}>DYLAN FAELKER</h4>
+                        <h5 onClick={goToTop}>DYLAN FAELKER</h5>
                     </Link>
                 }
-                <h4 class="page-title">{pageTitle}</h4>
+                <h5 class="page-title">{pageTitle}</h5>
                 <Contacts/>
             </nav>
             <div class='nav-spacer'></div>

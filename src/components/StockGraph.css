@@ -5,7 +5,6 @@
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-radius: 1rem;
     overflow: hidden;
-    margin-top: 2vmin;
 
     /* TODO Fix it so we just turn the brightness of secondaryColor down */
     background-color: var(--secondaryColor);
@@ -178,4 +177,27 @@
 .stat-arrow {
     height: 20px;
     width: 20px;
+}
+
+.portfolio-picker-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 1vmin;
+    margin-top: 2vmin;
+}
+
+.portfolio-option {
+    font-size: 1.125rem;
+    color: var(--secondaryColor);
+    margin: 0.35rem 1rem;
+}
+
+.underline-portfolio-chosen {
+    background-color: var(--secondaryColor);
+    height: 0.15rem;
+}
+
+.underline-portfolio-unchosen {
+    height: 0.15rem;
 }
