@@ -15,7 +15,7 @@ export default function PhotoGallery(props) {
         }, 3000)
         
         return () => clearInterval(intervalId);
-    }, [])
+    }, [images])
 
     
 
