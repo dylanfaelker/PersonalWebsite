@@ -75,7 +75,7 @@ function Home() {
             <h2>HOBBIES</h2>
             <div class="flex-row hobbies">
               <div>
-                <PhotoGallery/>
+                <PhotoGallery images={['hobbyImg/1.jpg', 'hobbyImg/2.jpg', 'hobbyImg/3.jpg', 'hobbyImg/4.jpg', 'hobbyImg/5.jpg', 'hobbyImg/6.jpg', 'hobbyImg/7.jpg']}/>
               </div>
               <div>
                 <p>
