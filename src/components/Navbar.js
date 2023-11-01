@@ -15,8 +15,8 @@ const Navbar = ({ isToTop, pageTitle }) => {
             <nav class="topnav">
                 {isToTop ?
                     <h5 class="smallName appear" onClick={goToTop}>DYLAN FAELKER</h5>:
-                    <Link to="/" class="smallName">
-                        <h5 onClick={goToTop}>DYLAN FAELKER</h5>
+                    <Link to="/">
+                        <h5 class="smallName" onClick={goToTop}>DYLAN FAELKER</h5>
                     </Link>
                 }
                 <h5 class="page-title">{pageTitle}</h5>
