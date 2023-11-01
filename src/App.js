@@ -1,10 +1,10 @@
 import './App.css'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from './Home'
-import Game from './Game'
-import GameEngine from './Game_engine'
-import PortfolioGenerator from './PortfolioGenerator'
+import Home from './Pages/Home'
+import Game from './Pages/Game'
+import GameEngine from './Pages/Game_engine'
+import PortfolioGenerator from './Pages/PortfolioGenerator'
 
 function App() {
   return (

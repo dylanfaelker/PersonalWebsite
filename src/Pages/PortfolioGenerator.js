@@ -1,7 +1,6 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import StockGraph from './components/StockGraph'
-import { ReactComponent as GithubIcon } from './github.svg'
+import Navbar from '../components/Navbar'
+import StockGraph from '../components/StockGraph'
 
 function PortfolioGenerator() {
 

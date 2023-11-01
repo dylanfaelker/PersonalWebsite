@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
-import profile from './ProfileCircle.png';
-import { ReactComponent as DownArrow } from './downArrow.svg'
-import Projects from './components/Projects'
-import Navbar from './components/Navbar'
-import Careers from './components/Careers'
-import Contacts from './components/Contacts'
-import PhotoGallery from './components/PhotoGallery'
+import profile from '../assets/ProfileCircle.png';
+import { ReactComponent as DownArrow } from '../assets/icons/downArrow.svg'
+import Projects from '../components/Projects'
+import Navbar from '../components/Navbar'
+import Careers from '../components/Careers'
+import Contacts from '../components/Contacts'
+import PhotoGallery from '../components/PhotoGallery'
 
 import './Home.css'
-import './components/Contacts.css'
 
-import db from './firebaseConnection.js'
+import db from '../firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
