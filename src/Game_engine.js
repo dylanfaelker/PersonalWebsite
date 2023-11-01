@@ -18,7 +18,7 @@ import { ReactComponent as GithubIcon } from './github.svg'
 import Navbar from './components/Navbar'
 import Timeline from './components/Timeline'
 
-import './Contacts.css'
+import './components/Contacts.css'
 
 import db from './firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
@@ -1433,95 +1433,86 @@ class Game_engine extends React.Component {
   render() {
     return (
       <div className='page'>
+        <Navbar pageTitle={"ABBOTT"}/>
+        <div class='main'>
 
-        <Navbar isToTop={false} pageTitle={"ABBOTT"}/>
+          <div class="section">
+            <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
+            
+            {this.state.promoting ? 
+              <div className='buttons'>
+                <button
+                  onClick={() => this.pickPromotion(5)}
+                  className='btn'
+                >
+                  {'Queen'}
+                </button>
+                <button
+                  onClick={() => this.pickPromotion(4)}
+                  className='btn'
+                >
+                  {'Rook'}
+                </button>
+                <button
+                  onClick={() => this.pickPromotion(3)}
+                  className='btn'
+                >
+                  {'Knight'}
+                </button>
+                <button
+                  onClick={() => this.pickPromotion(2)}
+                  className='btn'
+                >
+                  {'Bishop'}
+                </button>
+              </div> : <div></div>
+            } 
 
-        <div class="section">
-          <h1 className='game-info'>{this.state.draw ? 'DRAW' : (this.state.checkmate ? 'CHECKMATE!' : (this.state.stalemate ? 'STALEMATE' : (this.state.turn ? 'WHITE\'S TURN' : 'BLACK\'S TURN')))}</h1>
-          
-          {this.state.promoting ? 
-            <div className='buttons'>
-              <button
-                onClick={() => this.pickPromotion(5)}
-                className='btn'
-              >
-                {'Queen'}
-              </button>
-              <button
-                onClick={() => this.pickPromotion(4)}
-                className='btn'
-              >
-                {'Rook'}
-              </button>
-              <button
-                onClick={() => this.pickPromotion(3)}
-                className='btn'
-              >
-                {'Knight'}
-              </button>
-              <button
-                onClick={() => this.pickPromotion(2)}
-                className='btn'
-              >
-                {'Bishop'}
-              </button>
-            </div> : <div></div>
-          } 
-
-          <div className="game">
-            <Board 
-              //data about each square
-              squares={this.state.squares}
-              //function for what to do when a square is clicked on
-              onSelect={this.selecting.bind(this)}
-              //data for which moves are legal and should be highlighted
-              moves={this.state.moves}
-              //data for which square is selected
-              selectedNum={this.state.selectedPiece[1].id}
-              lastMove={this.state.lastmove}
-              wcheck={this.state.wcheck}
-              bcheck={this.state.bcheck}
-            />
+            <div className="game">
+              <Board 
+                //data about each square
+                squares={this.state.squares}
+                //function for what to do when a square is clicked on
+                onSelect={this.selecting.bind(this)}
+                //data for which moves are legal and should be highlighted
+                moves={this.state.moves}
+                //data for which square is selected
+                selectedNum={this.state.selectedPiece[1].id}
+                lastMove={this.state.lastmove}
+                wcheck={this.state.wcheck}
+                bcheck={this.state.bcheck}
+              />
+            </div>
+            <p className='description'>
+              Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
+            </p>
           </div>
-          <p className='description'>
-            Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
-          </p>
-        </div>
 
-        <div className='section'>
-          <header className='header'>
-            <h2>ABOUT</h2>
-          </header>
-          <p>
-            This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
-          </p>
-          <br></br>
-          <p>
-            This is only version 1 (V1) and I plan to develop it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like improved ordering for alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
-          </p>
-          <br></br>
-          <p>
-            For now though, this is the only engine for Infinity Chess.
-          </p>
-        </div>
+          <div className='section'>
+            <header className='header'>
+              <h2>ABOUT</h2>
+            </header>
+            <p>
+              This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
+            </p>
+            <br></br>
+            <p>
+              This is only version 1 (V1) and I plan to develop it futher in the future to include more evaluation features to help in endgames and position of pieces, as well as some efficiency techniques like improved ordering for alpha beta pruning that will allow it to look further into the future. When I do so, I will likely do it in another language and restructure many of the data types. 
+            </p>
+            <br></br>
+            <p>
+              For now though, this is the only engine for Infinity Chess.
+            </p>
+          </div>
 
-        <div className='section'>
-          <header className='header'>
-            <h2>HISTORY</h2>
-          </header>
-          <EngineHistoryDatabase/>
-        </div>
+          <div className='section'>
+            <header className='header'>
+              <h2>HISTORY</h2>
+            </header>
+            <EngineHistoryDatabase/>
+          </div>
 
-        <div class="section">
-          <a
-            href="https://github.com/dylanfaelker/Abbott-Chess-Engine"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GithubIcon class="github-link"/>
-          </a>
         </div>
-
       </div>
     );
   }

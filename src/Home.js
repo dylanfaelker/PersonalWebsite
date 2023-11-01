@@ -8,7 +8,7 @@ import Contacts from './components/Contacts'
 import PhotoGallery from './components/PhotoGallery'
 
 import './Home.css'
-import './Contacts.css'
+import './components/Contacts.css'
 
 import db from './firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
@@ -40,25 +40,21 @@ function Home() {
 
   return (
     <div class="page">
-      {(scrollPosition <= 0) ?
       <div>
-        <div class="upperLanding">
-          <Contacts/>
+        {(scrollPosition <= 0) ? 
+        <>
+          <div class='landing-contacts-wrapper'><Contacts/></div>
           <h1 class="name first">DYLAN</h1>
-        </div>
-        <div class="lowerLanding">
           <h1 class="name last">FAELKER</h1>
           <DownArrow class="scrollArrow"/>
-        </div>
-      </div> :
-      <div>
-        <Navbar isToTop={true} />
-        <h1 class="name first firstNameScroll">DYLAN</h1>
-        <div class="upperLandingScroll"></div>
-        <div>
+        </> :
+          <><Navbar/>
+          <h1 class="name first firstNameScroll">DYLAN</h1>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="disapear scrollArrow"/>
-        </div>
+        </>}
+        <div class="upperLanding"></div>
+        <div class="lowerLanding"></div>
         <div class="main">
           <div class="section">
             <img src={profile} className="profile" alt="Head shot"/>
@@ -100,7 +96,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>}
+      </div>
     </div>
   );
 }

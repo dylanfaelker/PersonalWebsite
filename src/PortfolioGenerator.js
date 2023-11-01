@@ -7,8 +7,8 @@ function PortfolioGenerator() {
 
   return (
     <div class="page">
-      <div>
-        <Navbar isToTop={false} />
+      <Navbar/>
+      <div class='main'>
         <div class="section">
           <StockGraph/>
         </div>
@@ -62,15 +62,6 @@ function PortfolioGenerator() {
               The portfolio is then held till the end of the month when the portfolio is regenerated.
             </p>
           </div>
-        </div>
-        <div class="section">
-          <a
-            href="https://github.com/dylanfaelker/StockPortfolioCreater"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GithubIcon class="github-link"/>
-          </a>
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+.hamburger-lines {
+    display: block;
+    height: 30px;
+    width: 30px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--mainColorLight);
+}

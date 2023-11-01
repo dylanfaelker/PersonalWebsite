@@ -43,7 +43,7 @@
     transform: translate(-50%,0);
 }
 
-.line {
+.timeline .line {
     background-color: var(--tertiaryColor);
     width: 7px;
     height: 100px;

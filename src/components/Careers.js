@@ -9,7 +9,7 @@ const Careers = ({ careers }) => {
             <div class="flex-row">
                 <h2>CAREER</h2>
                 <a href={ResumePDF} target="_blank" rel="noreferrer">
-                    <PageIcon class="contact-large"/>
+                    <PageIcon class="icon-medium icon"/>
                 </a>
             </div>
 

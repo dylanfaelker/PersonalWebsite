@@ -5,7 +5,7 @@
 }
 .upperLandingScroll {
     background: var(--neutral);
-    height: calc(50vh - 72px);
+    height: calc(50vh);
     width: 100%;
 }
 
@@ -122,14 +122,6 @@
     }
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    margin-top: 50vh;
-}
-
 .profile {
     height: 40vmin;
     pointer-events: none;
@@ -237,4 +229,10 @@
 .hobbies p {
     margin-left: 0;
     margin-right: 0;
+}
+
+.landing-contacts-wrapper {
+    top: calc(var(--nav-height) / 2 - 30px / 2);
+    right: var(--nav-margin);
+    position: fixed;
 }

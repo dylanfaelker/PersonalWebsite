@@ -12,6 +12,15 @@
   --highlight: #FD9072;
 
   --scrollTime: 0.2s;
+
+  --nav-margin: calc(2vw);
+  --margin: calc(20vw);
+
+  --nav-height: 72px;
+
+  --small-icon-size: 30px;
+  --medium-icon-size: 60px;
+  --large-icon-size: 100px;
 }
 
 * {
@@ -57,8 +66,8 @@ p {
   color: var(--secondaryColor);
   text-align: left;
 
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin-left: var(--margin);
+  margin-right: var(--margin);
   white-space: pre-wrap;
 }
 
@@ -69,8 +78,8 @@ li {
   color: var(--secondaryColor);
   text-align: left;
 
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin-left: var(--margin);
+  margin-right: var(--margin);
   white-space: pre-wrap;
 }
 
@@ -98,7 +107,14 @@ li {
   display: flex;
   flex-direction: column;
   align-content: center;
-  min-height: 150vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: var(--nav-height)
 }
 
 .section {
@@ -145,4 +161,40 @@ li {
   100% {
       opacity: 100%;
   }
+}
+
+ .nav-right-margin {
+  margin-right: var(--nav-margin);
+}
+
+.nav-left-margin {
+  margin-left: var(--nav-margin);
+}
+
+ .right-margin {
+  margin-right: var(--margin);
+}
+
+.left-margin {
+  margin-left: var(--margin);
+}
+
+
+.icon-small { 
+  fill: var(--mainColorLight);
+  height: var(--small-icon-size);
+  width: var(--small-icon-size);
+}
+.icon-medium { 
+  fill: var(--mainColorLight);
+  height: var(--medium-icon-size);
+  width: var(--medium-icon-size);
+}
+.icon-large { 
+  fill: var(--mainColorLight);
+  height: var(--large-icon-size);
+  width: var(--large-icon-size);
+}
+.icon:hover {
+  fill: var(--highlight);
 }
