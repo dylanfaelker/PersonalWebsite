@@ -63,11 +63,12 @@ function Home() {
           <div class="section">
             <img src={profile} className="profile" alt="logo"/>
             <h2 >ABOUT ME</h2>
-            <p>I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.</p>
+            <p>
+              I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.
+              I enjoy the problem solving in computer science and the analytics involved with Finance. What better way to combine the two than with data science.
+            </p>
             <br></br>
-            <p>In high school, I really enjoyed analysing a company in grade 12 accounting and I liked the problem solving in computer science.</p>
-            <br></br>
-            <p>I am also inspired by the growth of fintech and look forward to opportunities to bring my knowledge of computing and financial management to use.</p>
+            <p>This website will serve as a personal portfolio of my projects and a little introduction as to who I am.</p>
           </div>
           <ProjectsDatabase/>
           <CareersDatabase/>
@@ -81,7 +82,7 @@ function Home() {
                 <p>
                   Running has always been important to me since I was able I small child.
                   In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
-                  Since then, I continued to set PRs year after year but taken things a little easier.
+                  Since then, I continued to set some PRs but moved my focus to other things.
                 </p>
                 <br></br>
                 <p>
@@ -89,7 +90,7 @@ function Home() {
                 </p>
                 <br></br>
                 <p>
-                  In 2022 I decided to try another new sport. Rock climbing. This is now one my favourites and something I regularlly do.
+                  In 2022 I decided to try another new sport. Rock climbing. This is now one my favourites and something I continue to do regularly.
                 </p>
                 <br></br>
                 <p>
