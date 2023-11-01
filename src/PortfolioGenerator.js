@@ -27,7 +27,7 @@ function PortfolioGenerator() {
           <div class='sub-section'>
             <h4>Risky</h4>
             <p>
-              The riskiest stock is the stock with the highest beta stock chosen the 3 top highest standard deviations stocks.
+              The riskiest stock is the stock with the highest beta stock chosen the 3 highest standard deviations stocks.
               The other 9 stocks are the most correlated to the riskiest stock.
             </p>
             <br></br>
@@ -49,13 +49,12 @@ function PortfolioGenerator() {
             </p>
             <br></br>
             <p>
-              The riskiest stock is the stock with the highest beta stock chosen the 3 top highest standard deviations stocks.
-              The other 9 stocks are the most correlated to the riskiest stock.
+              The safeest stock is the stock with the lowest beta stock chosen the 3 lowest standard deviations stocks.
+              The other 9 stocks are the least correlated to the safest stock.
             </p>
             <br></br>
             <p>
-              When deciding the distribution of cash, 35% is given to the riskiest stock and 5% is automatically given to the other 9.
-              The remaining 20% of weight is distributed to the top 3 most correlated stocks based on the most optimal stand deviation for the entire portfolio.
+              When deciding the distribution of cash, 10% weight is given to each stock for even diversification.
             </p>
             <br></br>
             <p>
