@@ -61,7 +61,7 @@ function Home() {
         </div>
         <div class="main">
           <div class="section">
-            <img src={profile} className="profile" alt="logo"/>
+            <img src={profile} className="profile" alt="Head shot"/>
             <h2 >ABOUT ME</h2>
             <p>
               I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.

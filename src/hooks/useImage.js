@@ -11,7 +11,7 @@ const useImage = (fileName) => {
                 const response = await import(`../assets/${fileName}`)
                 setImage(response.default)
             } catch (err) {
-                console.log('error loading image' + fileName)
+                console.log('error loading image ' + fileName)
                 setError(err)
             } finally {
                 setLoading(false)

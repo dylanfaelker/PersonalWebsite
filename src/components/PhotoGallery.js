@@ -12,7 +12,6 @@ export default function PhotoGallery(props) {
         const intervalId = setInterval(() => {
             setCurrentImage(images[imageNum.current]);
             imageNum.current = (imageNum.current + 1) % images.length;
-            console.log(imageNum.current)
         }, 3000)
         
         return () => clearInterval(intervalId);
