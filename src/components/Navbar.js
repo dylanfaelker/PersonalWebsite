@@ -9,7 +9,6 @@ import './Navbar.css'
 const Navbar = ({ pageTitle }) => {
 
     const { windowWidth } = useWindowWidth()
-    console.log(windowWidth)
 
     const [openMenu, setOpenMenu] = useState(false)
 
