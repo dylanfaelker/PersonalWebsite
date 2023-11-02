@@ -1,6 +1,7 @@
 import './App.css'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import ScrollToTop from './hooks/ScrollToTop'
 import Home from './Pages/Home'
 import Game from './Pages/Game'
 import GameEngine from './Pages/Game_engine'
@@ -10,6 +11,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/InfinityChess" element={<Game />} /> 
