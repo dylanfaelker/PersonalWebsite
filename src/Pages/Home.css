@@ -25,7 +25,7 @@
 .first {
   color: var(--secondaryColor);
   position: fixed;
-  bottom: 51vh;
+  bottom: 51%;
   line-height: 0.74em;
 
   animation: enterFirst var(--scrollTime) ease-out;
@@ -33,20 +33,20 @@
 @keyframes enterFirst {
   0% {
     opacity: 0%;
-    bottom: 80vh
+    bottom: 80%;
   }
   95% {
     opacity: 100%;
   }
   100% {
-    bottom: 51vh;
+    bottom: 51%;
   }
 }
 
 .last {
   color: var(--mainColorLight);
   position: fixed;
-  top: 51vh;
+  top: 51%;
   line-height: 0.77em;
 
   animation: enterLast var(--scrollTime) ease-out;
@@ -54,13 +54,13 @@
 @keyframes enterLast {
   0% {
     opacity: 0%;
-    top: 80vh;
+    top: 80%;
   }
   95% {
     opacity: 100%;
   }
   100% {
-    top: 51vh;
+    top: 51%;
   }
 }
 
@@ -69,7 +69,7 @@
     height: 52px;
     width: 52px;
     position: fixed;
-    bottom: 1vh;
+    bottom: 1%;
     left:50%;
     transform: translate(-50%,0);
 
@@ -77,13 +77,13 @@
 }
 @keyframes bounceArrow {
     0% {
-        bottom:3vh;
+        bottom:3%;
     }
     50% {
-        bottom:1vh;
+        bottom:1%;
     }
     100% {
-        bottom:3vh;
+        bottom:3%;
     }
 }
 
@@ -92,11 +92,11 @@
 }
 @keyframes exitFirstName {
     0% {
-        bottom: 51vh;
+        bottom: 51%;
         opacity: 100%;
     }
     100% {
-        bottom: 80vh;
+        bottom: 80%;
         opacity: 0%;
         display: none;
     }
@@ -107,11 +107,11 @@
 }
 @keyframes exitLastName {
     0% {
-        top: 51vh;
+        top: 51%;
         opacity: 100%;
     }
     100% {
-        top: 80vh;
+        top: 80%;
         opacity: 0%;
         display: none;
     }
