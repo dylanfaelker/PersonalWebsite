@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Game from './Pages/Game'
 import GameEngine from './Pages/Game_engine'
 import PortfolioGenerator from './Pages/PortfolioGenerator'
+import WorldExplorerMap from './Pages/WorldExplorerMap'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/InfinityChess" element={<Game />} /> 
           <Route path="/InfinityChess/Engine" element={<GameEngine />} /> 
           <Route path="/PortfolioGenerator" element={<PortfolioGenerator />} /> 
+          <Route path="/WorldExplorerMap" element={<WorldExplorerMap />} /> 
         </Routes>
       </BrowserRouter>
     </div>
