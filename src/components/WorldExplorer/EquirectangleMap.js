@@ -95,7 +95,7 @@ const EquirectangleMap = ({ height, width, homeCoord, boundaryCoords, hasCircumn
 
         })
         .catch((error) => console.error("Error loading GeoJSON:", error))
-    }, [homeCoord, boundaryCoords, hasCircumnav])
+    }, [height, width, homeCoord, boundaryCoords, hasCircumnav])
   
     return (
         <Box sx={{ border:5, borderColor:'#530C0C', height:height, width:width }}>
