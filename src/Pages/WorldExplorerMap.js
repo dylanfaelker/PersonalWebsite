@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from '../components/Navbar'
-import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../components/WorldExplorer'
+import { Navbar } from '../components/common'
+import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../components/worldExplorer'
 import { Checkbox, FormControlLabel } from '@mui/material'
 import Grid from '@mui/material/Grid2';
 

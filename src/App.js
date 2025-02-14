@@ -2,11 +2,7 @@ import './App.css'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ScrollToTop from './hooks/ScrollToTop'
-import Home from './Pages/Home'
-import Game from './Pages/Game'
-import GameEngine from './Pages/Game_engine'
-import PortfolioGenerator from './Pages/PortfolioGenerator'
-import WorldExplorerMap from './Pages/WorldExplorerMap'
+import { Home, Game, GameEngine, PortfolioGenerator, WorldExplorerMap } from './pages'
 
 function App() {
   return (

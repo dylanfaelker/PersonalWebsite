@@ -1,4 +1,4 @@
-import useImage from '../hooks/useImage'
+import useImage from '../../hooks/useImage'
 
 const Image = ({ fileName, alt, className, ...rest }) => {
     const { loading, error, image } = useImage(fileName)

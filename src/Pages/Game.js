@@ -1,6 +1,6 @@
 import React from 'react'
 import './Game.css'
-import Board from '../components/Board'
+import { Board } from '../components/chess'
 import bbishop from '../assets/chessIcons/bbishop.png'
 import wbishop from '../assets/chessIcons/wbishop.png'
 import bknight from '../assets/chessIcons/bknight.png'
@@ -16,7 +16,7 @@ import wpawn from '../assets/chessIcons/wpawn.png'
 
 import { Link } from "react-router-dom"
 
-import Navbar from '../components/Navbar'
+import { Navbar } from '../components/common'
 
 class Game extends React.Component {
   constructor(props) {

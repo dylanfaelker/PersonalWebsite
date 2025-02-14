@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import StockGraph from '../components/StockGraph'
+import { Navbar } from '../components/common'
+import { StockGraph } from '../components/stock-portfolio'
 
 function PortfolioGenerator() {
 
