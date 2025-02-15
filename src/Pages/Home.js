@@ -39,16 +39,16 @@ function Home() {
       <div>
         {(scrollPosition <= 0) ? 
         <>
-          <div class='landing-contacts-wrapper'><Contacts/></div>
           <h1 class="name first">DYLAN</h1>
           <h1 class="name last">FAELKER</h1>
           <DownArrow class="scrollArrow"/>
         </> :
-          <><Navbar/>
+          <>
           <h1 class="name first firstNameScroll">DYLAN</h1>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="disapear scrollArrow"/>
         </>}
+        <Navbar/>
         <div class="upperLanding"></div>
         <div class="lowerLanding"></div>
         <div class="main">

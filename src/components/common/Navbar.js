@@ -23,7 +23,7 @@ const Navbar = ({ pageTitle }) => {
             {windowWidth <= 640 ?
                 <><nav class="topnav">
                     <Link to="/">
-                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DYLAN FAELKER</h5>
+                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DF</h5>
                     </Link>
                     <div class='nav-right-margin' onClick={() => {setOpenMenu(!openMenu)}}><HamburgerMenu/></div>
                 </nav>
@@ -31,14 +31,14 @@ const Navbar = ({ pageTitle }) => {
             windowWidth >= 641 && windowWidth <= 1007 ?
                 <nav class="topnav">
                     <Link to="/">
-                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DYLAN FAELKER</h5>
+                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DF</h5>
                     </Link>
                     <div class='nav-right-margin'><Contacts/></div>
                 </nav> :
             windowWidth >= 1008 ?
                 <nav class="topnav">
                     <Link to="/">
-                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DYLAN FAELKER</h5>
+                        <h5 class="smallName nav-left-margin" onClick={goToTop}>DF</h5>
                     </Link>
                     <h5 class="page-title">{pageTitle}</h5>
                     <div class='nav-right-margin'><Contacts/></div>
