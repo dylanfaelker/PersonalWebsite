@@ -1,12 +1,10 @@
 import React from 'react'
-import { Navbar } from '../components/common'
 import { StockGraph } from '../components/stock-portfolio'
 
 function PortfolioGenerator() {
 
   return (
     <div class="page">
-      <Navbar/>
       <div class='main'>
         <div class="section">
           <StockGraph/>

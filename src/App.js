@@ -1,30 +1,23 @@
 import './App.css'
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ScrollToTop from './hooks/ScrollToTop'
+import { Routes, Route } from "react-router-dom"
 import { Home, Game, GameEngine, PortfolioGenerator, WorldExplorerMap } from './pages'
-import { ThemeProvider } from '@mui/material'
-import Theme from './Theme'
+import { Navbar } from './components/common';
+import { Box } from '@mui/material';
 
 function App() {
 
-  const theme = Theme
-
   return (
-    <div>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <ScrollToTop/>
-          <Routes>
-            <Route path="/" element={<Home />} /> 
-            <Route path="/InfinityChess" element={<Game />} /> 
-            <Route path="/InfinityChess/Engine" element={<GameEngine />} /> 
-            <Route path="/PortfolioGenerator" element={<PortfolioGenerator />} /> 
-            <Route path="/WorldExplorerMap" element={<WorldExplorerMap />} /> 
-          </Routes>
-        </ThemeProvider>
-      </BrowserRouter>
-    </div>
+    <Box>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/InfinityChess" element={<Game />} /> 
+        <Route path="/InfinityChess/Engine" element={<GameEngine />} /> 
+        <Route path="/PortfolioGenerator" element={<PortfolioGenerator />} /> 
+        <Route path="/WorldExplorerMap" element={<WorldExplorerMap />} /> 
+      </Routes>
+    </Box>
   );
 }
 

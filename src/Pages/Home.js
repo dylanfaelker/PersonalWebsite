@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import profile from '../assets/ProfileCircle.png';
 import { ReactComponent as DownArrow } from '../assets/icons/downArrow.svg'
 import { Projects, Careers } from '../components/home'
-import { Navbar, Contacts, PhotoGallery } from '../components/common'
+import { PhotoGallery } from '../components/common'
 
 import './Home.css'
 
@@ -18,11 +18,6 @@ function Home() {
       const position = window.pageYOffset;
       setScrollPosition(position);
   };
-  // const handleResize = () => {
-  //   const position = window.pageYOffset;
-  //   const size = Math.max(0.01*window.innerHeight, 0.5*window.innerHeight - position);
-  //   setNavbarSize(size);
-  // };
 
   useEffect(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
@@ -42,13 +37,11 @@ function Home() {
           <h1 class="name first">DYLAN</h1>
           <h1 class="name last">FAELKER</h1>
           <DownArrow class="scrollArrow"/>
-        </> :
-          <>
+        </> : <>
           <h1 class="name first firstNameScroll">DYLAN</h1>
           <h1 class="name last lastNameScroll">FAELKER</h1>
           <DownArrow class="disapear scrollArrow"/>
         </>}
-        <Navbar/>
         <div class="upperLanding"></div>
         <div class="lowerLanding"></div>
         <div class="main">

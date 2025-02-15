@@ -16,8 +16,6 @@ import wpawn from '../assets/chessIcons/wpawn.png'
 
 import { Link } from "react-router-dom"
 
-import { Navbar } from '../components/common'
-
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -1411,7 +1409,6 @@ class Game extends React.Component {
   render() {
     return (
       <div className='page'>
-        <Navbar pageTitle={"INFINITY CHESS"}/>
         <div class='main'>
 
           <div className='section'>

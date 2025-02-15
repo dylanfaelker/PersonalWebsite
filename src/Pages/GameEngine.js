@@ -13,7 +13,7 @@ import wqueen from '../assets/chessIcons/wqueen.png'
 import bpawn from '../assets/chessIcons/bpawn.png'
 import wpawn from '../assets/chessIcons/wpawn.png'
 
-import { Navbar, Timeline } from '../components/common/index.js'
+import { Timeline } from '../components/common/index.js'
 
 import db from '../firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
@@ -1428,7 +1428,6 @@ class GameEngine extends React.Component {
   render() {
     return (
       <div className='page'>
-        <Navbar pageTitle={"ABBOTT"}/>
         <div class='main'>
 
           <div class="section">

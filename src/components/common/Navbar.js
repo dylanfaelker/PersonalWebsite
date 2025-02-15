@@ -64,7 +64,7 @@ const Navbar = ({ pageTitle }) => {
                                         },
                                     }}
                                 >
-                                    <Box display="flex" gap={1} sx={{  }}>
+                                    <Box display="flex" gap={1}  sx={{ height: 35 }}>
                                         <a href={ResumePDF} target="_blank" rel="noreferrer" >
                                             <DescriptionOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                         </a>
@@ -80,7 +80,7 @@ const Navbar = ({ pageTitle }) => {
                                     </Box>
                                 </Popover>
                             </> : <>
-                                <Box display="flex" gap={1}>
+                                <Box display="flex" gap={1} sx={{ height: 35 }}>
                                     <a href={ResumePDF} target="_blank" rel="noreferrer" >
                                         <DescriptionOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                     </a>
