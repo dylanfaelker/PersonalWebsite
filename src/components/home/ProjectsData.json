@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Infinity Chess + Chess Bot (Abbott)",
+        "id": 1,
+        "link": null,
+        "desc": "A game that extends upon chess by adding a feature where the edges of the board wrap. Basically a combination of Pacman and Chess.",
+        "inLink": "/InfinityChess"
+    },
+    {
+        "name": "Stock Porfolio Creator",
+        "id": 2,
+        "link": null,
+        "desc": "Generates two investment portfolios of ten SP500 stocks. A safe or risky option.",
+        "inLink": "/PortfolioGenerator"
+    },
+    {
+        "desc": "What you are currently looking at.",
+        "link": null,
+        "id": 3,
+        "inLink": "/",
+        "name": "Personal Website"
+    },
+    {
+        "name": "World Explorer Map",
+        "inLink": "/WorldExplorerMap",
+        "desc": "Map the furthest point you've reach in each cardinal direction",
+        "link": null,
+        "id": 4
+    }
+]

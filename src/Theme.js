@@ -4,25 +4,31 @@ import { useMemo } from "react"
 
 const Theme = () => {
 
+    const darkGreen = '#2E534B'
+    const lightGreen = '#7DCFB6'
+    const white = '#F6F4F4'
+    const maroon = '#530C0C'
+    const peach = '#FD9072'
+    const grey = '#434648'
+
     const theme = createTheme({
         typography: {
             fontFamily: "BeVietnamPro, Arial, sans-serif"
         },
         palette: {
+            text: {
+                primary: white
+            },
+            // background: {
+            //     default: darkGreen
+            // },
             df: {
-                mainColor: '#2E534B',
-                mainColorLight: '#7DCFB6',
-                secondaryColor: '#F6F4F4',
-                tertiaryColor: '#530C0C',
-                neutral: '#434648',
-                highlight: '#FD9072',
-
-                darkGreen: '#2E534B',
-                lightGreen: '#7DCFB6',
-                white: '#F6F4F4',
-                maroon: '#530C0C',
-                peach: '#FD9072',
-                grey: '#434648',
+                darkGreen: darkGreen,
+                lightGreen: lightGreen,
+                white: white,
+                maroon: maroon,
+                peach: peach,
+                grey: grey,
 
             }
         }
