@@ -24,7 +24,7 @@ const Project = ({ project }) => {
                 setAnimationPlayed(true)
             }
             setOldIsHover(isHover)
-        }, [isHover])
+        }, [isHover, oldIsHover])
     
         return (
             <Box 
