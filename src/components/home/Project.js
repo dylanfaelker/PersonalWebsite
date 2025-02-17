@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
 import { Link } from "@mui/material"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 const Project = ({ project }) => {
 
@@ -13,18 +13,13 @@ const Project = ({ project }) => {
     const ProjectObject = () =>  {
 
         const [isHover, setIsHover] = useState(false)
-        const [oldIsHover, setOldIsHover] = useState(false)
+        const oldIsHover = useRef(false)
         const [animationPlayed, setAnimationPlayed] = useState(true)
 
         useEffect(() => {
-            if (isHover !== oldIsHover) {
-                setAnimationPlayed(false)
-            }
-            else {
-                setAnimationPlayed(true)
-            }
-            setOldIsHover(isHover)
-        }, [isHover, oldIsHover])
+            setAnimationPlayed(isHover === oldIsHover.current)
+            oldIsHover.current = isHover
+        }, [isHover])
     
         return (
             <Box 
