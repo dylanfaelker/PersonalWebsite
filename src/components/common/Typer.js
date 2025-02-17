@@ -5,7 +5,7 @@ const Typer = ({ cycleWords }) => {
     // const reactArray = {cycleWords.map((word) => (
     //     word.split('')
     // ))}
-    const reactArray = ['a', 'b']
+    // const reactArray = ['a', 'b']
 
     return (
         <div></div>

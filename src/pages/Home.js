@@ -6,9 +6,9 @@ import { PhotoGallery, SectionTitle, Timeline } from '../components/common'
 // import db from '../firebaseConnection.js'
 // import { query, orderBy, collection } from 'firebase/firestore';
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
-import { DescriptionOutlined, Height, KeyboardArrowDownRounded } from '@mui/icons-material';
+import { DescriptionOutlined, KeyboardArrowDownRounded } from '@mui/icons-material';
 import { Avatar, Box, Typography } from '@mui/material';
-import { useTheme, useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material'
 
 import ResumePDF from '../assets/Resume.pdf'
 import projectsData from '../components/home/ProjectsData.json'
@@ -17,8 +17,8 @@ import careersData from '../components/home/CareersData.json'
 function Home() {
 
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  const isComputer = useMediaQuery(theme.breakpoints.up("lg"))
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+  // const isComputer = useMediaQuery(theme.breakpoints.up("lg"))
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
