@@ -1,5 +1,5 @@
 import React from 'react'
-import Board from '../components/Board'
+import { Board } from '../components/chess/index.js'
 import bbishop from '../assets/chessIcons/bbishop.png'
 import wbishop from '../assets/chessIcons/wbishop.png'
 import bknight from '../assets/chessIcons/bknight.png'
@@ -13,14 +13,13 @@ import wqueen from '../assets/chessIcons/wqueen.png'
 import bpawn from '../assets/chessIcons/bpawn.png'
 import wpawn from '../assets/chessIcons/wpawn.png'
 
-import Navbar from '../components/Navbar'
-import Timeline from '../components/Timeline'
+import { Timeline } from '../components/common/index.js'
 
 import db from '../firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-class Game_engine extends React.Component {
+class GameEngine extends React.Component {
 
   constructor(props) {
     super(props);
@@ -1429,7 +1428,6 @@ class Game_engine extends React.Component {
   render() {
     return (
       <div className='page'>
-        <Navbar pageTitle={"ABBOTT"}/>
         <div class='main'>
 
           <div class="section">
@@ -4343,4 +4341,4 @@ function bishopMoveSafe(square, squares, castling, enpassent) {
   return moves
 }
 
-export default Game_engine;
+export default GameEngine;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../components/Navbar'
-import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../components/WorldExplorer'
+import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../components/worldExplorer'
 import { Checkbox, FormControlLabel } from '@mui/material'
 import Grid from '@mui/material/Grid2';
 
@@ -16,7 +15,6 @@ function WorldExplorerMap() {
 
   return (
     <div class="page">
-      <Navbar/>
       <div class='main'>
         <div class="section"></div>
         <div class="section">

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Game.css'
-import Board from '../components/Board'
+import { Board } from '../components/chess'
 import bbishop from '../assets/chessIcons/bbishop.png'
 import wbishop from '../assets/chessIcons/wbishop.png'
 import bknight from '../assets/chessIcons/bknight.png'
@@ -15,8 +15,6 @@ import bpawn from '../assets/chessIcons/bpawn.png'
 import wpawn from '../assets/chessIcons/wpawn.png'
 
 import { Link } from "react-router-dom"
-
-import Navbar from '../components/Navbar'
 
 class Game extends React.Component {
   constructor(props) {
@@ -1411,7 +1409,6 @@ class Game extends React.Component {
   render() {
     return (
       <div className='page'>
-        <Navbar pageTitle={"INFINITY CHESS"}/>
         <div class='main'>
 
           <div className='section'>
