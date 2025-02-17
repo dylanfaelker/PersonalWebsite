@@ -1,0 +1,50 @@
+[
+    {
+        "sub": "CI Global Asset Management",
+        "title": "PORTFOLIO ANALYST",
+        "id": 8,
+        "date": "Jan 25 - Apr 25"
+    },
+    {
+        "date": "May 24 - Aug 24",
+        "sub": "CI Global Asset Management",
+        "id": 7,
+        "title": "PORTFOLIO ANALYST"
+    },
+    {
+        "title": "PORTFOLIO ANALYST",
+        "date": "Sep 23 - Dec 23",
+        "sub": "CI Global Asset Management",
+        "id": 6
+    },
+    {
+        "sub": "OSFI",
+        "date": "Jan 23 - Apr 23",
+        "id": 5,
+        "title": "FINANCIAL ANALYST"
+    },
+    {
+        "id": 4,
+        "date": "May 22 - Aug 22",
+        "title": "SOFTWARE DEVELOPER",
+        "sub": "Idea Notion Development"
+    },
+    {
+        "id": 3,
+        "date": "Sep 19 - Sep 21",
+        "title": "LIFEGUARD AND SWIM INSTRUCTOR",
+        "sub": "Town of Oakville"
+    },
+    {
+        "title": "SLIDE GUARD/CASHIER",
+        "id": 2,
+        "sub": "Town of Oakville",
+        "date": "Sep 18 - Sep 19"
+    },
+    {
+        "date": "Jun 18 - Aug 18",
+        "sub": "Oakville Soccer Club",
+        "id": 1,
+        "title": "SOCCER REFEREE"
+    }
+]
