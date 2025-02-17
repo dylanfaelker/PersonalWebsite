@@ -222,9 +222,10 @@ function Home() {
         <Typography>
           I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.
           I enjoy the problem solving in computer science and the analytics involved with Finance. What better way to combine the two than with data science.
+          <br></br>
+          <br></br>
+          This website will serve as a personal portfolio of my projects and a little introduction as to who I am.
         </Typography>
-        <br></br>
-        <Typography>This website will serve as a personal portfolio of my projects and a little introduction as to who I am.</Typography>
 
         <Box sx={{ height: 100 }}></Box>
 
@@ -255,17 +256,14 @@ function Home() {
           Running has always been important to me since I was able I small child.
           In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
           Since then, I continued to set some PRs but moved my focus to other things.
-        </Typography>
-        <br></br>
-        <Typography>
+          <br></br>
+          <br></br>
           In the first summer of the pandemic, I started road biking with a couple big goals in mind. The biggest was biking to Niagara Falls and back (200km) in a day, which I successfully completed in 2020.
-        </Typography>
-        <br></br>
-        <Typography>
+          <br></br>
+          <br></br>
           In 2022 I decided to try another new sport. Rock climbing. This is now one my favourites and something I continue to do regularly.
-        </Typography>
-        <br></br>
-        <Typography>
+          <br></br>
+          <br></br>
           Once again in 2023, I tried yet another sport, this time it was dragon boat for the UWaterloo Dargon Warriors. We have competed at nationals and have podiumed in multiple regattas.
         </Typography>
 
