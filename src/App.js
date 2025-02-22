@@ -1,5 +1,3 @@
-import './App.css'
-
 import { Routes, Route } from "react-router-dom"
 import { Home, Game, GameEngine, PortfolioGenerator, WorldExplorerMap } from './pages'
 import { Navbar } from './components/common';
