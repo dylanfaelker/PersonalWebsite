@@ -39,183 +39,185 @@ function Home() {
 
   return (
     <Box type='flex' sx={{ flexDirection: 'column', justifyItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>
-      {(scrollPosition <= 0) ? 
-      <>
-        <Box
-          sx={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <Typography variant='h1'
-            sx={{ 
-              color: theme.palette.df.white,
-              textAlign: 'center',
-              fontSize: 'clamp(50px, 21vmin, 250px)',
-              lineHeight: '85%',
-              animation: "enter 0.2s ease-out",
-              "@keyframes enter": {
-                "0%": {
-                  opacity: 0,
-                  lineHeight: '400%',
-                },
-                "95%": {
-                  opacity: 1,
-                },
-                "100%": {
-                  lineHeight: '85%',
-                },
-              },
+      <Box sx={{ position: 'relative', width: '100%' }}>
+        <Box sx={{
+          height: '50vh',
+          width: '100%',
+          background: theme.palette.df.grey,
+        }}/>
+        <Box sx={{
+          height: '50vh',
+          width: '100%',
+          background: theme.palette.df.darkGreen,
+        }}/>
+        {(scrollPosition <= 0) ? 
+        <>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
             }}
           >
-            DYLAN
-          </Typography>
-          <Typography variant='h1'
-            sx={{ 
+            <Typography variant='h1'
+              sx={{ 
+                color: theme.palette.df.white,
+                textAlign: 'center',
+                fontSize: 'clamp(50px, 21vmin, 250px)',
+                lineHeight: '85%',
+                animation: "enter 0.2s ease-out",
+                "@keyframes enter": {
+                  "0%": {
+                    opacity: 0,
+                    lineHeight: '400%',
+                  },
+                  "95%": {
+                    opacity: 1,
+                  },
+                  "100%": {
+                    lineHeight: '85%',
+                  },
+                },
+              }}
+            >
+              DYLAN
+            </Typography>
+            <Typography variant='h1'
+              sx={{ 
+                color: theme.palette.df.lightGreen,
+                textAlign: 'center',
+                fontSize: 'clamp(50px, 21vmin, 250px)',
+                lineHeight: '85%',
+                animation: "enter 0.2s ease-out",
+                "@keyframes enter": {
+                  "0%": {
+                    opacity: 0,
+                    lineHeight: '400%',
+                  },
+                  "95%": {
+                    opacity: 1,
+                  },
+                  "100%": {
+                    lineHeight: '85%',
+                  },
+                },
+              }}
+            >
+              FAELKER
+            </Typography>
+          </Box>
+          <KeyboardArrowDownRounded 
+            sx={{
               color: theme.palette.df.lightGreen,
-              textAlign: 'center',
-              fontSize: 'clamp(50px, 21vmin, 250px)',
-              lineHeight: '85%',
-              animation: "enter 0.2s ease-out",
-              "@keyframes enter": {
+              height: 52,
+              width: 52,
+              position: 'fixed',
+              bottom: '1%',
+              left: '50%',
+              transform: 'translate(-50%,0)',
+              animation: "bounce 1s ease-in-out infinite",
+              "@keyframes bounce": {
                 "0%": {
-                  opacity: 0,
-                  lineHeight: '400%',
+                  bottom: '3%',
                 },
-                "95%": {
-                  opacity: 1,
+                "50%": {
+                  bottom: '1%',
                 },
                 "100%": {
-                  lineHeight: '85%',
+                  bottom: '3%',
                 },
               },
             }}
-          >
-            FAELKER
-          </Typography>
-        </Box>
-        <KeyboardArrowDownRounded 
-          sx={{
-            color: theme.palette.df.lightGreen,
-            height: 52,
-            width: 52,
-            position: 'fixed',
-            bottom: '1%',
-            left: '50%',
-            transform: 'translate(-50%,0)',
-            animation: "bounce 1s ease-in-out infinite",
-            "@keyframes bounce": {
-              "0%": {
-                bottom: '3%',
-              },
-              "50%": {
-                bottom: '1%',
-              },
-              "100%": {
-                bottom: '3%',
-              },
-            },
-          }}
-        />
-      </> : <>
-        <Box
-          sx={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <Typography variant='h1'
-            sx={{ 
-              color: theme.palette.df.white,
-              textAlign: 'center',
-              fontSize: 'clamp(50px, 21vmin, 250px)',
-              lineHeight: '85%',
-              animation: "leave 0.2s ease-out forwards",
-              "@keyframes leave": {
-                "0%": {
-                  opacity: 1,
-                  lineHeight: '85%',
-                },
-                "100%": {
-                  opacity: '0',
-                  lineHeight: '300%',
-                  display: 'none'
-                },
-              },
+          />
+        </> : <>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
             }}
           >
-            DYLAN
-          </Typography>
-          <Typography variant='h1'
-            sx={{ 
+            <Typography variant='h1'
+              sx={{ 
+                color: theme.palette.df.white,
+                textAlign: 'center',
+                fontSize: 'clamp(50px, 21vmin, 250px)',
+                lineHeight: '85%',
+                animation: "leave 0.2s ease-out forwards",
+                "@keyframes leave": {
+                  "0%": {
+                    opacity: 1,
+                    lineHeight: '85%',
+                  },
+                  "100%": {
+                    opacity: '0',
+                    lineHeight: '300%',
+                    display: 'none'
+                  },
+                },
+              }}
+            >
+              DYLAN
+            </Typography>
+            <Typography variant='h1'
+              sx={{ 
+                color: theme.palette.df.lightGreen,
+                textAlign: 'center',
+                fontSize: 'clamp(50px, 21vmin, 250px)',
+                lineHeight: '85%',
+                animation: "leave 0.2s ease-out forwards",
+                "@keyframes leave": {
+                  "0%": {
+                    opacity: 1,
+                    lineHeight: '85%',
+                  },
+                  "100%": {
+                    opacity: '0',
+                    lineHeight: '300%',
+                    display: 'none'
+                  },
+                },
+              }}
+            >
+              FAELKER
+            </Typography>
+          </Box>
+          <KeyboardArrowDownRounded 
+            sx={{
               color: theme.palette.df.lightGreen,
-              textAlign: 'center',
-              fontSize: 'clamp(50px, 21vmin, 250px)',
-              lineHeight: '85%',
-              animation: "leave 0.2s ease-out forwards",
-              "@keyframes leave": {
+              height: 52,
+              width: 52,
+              position: 'fixed',
+              bottom: '1%',
+              left: '50%',
+              transform: 'translate(-50%,0)',
+              animation: "bounce 1s ease-in-out infinite, disapear 0.1s forwards",
+              "@keyframes bounce": {
                 "0%": {
-                  opacity: 1,
-                  lineHeight: '85%',
+                  bottom: '3%',
+                },
+                "50%": {
+                  bottom: '1%',
                 },
                 "100%": {
-                  opacity: '0',
-                  lineHeight: '300%',
-                  display: 'none'
+                  bottom: '3%',
+                },
+              },
+              "@keyframes disapear": {
+                "0%": {
+                  opacity: 1,
+                },
+                "100%": {
+                  opacity: 1,
+                  display: 'none',
                 },
               },
             }}
-          >
-            FAELKER
-          </Typography>
-        </Box>
-        <KeyboardArrowDownRounded 
-          sx={{
-            color: theme.palette.df.lightGreen,
-            height: 52,
-            width: 52,
-            position: 'fixed',
-            bottom: '1%',
-            left: '50%',
-            transform: 'translate(-50%,0)',
-            animation: "bounce 1s ease-in-out infinite, disapear 0.1s forwards",
-            "@keyframes bounce": {
-              "0%": {
-                bottom: '3%',
-              },
-              "50%": {
-                bottom: '1%',
-              },
-              "100%": {
-                bottom: '3%',
-              },
-            },
-            "@keyframes disapear": {
-              "0%": {
-                opacity: 1,
-              },
-              "100%": {
-                opacity: 1,
-                display: 'none',
-              },
-            },
-          }}
-        />
-      </>}
-      <Box sx={{
-        height: '50vh',
-        width: '100%',
-        background: theme.palette.df.grey,
-      }}/>
-      <Box sx={{
-        height: '50vh',
-        width: '100%',
-        background: theme.palette.df.darkGreen,
-      }}/>
+          />
+        </>}
+      </Box>
       <Box type='flex' sx={{ flexDirection: 'column', justifyItems: 'center', width: '60vw' }}>
         <Avatar src={profile} sx={{ width: '40vmin', height: '40vmin' }}></Avatar>
         <SectionTitle>ABOUT ME</SectionTitle>
