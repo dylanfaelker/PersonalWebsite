@@ -38,7 +38,7 @@ function Home() {
   });
 
   return (
-    <Box type='flex' sx={{ flexDirection: 'column', alignContent: 'center', alignItems: 'center', justifyContent: 'center', justifyItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>
+    <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>
       <Box sx={{ position: 'relative', width: '100%' }}>
         <Box sx={{
           height: '50vh',
@@ -218,7 +218,7 @@ function Home() {
           />
         </>}
       </Box>
-      <Box type='flex' sx={{ flexDirection: 'column', alignContent: 'center', alignItems: 'center', justifyContent: 'center', justifyItems: 'center', width: '60vw' }}>
+      <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: '60vw' }}>
         <Avatar src={profile} sx={{ width: '40vmin', height: '40vmin' }}></Avatar>
         <SectionTitle>ABOUT ME</SectionTitle>
         <Typography>
