@@ -13,6 +13,8 @@ import { useTheme } from '@mui/material'
 import ResumePDF from '../assets/Resume.pdf'
 import projectsData from '../components/home/ProjectsData.json'
 import careersData from '../components/home/CareersData.json'
+import { useDispatch } from 'react-redux'
+import { setTitle } from '../redux/slice/globalSlice'
 
 function Home() {
 
@@ -20,22 +22,25 @@ function Home() {
   // const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   // const isComputer = useMediaQuery(theme.breakpoints.up("lg"))
 
+  const dispatch = useDispatch()
+  useEffect(() => {dispatch(setTitle(""))})
+
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
-      const position = window.pageYOffset;
-      setScrollPosition(position);
-  };
+      const position = window.pageYOffset
+      setScrollPosition(position)
+  }
 
   useEffect(() => {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      window.addEventListener('resize', handleScroll, { passive: true });
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      window.addEventListener('resize', handleScroll, { passive: true })
 
       return () => {
-          window.removeEventListener('scroll', handleScroll);
-          window.removeEventListener('resize', handleScroll);
-      };
-  });
+          window.removeEventListener('scroll', handleScroll)
+          window.removeEventListener('resize', handleScroll)
+      }
+  })
 
   return (
     <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>

@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../components/worldExplorer'
 import { Checkbox, FormControlLabel } from '@mui/material'
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid2'
+import { useDispatch } from 'react-redux'
+import { setTitle } from '../redux/slice/globalSlice'
 
 function WorldExplorerMap() {
+
+  const dispatch = useDispatch()
+  useEffect(() => {dispatch(setTitle("WORLD EXPLORER MAP"))})
 
   const [homeLatCoord, setHomeLatCoord] = useState(43.65)
   const [homeLongCoord, setHomeLongCoord] = useState(-79.39)

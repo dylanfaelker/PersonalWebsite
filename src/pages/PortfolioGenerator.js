@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StockGraph } from '../components/stock-portfolio'
+import { useDispatch } from 'react-redux'
+import { setTitle } from '../redux/slice/globalSlice'
 
 function PortfolioGenerator() {
+
+  const dispatch = useDispatch()
+  useEffect(() => {dispatch(setTitle("PORTFOLIO GENERATOR"))})
 
   return (
     <div class="page">
