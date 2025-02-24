@@ -15,6 +15,7 @@ import bpawn from '../assets/chessIcons/bpawn.png'
 import wpawn from '../assets/chessIcons/wpawn.png'
 
 import { Link } from "react-router-dom"
+import { SectionTitle } from '../components/common'
 
 class Game extends React.Component {
   constructor(props) {
@@ -1466,7 +1467,7 @@ class Game extends React.Component {
           </div>
 
           <div className='section'>
-            <h2>RULES</h2>
+            <SectionTitle>RULES</SectionTitle>
             <p className='description'>
               Pieces all move the same as normal chess including enpassent and castling. The only change is, like Pacman, if you go off one side of the board, you will appear on the other.
               This only applies to the files (left to right). You cannot go from the first rank (row) to the eigth rank since white would win on the first move. 
@@ -1479,7 +1480,7 @@ class Game extends React.Component {
           </div>
 
           <div className='section'>
-            <h2>ABOUT</h2>
+            <SectionTitle>ABOUT</SectionTitle>
             <p className='description'>
               In 2020, the world was hit with a pandemic leaving many people at home. During this time people looked for things to do. Due to this, and the hit Netflix series 'The Queen's Gambit', many started playing chess.
               My friends and I were part of this group and after a few months of playing, my friend Richard He approached me with the idea for this game which combines Pacman and Chess. 

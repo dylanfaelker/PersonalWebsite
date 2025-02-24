@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { StockGraph } from '../components/stock-portfolio'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
+import { SectionSubtitle, SectionTitle } from '../components/common'
 
 function PortfolioGenerator() {
 
@@ -15,7 +16,7 @@ function PortfolioGenerator() {
           <StockGraph/>
         </div>
         <div class="section">
-          <h2 >Requirements</h2>
+          <SectionTitle>DEMANDS</SectionTitle>
           <ul>
             <li>Must always have 10 Stocks in portfolio</li>
             <li>Start with $100000 cash in the portfolio</li>
@@ -25,9 +26,9 @@ function PortfolioGenerator() {
           </ul>
         </div>
         <div class='section'>
-          <h2>Strategy</h2>
+          <SectionTitle>STRATEGY</SectionTitle>
           <div class='sub-section'>
-            <h4>Risky</h4>
+            <SectionSubtitle>RISKY</SectionSubtitle>
             <p>
               The riskiest stock is the stock with the highest beta stock chosen the 3 highest standard deviations stocks.
               The other 9 stocks are the most correlated to the riskiest stock.
@@ -44,7 +45,7 @@ function PortfolioGenerator() {
             </p>
           </div>
           <div class='sub-section'>
-            <h4>Safe</h4>
+            <SectionSubtitle>SAFE</SectionSubtitle>
             <p>
               The algorithm behind this portfolio is largely the same as the Risky Portfolio.
               The only difference is instead of aiming for higher standard deviation, beta, and correlation, it is now aiming for lower standard deviation, beta, and correlation.
