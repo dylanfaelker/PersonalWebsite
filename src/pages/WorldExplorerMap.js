@@ -11,18 +11,20 @@ function WorldExplorerMap() {
 
   const theme = useTheme()
 
+  const mapWidth = (windowWidth, windowHeight) => {
+    if (windowWidth * 0.9 / 2 < windowHeight * 0.8) {
+      return windowWidth * 0.9
+    } else {
+      return windowHeight * 0.8 * 2
+    }
+  }
+  const mapHeight = (windowWidth, windowHeight) => (mapWidth(windowWidth, windowHeight) / 2)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  const mapWidth = (windowWidth) => (windowWidth * 0.9)
-  const mapHeight = (windowWidth) => (mapWidth(windowWidth) / 2)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
 
   const handleResize = () => {
-    const windowWidth = window.innerWidth
-    const windowHeight = window.innerHeight
-    if (mapHeight(windowWidth) < windowHeight * 0.8) {
-      setWindowWidth(windowWidth)
-    } else {
-      setWindowWidth(windowHeight * 0.8 * 2)
-    }
+    setWindowWidth(window.innerWidth)
+    setWindowHeight(window.innerHeight)
   }
 
   useEffect(() => {
@@ -38,8 +40,8 @@ function WorldExplorerMap() {
         <Box sx={{ height: 100 }}></Box>
 
         <EquirectangleMap 
-          height={mapHeight(windowWidth)}
-          width={mapWidth(windowWidth)}
+          height={mapHeight(windowWidth, windowHeight)}
+          width={mapWidth(windowWidth, windowHeight)}
         />
 
         <Box sx={{ height: 100 }}></Box>
