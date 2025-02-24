@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds, CoordInterface } from '../components/worldExplorer'
-import Grid from '@mui/material/Grid2'
+import { EquirectangleMap, CoordInterface } from '../components/worldExplorer'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
-import { Box, Checkbox, FormControlLabel, useTheme } from '@mui/material'
-import { Home, KeyboardArrowDown, KeyboardArrowLeft, KeyboardArrowRight, KeyboardArrowUp } from '@mui/icons-material';
+import { Box, useTheme } from '@mui/material'
 
 function WorldExplorerMap() {
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { EquirectangleMap, CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '.'
+import { CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '.'
 import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery } from '@mui/material'
-import { Home, KeyboardArrowDown, KeyboardArrowLeft, KeyboardArrowRight, KeyboardArrowUp, ZoomOutMap } from '@mui/icons-material'
+import { Home, ZoomOutMap } from '@mui/icons-material'
 import Grid from '@mui/material/Grid2'
 import { useDispatch } from "react-redux"
 import { addOrUpdateCoord } from '../../redux/slice/coordSlice'
@@ -35,15 +35,16 @@ const CoordInterface = ({ id }) => {
             },
             hasCircumnav: hasCircumnav,
         }))
-    }, [homeLatCoord, homeLongCoord, northCoord, southCoord, westCoord, eastCoord, hasCircumnav, ])
+    }, [homeLatCoord, homeLongCoord, northCoord, southCoord, westCoord, eastCoord, hasCircumnav, id, dispatch ])
 
     return (
         <>
             <Box display='flex' sx={{ alignItems: 'center' }}>
                 <Home sx={{ color: theme.palette.df.lightGreen, height: 1 }}/>
-                <Box sx={{ backgroundColor: theme.palette.df.lightGreen, width: '3px', height: '96px', marginX: '10px' }}></Box>
+                <Box sx={{ backgroundColor: theme.palette.df.lightGreen, width: '3px', height: '101px', marginX: '10px' }}></Box>
                 <Box display='flex' sx={{ flexDirection: 'column' }}>
                     <CoordInput label={'Latitude'} coord={homeLatCoord} setCoord={(c) => setHomeLatCoord(transposeLatitudeToMapBounds(c))} error={homeLatCoord > 90 || homeLatCoord < -90} />
+                    <Box sx={{ height: '5px' }}></Box>
                     <CoordInput label={'Longitude'} coord={homeLongCoord} setCoord={(c) => setHomeLongCoord(transposeLongitudeToMapBounds(c))} error={homeLongCoord > 180 || homeLongCoord < -180}/>
                 </Box>
             </Box>
@@ -54,11 +55,14 @@ const CoordInterface = ({ id }) => {
             <>
                 <Box display='flex' sx={{ alignItems: 'center' }}>
                     <ZoomOutMap sx={{ color: theme.palette.df.lightGreen, height: 1, transform: "rotate(45deg)" }} />
-                    <Box sx={{ backgroundColor: theme.palette.df.lightGreen, width: '3px', height: '192px', marginX: '10px' }}></Box>
+                    <Box sx={{ backgroundColor: theme.palette.df.lightGreen, width: '3px', height: '207px', marginX: '10px' }}></Box>
                     <Box display='flex' sx={{ flexDirection: 'column' }}>
                         <CoordInput label={"Furthest north"} coord={northCoord} setCoord={(c) => setNorthCoord(transposeLatitudeToMapBounds(c))} error={northCoord > 90 || northCoord < homeLatCoord} />
+                        <Box sx={{ height: '5px' }}></Box>
                         <CoordInput label={"Furthest south"} coord={southCoord} setCoord={(c) => setSouthCoord(transposeLatitudeToMapBounds(c))} error={southCoord > homeLatCoord || southCoord < -90} />
+                        <Box sx={{ height: '5px' }}></Box>
                         <CoordInput label={"Furthest west"} coord={westCoord} setCoord={(c) => setWestCoord(transposeLongitudeToMapBounds(c))} error={!hasCircumnav && distanceEast(homeLongCoord, westCoord) < distanceEast(homeLongCoord, eastCoord)} disable={hasCircumnav} />
+                        <Box sx={{ height: '5px' }}></Box>
                         <CoordInput label={"Furthest east"} coord={eastCoord} setCoord={(c) => setEastCoord(transposeLongitudeToMapBounds(c))} error={!hasCircumnav && distanceEast(homeLongCoord, westCoord) < distanceEast(homeLongCoord, eastCoord)} disable={hasCircumnav} />
                     </Box>
                 </Box>
