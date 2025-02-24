@@ -7,16 +7,20 @@ import { BrowserRouter, } from "react-router-dom"
 import { ThemeProvider } from '@mui/material'
 import Theme from './Theme'
 import ScrollToTop from './hooks/ScrollToTop'
+import { Provider } from "react-redux"
+import store from "./redux/store"
 
 const theme = Theme;
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <ScrollToTop/>
-        <App />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <ScrollToTop/>
+          <App />
+        </ThemeProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -4,8 +4,9 @@ import { AppBar, Box, IconButton, Popover, Typography, Grid2 } from '@mui/materi
 import { useTheme, useMediaQuery } from '@mui/material'
 import { DescriptionOutlined, EmailOutlined, GitHub, LinkedIn, Menu } from '@mui/icons-material'
 import ResumePDF from '../../assets/Resume.pdf'
+import { useSelector } from 'react-redux'
 
-const Navbar = ({ pageTitle }) => {
+const Navbar = () => {
 
     const [anchorEl, setAnchorEl] = useState(null)
     const handleClick = (event) => {
@@ -16,6 +17,8 @@ const Navbar = ({ pageTitle }) => {
     }
     const open = Boolean(anchorEl)
     const id = open ? 'simple-popover' : undefined
+
+    const pageTitle = useSelector((state) => state.global.title)
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
