@@ -13,7 +13,7 @@ import wqueen from '../assets/chessIcons/wqueen.png'
 import bpawn from '../assets/chessIcons/bpawn.png'
 import wpawn from '../assets/chessIcons/wpawn.png'
 
-import { Timeline } from '../components/common/index.js'
+import { SectionTitle, Timeline } from '../components/common/index.js'
 
 import db from '../firebaseConnection.js'
 import { query, orderBy, collection } from 'firebase/firestore';
@@ -1483,9 +1483,7 @@ class GameEngine extends React.Component {
           </div>
 
           <div className='section'>
-            <header className='header'>
-              <h2>ABOUT</h2>
-            </header>
+            <SectionTitle>ABOUT</SectionTitle>
             <p>
               This engine (Abbott) is very simple and probably rated about 600-700. It can only see one move into the future (1 move for white, 1 move for black) and evaluates positions based on material, king safety and control of squares. I did not put too much effort into the engine since I didn't have enough time to commit to it, but I still wanted to have something to play against, and so we have this. It's main skill is in its vision. It will never not take a free piece you blundered due to the infinite edge.
             </p>
@@ -1500,9 +1498,7 @@ class GameEngine extends React.Component {
           </div>
 
           <div className='section'>
-            <header className='header'>
-              <h2>HISTORY</h2>
-            </header>
+            <SectionTitle>HISTORY</SectionTitle>
             <EngineHistoryDatabase/>
           </div>
 
