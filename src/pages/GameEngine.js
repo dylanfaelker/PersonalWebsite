@@ -15,9 +15,10 @@ import wpawn from '../assets/chessIcons/wpawn.png'
 
 import { SectionTitle, Timeline } from '../components/common/index.js'
 
-import db from '../firebaseConnection.js'
-import { query, orderBy, collection } from 'firebase/firestore';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import chessBotVersionData from '../components/chess/ChessBotVersionData.json'
+// import db from '../firebaseConnection.js'
+// import { query, orderBy, collection } from 'firebase/firestore';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 class GameEngine extends React.Component {
 
@@ -1499,7 +1500,7 @@ class GameEngine extends React.Component {
 
           <div className='section'>
             <SectionTitle>HISTORY</SectionTitle>
-            <EngineHistoryDatabase/>
+            <Timeline points={chessBotVersionData}/>
           </div>
 
         </div>
@@ -1769,20 +1770,22 @@ class GameEngine extends React.Component {
 }
 
 // Gets the Timeline for the bot's history from the database
-function EngineHistoryDatabase() {
-    const versionQuery = query(collection(db, 'versions'), orderBy('id', 'asc'));
-    const [versions, loading] = useCollectionData(versionQuery, {idField: 'id'});
+// function EngineHistoryDatabase() {
+//     const versionQuery = query(collection(db, 'versions'), orderBy('id', 'asc'));
+//     const [versions, loading] = useCollectionData(versionQuery, {idField: 'id'});
 
-    if (loading) {
-        return (
-            <p>Loading</p>
-        )
-    } else {
-        return (
-            <Timeline points={versions}/>
-        )
-    }
-}
+//     console.log(versions)
+
+//     if (loading) {
+//         return (
+//             <p>Loading</p>
+//         )
+//     } else {
+//         return (
+//             <Timeline points={versions}/>
+//         )
+//     }
+// }
 
 // ***************** Chess Engine ******************
 
