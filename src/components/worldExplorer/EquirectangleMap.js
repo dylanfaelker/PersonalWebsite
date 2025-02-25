@@ -29,7 +29,7 @@ const EquirectangleMap = ({ height, width }) => {
       svg.selectAll("*").remove();
   
       // Load GeoJSON data
-      d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+      d3.json("/mapData.json")
         .then((geoData) => {
 
           // Draw map
