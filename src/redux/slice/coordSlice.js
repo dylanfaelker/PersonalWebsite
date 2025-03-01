@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-import mapData from '../../components/worldExplorer/mapData.json'
 
 const coordSlice = createSlice({
     name: "coord",
@@ -18,7 +17,7 @@ const coordSlice = createSlice({
                     east: 16.40,
                 },
                 hasCircumnav: false,
-                countries: mapData.features.map(country => country.id),
+                countries: [],
             }
         ]
     },

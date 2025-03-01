@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { AppBar, Box, IconButton, Popover, Typography, Grid2 } from '@mui/material'
 import { useTheme, useMediaQuery } from '@mui/material'
 import { DescriptionOutlined, EmailOutlined, GitHub, LinkedIn, Menu } from '@mui/icons-material'
-import ResumePDF from '../../assets/Resume.pdf'
+import ResumePDF from '../../assets/pdfs/Resume.pdf'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {

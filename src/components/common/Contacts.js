@@ -2,7 +2,7 @@ import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg'
 import { ReactComponent as EmailIcon } from '../../assets/icons/email.svg'
 import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg'
 import { ReactComponent as PageIcon } from '../../assets/icons/page.svg'
-import ResumePDF from '../../assets/Resume.pdf'
+import ResumePDF from '../../assets/pdfs/Resume.pdf'
 
 import './Contacts.css'
 
