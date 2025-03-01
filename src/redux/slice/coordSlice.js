@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import mapData from '../../components/worldExplorer/mapData.json'
 
 const coordSlice = createSlice({
     name: "coord",
@@ -17,26 +18,72 @@ const coordSlice = createSlice({
                     east: 16.40,
                 },
                 hasCircumnav: false,
+                countries: mapData.features.map(country => country.id),
             }
         ]
     },
     reducers: {
+
+        // dispatch(setCoordList( [coord] ))
         setCoordList: (state, action) => {
             state.coordList = action.payload
             return {
                 coordList: action.payload
             }
         },
+
+        // dispatch(addOrUpdateCoord( coord ))
         addOrUpdateCoord: (state, action) => {
             return {
                 ...state,
                 coordList: [...state.coordList.filter(coords => coords.id !== action.payload.id), action.payload]
             }
         },
+
+        // dispatch(deleteCoord( coord ))
         deleteCoord: (state, action) => {
             return {
                 ...state,
                 coordList: state.coordList.filter(coords => coords.id !== action.payload)
+            }
+        },
+
+        // dispatch(setCountries({ id: num, countries: [] }))
+        setCountries: (state, action) => {
+            return {
+                ...state,
+                coordList: state.coordList.map(coords => 
+                    coords.id === action.payload.id 
+                        ? { ...coords, countries: action.payload.countries }
+                        : coords
+                )
+            }
+        },
+
+        // dispatch(addCountries({ id: num, countries: [] }))
+        addCountries: (state, action) => {
+            const dedupNewCountries = action.payload.countries.filter(
+                (newCountry) => !state.coordList[action.payload.id].countries.includes(newCountry)
+            )
+            return {
+                ...state,
+                coordList: state.coordList.map(coords => 
+                    coords.id === action.payload.id 
+                        ? { ...coords, countries: [...coords.countries, ...dedupNewCountries]}
+                        : coords
+                )
+            }
+        },
+
+        // dispatch(deleteCountries({ id: num, countries: [] }))
+        deleteCountries: (state, action) => {
+            return {
+                ...state,
+                coordList: state.coordList.map(coords => 
+                    coords.id === action.payload.id 
+                        ? { ...coords, countries: coords.countries.filter((country) => !action.payload.countries.includes(country))}
+                        : coords
+                )
             }
         },
     },
@@ -45,6 +92,9 @@ const coordSlice = createSlice({
 export const { 
     setCoordList,
     addOrUpdateCoord,
-    deleteCoord
+    deleteCoord,
+    setCountries,
+    addCountries,
+    deleteCountries,
 } = coordSlice.actions
 export default coordSlice.reducer

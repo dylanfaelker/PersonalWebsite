@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { EquirectangleMap, CoordInterface } from '../components/worldExplorer'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
-import { Box, useTheme } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 
 function WorldExplorerMap() {
 
@@ -43,6 +43,7 @@ function WorldExplorerMap() {
           height={mapHeight(windowWidth, windowHeight)}
           width={mapWidth(windowWidth, windowHeight)}
         />
+        <Typography sx={{ fontSize: '8px' }}>* No political statements are being made with regards to borders and countries. This map data is not mine.</Typography>
 
         <Box sx={{ height: 100 }}></Box>
       

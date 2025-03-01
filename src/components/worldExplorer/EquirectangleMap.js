@@ -29,17 +29,26 @@ const EquirectangleMap = ({ height, width }) => {
       svg.selectAll("*").remove();
   
       // Load GeoJSON data
-      d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+      d3.json("/mapData.json")
         .then((geoData) => {
 
-          // Draw map
-          svg.selectAll("path")
-            .data(geoData.features)
+          // Draw map countries checked
+          svg.selectAll(".checked-countries")
+            .data(geoData.features.filter((feature) => coordList[0].countries.includes(feature.id)))
             .enter()
             .append("path")
             .attr("d", pathGenerator)
             .attr("fill", "#7DCFB6")
             .attr("stroke", "#434648")
+
+          // Draw map countries unchecked
+          svg.selectAll(".unchecked-countries")
+            .data(geoData.features.filter((feature) => !coordList[0].countries.includes(feature.id)))
+            .enter()
+            .append("path")
+            .attr("d", pathGenerator)
+            .attr("fill", "#434648")
+            .attr("stroke", "#7DCFB6")
 
           if (coordList) {
             // Drawing boundary
