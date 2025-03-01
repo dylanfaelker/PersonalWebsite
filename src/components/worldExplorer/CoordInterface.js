@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '.'
-import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery, Accordion, AccordionSummary, Typography, AccordionDetails, Button, IconButton } from '@mui/material'
+import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery, Accordion, AccordionSummary, Typography, AccordionDetails, IconButton } from '@mui/material'
 import { DoneAll, ExpandMore, Home, RemoveDone, ZoomOutMap } from '@mui/icons-material'
 import Grid from '@mui/material/Grid2'
 import { useDispatch, useSelector } from "react-redux"
 import { addCountries, addOrUpdateCoord, deleteCountries } from '../../redux/slice/coordSlice'
 import mapData from './mapData.json'
-import { SectionTitle } from "../common"
 import CountryChecker from "./CountryChecker"
 
 const CoordInterface = ({ id }) => {
@@ -114,11 +113,11 @@ const CoordInterface = ({ id }) => {
 
             <Box sx={{ height: 100 }}></Box>
 
-            {['North America', 'South America', 'Europe', 'Africa', 'Asia', 'Oceania', 'Antarctica'].map(continent => {
+            {['North America', 'South America', 'Europe', 'Africa', 'Asia', 'Oceania', 'Antarctica'].map((continent, index) => {
                 const countriesInContinent = mapData.features.filter(feature => feature.properties.continent === continent)
                 const countriesInContinentIds = countriesInContinent.map(feature => feature.id)
                 return (
-                    <Accordion disableGutters sx={{ width: '60vw' }}>
+                    <Accordion disableGutters sx={{ width: '60vw' }} key={index}>
                         <AccordionSummary 
                             expandIcon={<ExpandMore sx={{ color: theme.palette.df.lightGreen }}/>}
                             sx={{
@@ -145,8 +144,8 @@ const CoordInterface = ({ id }) => {
                             }}
                         >
                             <Grid container columns={{ xs:3, sm:6, md:9, lg:12, }}>
-                                {countriesInContinent.map(country => (
-                                    <Grid size={3}>
+                                {countriesInContinent.map((country, index) => (
+                                    <Grid size={3} key={index}>
                                         <CountryChecker mapId={id} country={country}/>
                                     </Grid>
                                 ))}

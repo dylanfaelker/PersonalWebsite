@@ -13,17 +13,13 @@ const CountryChecker = ({ mapId, country }) => {
     const [checked, setChecked] = useState(checkedRedux)
 
     useEffect(() => {
-        if (checkedRedux !== checked) {
-            setChecked(checkedRedux)
-        }
+        setChecked(prevChecked => (prevChecked !== checkedRedux ? checkedRedux : prevChecked))
     }, [checkedRedux])
 
     const handleLocalStateChange = (event) => {
-        console.log('click')
         setChecked(event.target.checked)
     }
-    const handleGlobalStateChange = (event) => {
-        console.log('Blur')
+    const handleGlobalStateChange = () => {
         if (checked) {
             dispatch(addCountries({ id: mapId, countries: [country.id] }))
         } else {
