@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '.'
-import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery } from '@mui/material'
-import { Home, ZoomOutMap } from '@mui/icons-material'
+import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery, Accordion, AccordionSummary, Typography, AccordionDetails, Button, IconButton } from '@mui/material'
+import { DoneAll, ExpandMore, Home, RemoveDone, ZoomOutMap } from '@mui/icons-material'
 import Grid from '@mui/material/Grid2'
-import { useDispatch } from "react-redux"
-import { addOrUpdateCoord } from '../../redux/slice/coordSlice'
+import { useDispatch, useSelector } from "react-redux"
+import { addCountries, addOrUpdateCoord, deleteCountries } from '../../redux/slice/coordSlice'
+import mapData from './mapData.json'
+import { SectionTitle } from "../common"
+import CountryChecker from "./CountryChecker"
 
 const CoordInterface = ({ id }) => {
 
@@ -18,6 +21,7 @@ const CoordInterface = ({ id }) => {
     const [westCoord, setWestCoord] = useState(-156.69)
     const [eastCoord, setEastCoord] = useState(16.40)
     const [hasCircumnav, setHasCircumnav] = useState(false)
+    const countries = useSelector((state) => state.coord.coordList.filter(coord => coord.id === id)[0].countries)
     
     const dispatch = useDispatch()
     useEffect(() => {
@@ -34,8 +38,9 @@ const CoordInterface = ({ id }) => {
                 east: eastCoord,
             },
             hasCircumnav: hasCircumnav,
+            countries: countries,
         }))
-    }, [homeLatCoord, homeLongCoord, northCoord, southCoord, westCoord, eastCoord, hasCircumnav, id, dispatch ])
+    }, [homeLatCoord, homeLongCoord, northCoord, southCoord, westCoord, eastCoord, hasCircumnav, id, dispatch, countries ])
 
     return (
         <>
@@ -92,20 +97,65 @@ const CoordInterface = ({ id }) => {
                 sx={{ color: '#F6F4F4', maxWidth: '80%' }}
                 control={
                     <Checkbox
-                        value={hasCircumnav}
-                        onChange={(event) => {
-                            setHasCircumnav(event.target.checked)
-                        }}
-                        sx={{
+                    value={hasCircumnav}
+                    onChange={(event) => {
+                        setHasCircumnav(event.target.checked)
+                    }}
+                    sx={{
+                        color: '#F6F4F4',
+                        '&.Mui-checked': {
                             color: '#F6F4F4',
-                            '&.Mui-checked': {
-                                color: '#F6F4F4',
-                            },
-                        }}
+                        },
+                    }}
                     />
                 } 
                 label="Have you circumnavigated the globe?"
             />
+
+            <Box sx={{ height: 100 }}></Box>
+
+            {['North America', 'South America', 'Europe', 'Africa', 'Asia', 'Oceania', 'Antarctica'].map(continent => {
+                const countriesInContinent = mapData.features.filter(feature => feature.properties.continent === continent)
+                const countriesInContinentIds = countriesInContinent.map(feature => feature.id)
+                return (
+                    <Accordion disableGutters sx={{ width: '60vw' }}>
+                        <AccordionSummary 
+                            expandIcon={<ExpandMore sx={{ color: theme.palette.df.lightGreen }}/>}
+                            sx={{
+                                backgroundColor: theme.palette.df.grey,
+                                color: theme.palette.df.white,
+                            }}
+                        >
+                            <Box display='flex' sx={{ width: 1, justifyContent:'space-between', flexDirection: isMobile ? 'column' : 'row' }}>
+                                <Typography>{continent} ({countriesInContinentIds.filter(country => countries.includes(country)).length})</Typography> 
+                                <Box sx={{ marginRight: '20px' }}>
+                                    <IconButton onClick={() => dispatch(addCountries({id: id, countries: countriesInContinentIds}))}>
+                                        <DoneAll sx={{ color: theme.palette.df.lightGreen }}/>
+                                    </IconButton>
+                                    <IconButton onClick={() => dispatch(deleteCountries({id: id, countries: countriesInContinentIds}))}>
+                                        <RemoveDone sx={{ color: theme.palette.df.lightGreen }}/>
+                                    </IconButton>
+                                </Box>
+                            </Box>
+                        </AccordionSummary>
+                        <AccordionDetails
+                            sx={{
+                                backgroundColor: theme.palette.df.grey,
+                                color: theme.palette.df.white,
+                            }}
+                        >
+                            <Grid container columns={{ xs:3, sm:6, md:9, lg:12, }}>
+                                {countriesInContinent.map(country => (
+                                    <Grid size={3}>
+                                        <CountryChecker mapId={id} country={country}/>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </AccordionDetails>
+                    </Accordion>
+                )
+            })}
+
         </>
     )
 }
