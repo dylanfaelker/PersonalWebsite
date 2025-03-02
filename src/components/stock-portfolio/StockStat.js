@@ -1,6 +1,4 @@
 import { Box, Paper, Typography, useTheme } from "@mui/material"
-import "./StockGraph.css"
-import { ArrowCircleLeft } from "@mui/icons-material"
 
 const StockStat = ({title, mainVal, secondaryVal, percentage, positive, units}) => {
 

@@ -1,5 +1,4 @@
 import ReactApexChart from 'react-apexcharts';
-import './StockGraph.css';
 import { useEffect, useState } from 'react';
 import { Box, Chip, Menu, MenuItem, MenuList, Paper, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
