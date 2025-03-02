@@ -11,6 +11,16 @@ const Theme = () => {
     const grey = '#434648'
 
     const theme = createTheme({
+        breakpoints: {
+            values: {
+              xs: 0,      // Default
+            //   sm: 600,    // Default
+              sm: 700, // Custom breakpoint
+              md: 960,    // Default
+              lg: 1280,   // Default
+              xl: 1920,   // Default
+            },
+          },
         typography: {
             fontFamily: "BeVietnamPro, Arial, sans-serif"
         },
@@ -29,7 +39,11 @@ const Theme = () => {
                 peach: peach,
                 grey: grey,
 
-            }
+            },
+            stock: {
+                green: 'rgb(22 163 74)',
+                red: 'rgb(220 38 38)'
+            },
         }
     })
 

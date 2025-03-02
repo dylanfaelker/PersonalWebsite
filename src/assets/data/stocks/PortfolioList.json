@@ -1,0 +1,21 @@
+[
+    {
+        "portfolio": "Risky",
+        "benchmark": "SP500",
+        "strategy": [
+            "The riskiest stock is the stock with the highest beta stock chosen the 3 highest standard deviations stocks. The other 9 stocks are the most correlated to the riskiest stock.",
+            "When deciding the distribution of cash, 35% is given to the riskiest stock and 5% is automatically given to the other 9. The remaining 20% of weight is distributed to the top 3 most correlated stocks based on the most optimal stand deviation for the entire portfolio.",
+            "This calculation is run once at the beginning of every month. The portfolio is then held till the end of the month when the portfolio is regenerated."
+        ]
+    },
+    {
+        "portfolio": "Safe",
+        "benchmark": "SP500",
+        "strategy": [
+            "The algorithm behind this portfolio is largely the same as the Risky Portfolio. The only difference is instead of aiming for higher standard deviation, beta, and correlation, it is now aiming for lower standard deviation, beta, and correlation.",
+            "The safeest stock is the stock with the lowest beta stock chosen the 3 lowest standard deviations stocks. The other 9 stocks are the least correlated to the safest stock.",
+            "When deciding the distribution of cash, 10% weight is given to each stock for even diversification.",
+            "This calculation is run once at the beginning of every month. The portfolio is then held till the end of the month when the portfolio is regenerated."
+        ]
+    }
+]
