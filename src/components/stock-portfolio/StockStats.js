@@ -1,11 +1,9 @@
-import { Grid2, useTheme } from "@mui/material"
+import { Grid2, } from "@mui/material"
 import { useEffect, useState } from "react"
 import StockStat from "./StockStat"
 import { useSelector } from "react-redux"
 
 const StockStats = () => {
-
-    const theme = useTheme()
 
     const portfolioName = useSelector((state) => state.portfolio.portfolioName)
     const benchmarkName = useSelector((state) => state.portfolio.benchmarkName)

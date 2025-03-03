@@ -1,14 +1,12 @@
 import ReactApexChart from 'react-apexcharts';
 import { useEffect, useState } from 'react';
-import { Box, Chip, Menu, MenuItem, MenuList, Paper, Slider, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { Box, Paper, Slider, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 function ConstituentChart() {
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  
-  const dispatch = useDispatch()
 
   const portfolioName = useSelector((state) => state.portfolio.portfolioName)
 
@@ -19,9 +17,7 @@ function ConstituentChart() {
     setSliderMarks(weightData.map(datapoint => datapoint.date))
   }, [weightData])
 
-  const [date, setDate] = useState()
   const handleDateChange = (event, newValue) => {
-    setDate(sliderMarks[newValue])
     setSeries(Object.entries(weightData[newValue].weights).filter(([_, weight]) => weight !== null).map(arr => arr[1]))
     setLabels(Object.entries(weightData[newValue].weights).filter(([_, weight]) => weight !== null).map(arr => arr[0]))
   }
@@ -33,7 +29,6 @@ function ConstituentChart() {
     "NVDA", "AAPL", "INTC", "META", "TSLA", "GOOG", "SHOP", "AMZN", "CSCO", "JPM"
   ])
   useEffect(() => {
-    setDate(weightData[weightData.length - 1].date)
     setSeries(Object.entries(weightData[weightData.length - 1].weights).filter(([_, weight]) => weight !== null).map(arr => arr[1]))
     setLabels(Object.entries(weightData[weightData.length - 1].weights).filter(([_, weight]) => weight !== null).map(arr => arr[0]))
   }, [weightData])
