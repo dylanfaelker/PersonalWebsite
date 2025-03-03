@@ -86,7 +86,7 @@ const StockStats = () => {
             </Grid2> */}
             <Grid2 size={4}>
                 <StockStat 
-                    title='Alpha'
+                    title='Alpha Annualised'
                     mainVal={alpha.toFixed(2) + '%'} 
                     secondaryVal={undefined}
                     percentage={undefined}
@@ -104,7 +104,7 @@ const StockStats = () => {
             </Grid2>
             <Grid2 size={4}>
                 <StockStat 
-                    title='Volatility'
+                    title='Volatility Annualised'
                     mainVal={volatility.toFixed(2) + '%'}
                     secondaryVal={undefined}
                     percentage={undefined}
@@ -113,7 +113,7 @@ const StockStats = () => {
             </Grid2>
             <Grid2 size={4}>
                 <StockStat 
-                    title='Information Ratio'
+                    title='Information Ratio Annualised'
                     mainVal={informationRatio.toFixed(2)}
                     secondaryVal={undefined}
                     percentage={undefined}
@@ -122,7 +122,7 @@ const StockStats = () => {
             </Grid2>
             <Grid2 size={4}>
                 <StockStat 
-                    title='Tracking Error'
+                    title='Tracking Error Annualised'
                     mainVal={trackingError.toFixed(2) + '%'} 
                     secondaryVal={undefined}
                     percentage={undefined}
