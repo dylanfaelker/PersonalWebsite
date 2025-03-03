@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
 import PortfolioList from '../../assets/data/stocks/PortfolioList.json'
+import TimeframeList from '../../assets/data/stocks/TimeframeList.json'
 import RiskyValueData from '../../assets/data/stocks/RiskyValueData.json'
 import SafeValueData from '../../assets/data/stocks/SafeValueData.json'
-import TimeframeList from '../../assets/data/stocks/TimeframeList.json'
+import RiskyWeightData from '../../assets/data/stocks/RiskyWeightData.json'
+import SafeWeightData from '../../assets/data/stocks/SafeWeightData.json'
 
 const allValueData = [RiskyValueData, SafeValueData]
+const allWeightData = [RiskyWeightData, SafeWeightData]
 
 const spliceDataOnTimeframe = (data, timeframe) => {
   if (data === undefined) {
@@ -43,7 +46,8 @@ const portfolioSlice = createSlice({
     valueData: allValueData[0],
     portfolioName: PortfolioList[0].portfolio,
     benchmarkName: PortfolioList[0].benchmark,
-    timeframe: TimeframeList[0]
+    timeframe: TimeframeList[0],
+    weightData: allWeightData[0],
   },
   reducers: {
     setTab: (state, action) => {
@@ -53,6 +57,7 @@ const portfolioSlice = createSlice({
         valueData: spliceDataOnTimeframe(allValueData[action.payload], state.timeframe),
         portfolioName: PortfolioList[action.payload].portfolio,
         benchmarkName: PortfolioList[action.payload].benchmark,
+        weightData: allWeightData[action.payload],
       }
     },
     setTimeframe: (state, action) => {

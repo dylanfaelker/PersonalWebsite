@@ -6,7 +6,7 @@ const StockStat = ({title, mainVal, secondaryVal, percentage, positive, units}) 
 
     return(
         <Paper sx={{ bgcolor: theme.palette.df.white, padding: '15px', minWidth: '285px' }}>
-            <Typography sx={{ color: theme.palette.df.grey }}>{title} {units && '- ' + units}</Typography>
+            <Typography sx={{ color: theme.palette.df.darkGrey }}>{title} {units && '- ' + units}</Typography>
             <Box display='flex' flexDirection='row' alignItems='center'>
                 <Typography sx={{ color: "black", fontSize: 36, fontWeight: 700 }}>{mainVal}</Typography>
                 <Box sx={{ width: '3px' }}></Box>

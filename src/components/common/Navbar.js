@@ -35,7 +35,7 @@ const Navbar = () => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     height: 50,
-                    backgroundColor: theme.palette.df.grey,
+                    backgroundColor: theme.palette.df.darkGrey,
                 }}
             >
                 <Grid2 container sx={{ justifyContent: 'space-between', alignItems: 'center', marginX:'2vw', width: '100%' }}>
@@ -63,7 +63,7 @@ const Navbar = () => {
                                     transformOrigin={{ vertical: 'center', horizontal: 'right', }}
                                     sx={{
                                         "& .MuiPaper-root": {
-                                        backgroundColor: theme.palette.df.grey,
+                                        backgroundColor: theme.palette.df.darkGrey,
                                         },
                                     }}
                                 >

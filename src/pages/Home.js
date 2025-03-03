@@ -48,7 +48,7 @@ function Home() {
         <Box sx={{
           height: '50vh',
           width: '100%',
-          background: theme.palette.df.grey,
+          background: theme.palette.df.darkGrey,
         }}/>
         <Box sx={{
           height: '50vh',

@@ -121,7 +121,7 @@ const CoordInterface = ({ id }) => {
                         <AccordionSummary 
                             expandIcon={<ExpandMore sx={{ color: theme.palette.df.lightGreen }}/>}
                             sx={{
-                                backgroundColor: theme.palette.df.grey,
+                                backgroundColor: theme.palette.df.darkGrey,
                                 color: theme.palette.df.white,
                             }}
                         >
@@ -139,7 +139,7 @@ const CoordInterface = ({ id }) => {
                         </AccordionSummary>
                         <AccordionDetails
                             sx={{
-                                backgroundColor: theme.palette.df.grey,
+                                backgroundColor: theme.palette.df.darkGrey,
                                 color: theme.palette.df.white,
                             }}
                         >

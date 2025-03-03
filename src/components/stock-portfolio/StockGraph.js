@@ -42,11 +42,11 @@ function StockGraph() {
   useEffect(() => {
     setSeries([
       {
-        data: valueData.map(datapoint => {return {x: datapoint.date, y: datapoint.portfolio}}),
+        data: valueData.map(datapoint => {return {x: datapoint.date, y: datapoint.benchmark}}),
         name: "S&P 500"
       },
       {
-        data: valueData.map(datapoint => {return {x: datapoint.date, y: datapoint.benchmark}}),
+        data: valueData.map(datapoint => {return {x: datapoint.date, y: datapoint.portfolio}}),
         name: "Portfolio"
       },
     ])
@@ -57,7 +57,7 @@ function StockGraph() {
   const portfolioLine = theme.palette.df.darkGreen;
   const portfolioFill = theme.palette.df.lightGreen;
   const textColor = theme.palette.df.darkGreen;
-  const divider = theme.palette.df.grey;
+  const divider = theme.palette.df.darkGrey;
   const chartOptions = {
     chart: {
       animations: {
@@ -144,7 +144,7 @@ function StockGraph() {
     <Paper sx={{ bgcolor: theme.palette.df.white, width: 1}}>
       <Box display='flex' sx={{ padding: '15px', justifyContent: 'space-between' }}>
         <Typography sx={{ color: 'black' }}>{portfolioName} Portfolio vs {benchmarkName}</Typography>
-        <Chip label={timeframe} sx={{ color: theme.palette.df.grey }} onClick={handleOpenMenu}></Chip>
+        <Chip label={timeframe} sx={{ color: theme.palette.df.darkGrey }} onClick={handleOpenMenu}></Chip>
         <Menu
           anchorEl={menuAnchorEl}
           open={menuOpen}
@@ -152,7 +152,7 @@ function StockGraph() {
         >
           <MenuList dense>
             {TimeframeList.map((timeframe, index) =>
-              <MenuItem key={index} onClick={(event) => handleCloseMenu(event, index)} sx={{ color: theme.palette.df.grey }}>
+              <MenuItem key={index} onClick={(event) => handleCloseMenu(event, index)} sx={{ color: theme.palette.df.darkGrey }}>
                 {timeframe}
               </MenuItem>
             )}
@@ -162,7 +162,6 @@ function StockGraph() {
 
       <Box sx={{ height: '320px' }}>
         <ReactApexChart
-          className="graph"
           options={chartOptions}
           series={series}
           type={chartOptions.chart.type}

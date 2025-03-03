@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StockGraph } from '../components/stock-portfolio'
+import { ConstituentChart, StockGraph } from '../components/stock-portfolio'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 import { SectionSubtitle, SectionTitle } from '../components/common'
@@ -53,13 +53,16 @@ function PortfolioGenerator() {
         </Box>
 
         <Box sx={{ height: '10px' }}></Box>
-        
+
         <StockGraph/>
 
         <Box sx={{ height: '50px' }}></Box>
-        <StockStats/>
 
-        {/* Portfolio constituents chart */}
+        <StockStats/>
+        
+        <Box sx={{ height: '50px' }}></Box>
+
+        <ConstituentChart/>
 
       </Box>
       <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: '60vw' }}>
