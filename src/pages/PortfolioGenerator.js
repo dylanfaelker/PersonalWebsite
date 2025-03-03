@@ -1,73 +1,110 @@
-import React, { useEffect } from 'react'
-import { StockGraph } from '../components/stock-portfolio'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { ConstituentChart, StockGraph } from '../components/stock-portfolio'
+import { useDispatch, useSelector } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 import { SectionSubtitle, SectionTitle } from '../components/common'
+import { Box, List, Tab, Tabs, Typography, useTheme } from '@mui/material'
+import { setTab } from '../redux/slice/portfolioSlice'
+import PortfolioList from '../assets/data/stocks/PortfolioList.json'
+import StockStats from '../components/stock-portfolio/StockStats'
 
 function PortfolioGenerator() {
 
+  const theme = useTheme()
   const dispatch = useDispatch()
+
+  const portfolioName = useSelector((state) => state.portfolio.portfolioName)
+  
+  const [localTab, setLocalTab] = useState(0)
+  const handleTabChange = (event, newValue) => {
+    setLocalTab(newValue)
+    dispatch(setTab(newValue))
+  }
+
   useEffect(() => {dispatch(setTitle("PORTFOLIO GENERATOR"))})
 
   return (
-    <div class="page">
-      <div class='main'>
-        <div class="section">
-          <StockGraph/>
-        </div>
-        <div class="section">
-          <SectionTitle>DEMANDS</SectionTitle>
-          <ul>
-            <li>Must always have 10 Stocks in portfolio</li>
-            <li>Start with $100000 cash in the portfolio</li>
-            <li>Stocks must be in the S&P 500</li>
-            <li>All stock must have a weighting between 5-35% of the portfolio</li>
-            <li>Partial shares are allowed</li>
-          </ul>
-        </div>
-        <div class='section'>
-          <SectionTitle>STRATEGY</SectionTitle>
-          <div class='sub-section'>
-            <SectionSubtitle>RISKY</SectionSubtitle>
-            <p>
-              The riskiest stock is the stock with the highest beta stock chosen the 3 highest standard deviations stocks.
-              The other 9 stocks are the most correlated to the riskiest stock.
-            </p>
-            <br></br>
-            <p>
-              When deciding the distribution of cash, 35% is given to the riskiest stock and 5% is automatically given to the other 9.
-              The remaining 20% of weight is distributed to the top 3 most correlated stocks based on the most optimal stand deviation for the entire portfolio.
-            </p>
-            <br></br>
-            <p>
-              This calculation is run once at the beginning of every month.
-              The portfolio is then held till the end of the month when the portfolio is regenerated.
-            </p>
-          </div>
-          <div class='sub-section'>
-            <SectionSubtitle>SAFE</SectionSubtitle>
-            <p>
-              The algorithm behind this portfolio is largely the same as the Risky Portfolio.
-              The only difference is instead of aiming for higher standard deviation, beta, and correlation, it is now aiming for lower standard deviation, beta, and correlation.
-            </p>
-            <br></br>
-            <p>
-              The safeest stock is the stock with the lowest beta stock chosen the 3 lowest standard deviations stocks.
-              The other 9 stocks are the least correlated to the safest stock.
-            </p>
-            <br></br>
-            <p>
-              When deciding the distribution of cash, 10% weight is given to each stock for even diversification.
-            </p>
-            <br></br>
-            <p>
-              This calculation is run once at the beginning of every month.
-              The portfolio is then held till the end of the month when the portfolio is regenerated.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>
+      <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: { xs: '90vw', lg:'80vw', xl:'60vw'} }}>
+        
+        <Box sx={{ height: 100 }}></Box>
+
+        <Box sx={{ width: 1, }}>
+          <Tabs 
+            value={localTab} 
+            onChange={handleTabChange}
+            variant='scrollable'
+            scrollButtons='auto' 
+            sx={{
+              "& .MuiTabs-indicator": { backgroundColor: theme.palette.df.white },
+              "& .MuiTab-root": { color: theme.palette.df.white },
+              "& .Mui-selected": { color: theme.palette.df.white },
+            }}
+          >
+            {PortfolioList.map((portoflio, index) => (
+              <Tab key={index} value={index} label={portoflio.portfolio}
+                sx={{
+                  "&.Mui-selected": { color: theme.palette.df.white },
+                  "&:hover": { color: theme.palette.df.white },
+                }}
+              ></Tab>
+            ))}
+          </Tabs>
+        </Box>
+
+        <Box sx={{ height: '10px' }}></Box>
+
+        <StockGraph/>
+
+        <Box sx={{ height: '50px' }}></Box>
+
+        <StockStats/>
+        
+        <Box sx={{ height: '50px' }}></Box>
+
+        <ConstituentChart/>
+
+      </Box>
+      <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: '60vw' }}>
+
+        <Box sx={{ height: '50px' }}></Box>
+
+        <SectionTitle>REQUIRED</SectionTitle>
+
+        <Box sx={{ height: '20px' }}></Box>
+
+        <List>
+            <Typography>1. Must always have 10 Stocks in portfolio</Typography>
+            <Typography>2. Start with $100000 cash in the portfolio</Typography>
+            <Typography>3. Stocks must be in the S&P 500</Typography>
+            <Typography>4. All stock must have a weighting between 5-35% of the portfolio</Typography>
+            <Typography>5. Partial shares are allowed</Typography>
+        </List>
+
+        <Box sx={{ height: '50px' }}></Box>
+
+        <SectionTitle>STRATEGY</SectionTitle>
+
+        <Box sx={{ height: '30px' }}></Box>
+
+        <SectionSubtitle>{portfolioName.toUpperCase()}</SectionSubtitle>
+
+        <Box sx={{ height: '20px' }}></Box>
+
+        <Typography>
+          {PortfolioList[localTab].strategy.map(text => (
+            <>
+              {text}
+              <br></br>
+              <br></br>
+            </>
+          ))}
+        </Typography>
+        
+        <Box sx={{ height: 100 }}></Box>
+
+      </Box>
+    </Box>
   )
 }
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { AppBar, Box, IconButton, Popover, Typography, Grid2 } from '@mui/material'
 import { useTheme, useMediaQuery } from '@mui/material'
 import { DescriptionOutlined, EmailOutlined, GitHub, LinkedIn, Menu } from '@mui/icons-material'
-import ResumePDF from '../../assets/Resume.pdf'
+import ResumePDF from '../../assets/pdfs/Resume.pdf'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {
@@ -35,7 +35,7 @@ const Navbar = () => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     height: 50,
-                    backgroundColor: theme.palette.df.grey,
+                    backgroundColor: theme.palette.df.darkGrey,
                 }}
             >
                 <Grid2 container sx={{ justifyContent: 'space-between', alignItems: 'center', marginX:'2vw', width: '100%' }}>
@@ -63,7 +63,7 @@ const Navbar = () => {
                                     transformOrigin={{ vertical: 'center', horizontal: 'right', }}
                                     sx={{
                                         "& .MuiPaper-root": {
-                                        backgroundColor: theme.palette.df.grey,
+                                        backgroundColor: theme.palette.df.darkGrey,
                                         },
                                     }}
                                 >

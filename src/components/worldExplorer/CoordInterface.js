@@ -5,7 +5,7 @@ import { DoneAll, ExpandMore, Home, RemoveDone, ZoomOutMap } from '@mui/icons-ma
 import Grid from '@mui/material/Grid2'
 import { useDispatch, useSelector } from "react-redux"
 import { addCountries, addOrUpdateCoord, deleteCountries } from '../../redux/slice/coordSlice'
-import mapData from './mapData.json'
+import mapData from '../../assets/data/worldExplorer/mapData.json'
 import CountryChecker from "./CountryChecker"
 
 const CoordInterface = ({ id }) => {
@@ -121,7 +121,7 @@ const CoordInterface = ({ id }) => {
                         <AccordionSummary 
                             expandIcon={<ExpandMore sx={{ color: theme.palette.df.lightGreen }}/>}
                             sx={{
-                                backgroundColor: theme.palette.df.grey,
+                                backgroundColor: theme.palette.df.darkGrey,
                                 color: theme.palette.df.white,
                             }}
                         >
@@ -139,7 +139,7 @@ const CoordInterface = ({ id }) => {
                         </AccordionSummary>
                         <AccordionDetails
                             sx={{
-                                backgroundColor: theme.palette.df.grey,
+                                backgroundColor: theme.palette.df.darkGrey,
                                 color: theme.palette.df.white,
                             }}
                         >

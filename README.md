@@ -33,7 +33,22 @@ root
 │   
 └───src
     ├───assets
-    │   │   [visual assets stored in src]
+    │   ├───data
+    │   │   ├───[folders containing data for each page]
+    │   │   └───...
+    │   │   
+    │   ├───fonts
+    │   │   ├───[folders containing custom font files]
+    │   │   └───...
+    │   │   
+    │   ├───images
+    │   │   ├───[folders containing custom image files]
+    │   │   ├───...
+    │   │   │   
+    │   │   │   [loose image files]
+    │   │   
+    │   ├───pdfs
+    │   │   [pdf files]
     │
     ├───components
     │   ├───common

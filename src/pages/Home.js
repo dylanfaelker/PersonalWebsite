@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import profile from '../assets/ProfileCircle.png'
+import profile from '../assets/images/ProfileCircle.png'
 import { Project } from '../components/home'
 import { PhotoGallery, SectionTitle, Timeline } from '../components/common'
 
@@ -10,9 +10,9 @@ import { DescriptionOutlined, KeyboardArrowDownRounded } from '@mui/icons-materi
 import { Avatar, Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material'
 
-import ResumePDF from '../assets/Resume.pdf'
-import projectsData from '../components/home/ProjectsData.json'
-import careersData from '../components/home/CareersData.json'
+import ResumePDF from '../assets/pdfs/Resume.pdf'
+import projectsData from '../assets/data/home/ProjectsData.json'
+import careersData from '../assets/data/home/CareersData.json'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 
@@ -48,7 +48,7 @@ function Home() {
         <Box sx={{
           height: '50vh',
           width: '100%',
-          background: theme.palette.df.grey,
+          background: theme.palette.df.darkGrey,
         }}/>
         <Box sx={{
           height: '50vh',

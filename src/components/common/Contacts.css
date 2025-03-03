@@ -1,9 +1,0 @@
-.contacts {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: var(--small-icon-size);
-    width: calc((var(--small-icon-size) * 4) + (13px * (4 - 1))); /* var(--small-icon-size) is width of each icon, 13px is spacing between icons*/
-
-    z-index:1001;
-}
