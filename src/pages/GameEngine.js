@@ -524,6 +524,8 @@ class GameEngine extends React.Component {
       bcheck:0,
       lastmove:0,
     }
+
+    this.botMoveTimeout = null
   }
 
   //a function that does nothing
@@ -1478,9 +1480,6 @@ class GameEngine extends React.Component {
                 bcheck={this.state.bcheck}
               />
             </div>
-            <p className='description'>
-              Note: Abbott runs after you play a move and your move will not appear until Abbott comes up with a move. Please wait for him to play (about 5-10 seconds).
-            </p>
           </div>
 
           <div className='section'>
@@ -1509,9 +1508,21 @@ class GameEngine extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //blacks turn an the game isnt over
-    if(!this.state.turn && !this.state.checkmate && !this.state.stalemate && !this.state.draw) {
-      this.botMove(this.state.squares, this.state.castling, this.state.enpassent, this.state.history, this.state.move50, this.state.turn)
+    // Queue the engine on the next task so the player's move can paint first.
+    if(prevState.turn && !this.state.turn && !this.state.checkmate && !this.state.stalemate && !this.state.draw && this.botMoveTimeout === null) {
+      this.botMoveTimeout = window.setTimeout(() => {
+        this.botMoveTimeout = null
+
+        if(!this.state.turn && !this.state.checkmate && !this.state.stalemate && !this.state.draw) {
+          this.botMove(this.state.squares, this.state.castling, this.state.enpassent, this.state.history, this.state.move50, this.state.turn)
+        }
+      }, 0)
+    }
+  }
+
+  componentWillUnmount() {
+    if(this.botMoveTimeout !== null) {
+      window.clearTimeout(this.botMoveTimeout)
     }
   }
 
