@@ -3,7 +3,7 @@ import { HomePage } from './home'
 import { InfinityChessPage, AbbottPage } from './chess'
 import { StockPortfolioPage } from './stockPortfolio'
 import { WorldExplorerPage } from './worldExplorer'
-import { Navbar } from './components/common';
+import { Navbar } from './commonComponents';
 import { Box } from '@mui/material';
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
     <Box>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/InfinityChess" element={<Game />} /> 
-        <Route path="/InfinityChess/Engine" element={<GameEngine />} /> 
-        <Route path="/PortfolioGenerator" element={<PortfolioGenerator />} /> 
-        <Route path="/WorldExplorerMap" element={<WorldExplorerMap />} /> 
+        <Route path="/" element={<HomePage />} /> 
+        <Route path="/InfinityChess" element={<InfinityChessPage />} /> 
+        <Route path="/InfinityChess/Engine" element={<AbbottPage />} /> 
+        <Route path="/PortfolioGenerator" element={<StockPortfolioPage />} /> 
+        <Route path="/WorldExplorerMap" element={<WorldExplorerPage />} /> 
       </Routes>
     </Box>
   );

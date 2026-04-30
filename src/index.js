@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, } from "react-router-dom"
 import { ThemeProvider } from '@mui/material'
 import Theme from './Theme'
-import ScrollToTop from './hooks/ScrollToTop'
+import ScrollToTop from './commonHooks/ScrollToTop'
 import { Provider } from "react-redux"
 import store from "./redux/store"
 

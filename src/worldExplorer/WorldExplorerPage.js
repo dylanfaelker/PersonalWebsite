@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { EquirectangleMap, CoordInterface } from '../components/worldExplorer'
+import { EquirectangleMap, CoordInterface } from './components'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 import { Box, Typography, useTheme } from '@mui/material'

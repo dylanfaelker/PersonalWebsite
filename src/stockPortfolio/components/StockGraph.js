@@ -2,7 +2,7 @@ import ReactApexChart from 'react-apexcharts';
 import { useEffect, useState } from 'react';
 import { Box, Chip, Menu, MenuItem, MenuList, Paper, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import TimeframeList from '../../assets/data/stocks/TimeframeList.json'
+import TimeframeList from '../data/TimeframeList.json'
 import { setTimeframe } from '../../redux/slice/portfolioSlice';
 
 function StockGraph() {

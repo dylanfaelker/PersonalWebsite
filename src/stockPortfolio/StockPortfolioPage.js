@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { ConstituentChart, StockGraph } from '../components/stock-portfolio'
+import { ConstituentChart, StockGraph } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
-import { SectionSubtitle, SectionTitle } from '../components/common'
+import { SectionSubtitle, SectionTitle } from '../commonComponents'
 import { Box, List, Tab, Tabs, Typography, useTheme } from '@mui/material'
 import { setTab } from '../redux/slice/portfolioSlice'
-import PortfolioList from '../assets/data/stocks/PortfolioList.json'
-import StockStats from '../components/stock-portfolio/StockStats'
+import PortfolioList from './data/PortfolioList.json'
+import StockStats from './components/StockStats'
 
 function StockPortfolioPage() {
 
