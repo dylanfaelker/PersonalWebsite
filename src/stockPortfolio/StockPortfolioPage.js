@@ -8,7 +8,7 @@ import { setTab } from '../redux/slice/portfolioSlice'
 import PortfolioList from '../assets/data/stocks/PortfolioList.json'
 import StockStats from '../components/stock-portfolio/StockStats'
 
-function PortfolioGenerator() {
+function StockPortfolioPage() {
 
   const theme = useTheme()
   const dispatch = useDispatch()
@@ -108,4 +108,4 @@ function PortfolioGenerator() {
   )
 }
 
-export default PortfolioGenerator
+export default StockPortfolioPage

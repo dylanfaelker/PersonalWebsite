@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom"
-import { Home, Game, GameEngine, PortfolioGenerator, WorldExplorerMap } from './pages'
+import { HomePage } from './home'
+import { InfinityChessPage, AbbottPage } from './chess'
+import { StockPortfolioPage } from './stockPortfolio'
+import { WorldExplorerPage } from './worldExplorer'
 import { Navbar } from './components/common';
 import { Box } from '@mui/material';
 

@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom"
 import { Link } from "@mui/material"
 import { useState, useEffect, useRef } from "react"
 
-const Project = ({ project }) => {
+const ProjectCard = ({ project }) => {
 
     const theme = useTheme()
 
@@ -183,11 +183,11 @@ const Project = ({ project }) => {
             <Link href={project.link} target="_blank" rel="noreferrer" >
                 <ProjectObject/>
             </Link>:
-            <Link component={RouterLink} to={project.inLink} >
+            <Link component={RouterLink} to={project.internalLink} >
                 <ProjectObject/>
             </Link>}
         </Box>
     )
 }
 
-export default Project
+export default ProjectCard

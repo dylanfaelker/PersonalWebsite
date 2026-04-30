@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react'
 import profile from '../assets/images/ProfileCircle.png'
-import { Project } from '../components/home'
+import { ProjectCard } from '../components/home'
 import { PhotoGallery, SectionTitle, Timeline } from '../components/common'
 
-// import db from '../firebaseConnection.js'
-// import { query, orderBy, collection } from 'firebase/firestore';
-// import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { DescriptionOutlined, KeyboardArrowDownRounded } from '@mui/icons-material';
 import { Avatar, Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material'
@@ -16,7 +13,7 @@ import careersData from '../assets/data/home/CareersData.json'
 import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 
-function Home() {
+function HomePage() {
 
   const theme = useTheme()
   // const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
@@ -238,7 +235,7 @@ function Home() {
 
         <SectionTitle>PROJECTS</SectionTitle>
         {projectsData.map((project) => (
-            <Project
+            <ProjectCard
                 key={project.id} 
                 project={project}
             />
@@ -280,36 +277,4 @@ function Home() {
   );
 }
 
-// Gets the Timeline for the bot's history from the database
-// function CareersDatabase() {
-//   const careerQuery = query(collection(db, 'careers'), orderBy('id', 'desc'));
-//   const [careers, loading] = useCollectionData(careerQuery, {idField: 'id'});
-
-//   if (loading) {
-//       return (
-//           <p>Loading</p>
-//       )
-//   } else {
-//       return (
-//         <Careers careers={careers}/>
-//       )
-//   }
-// }
-
-// // Gets the Timeline for the bot's history from the database
-// function ProjectsDatabase() {
-//   const projectQuery = query(collection(db, 'projects'), orderBy('id', 'asc'));
-//   const [projects, loading] = useCollectionData(projectQuery, {idField: 'id'});
-
-//   if (loading) {
-//       return (
-//           <p>Loading</p>
-//       )
-//   } else {
-//       return (
-//         <Projects projects={projects}/>
-//       )
-//   }
-// }
-
-export default Home;
+export default HomePage;

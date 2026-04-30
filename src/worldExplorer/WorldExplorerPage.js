@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { setTitle } from '../redux/slice/globalSlice'
 import { Box, Typography, useTheme } from '@mui/material'
 
-function WorldExplorerMap() {
+function WorldExplorerPage() {
 
   const dispatch = useDispatch()
   useEffect(() => {dispatch(setTitle("WORLD EXPLORER MAP"))})
@@ -54,4 +54,4 @@ function WorldExplorerMap() {
   )
 }
 
-export default WorldExplorerMap
+export default WorldExplorerPage
