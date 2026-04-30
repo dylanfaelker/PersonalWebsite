@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { findAbbottMove } from '../domain/abbottEngine'
 import {
   applyMoveByIds,
+  findMoves,
   getStatusText,
   pickPromotion,
   selectSquare,
 } from '../domain/chessModel'
+import { requestAbbottMove } from '../domain/abbottApi'
 import { createInitialGameState } from '../domain/chessState'
 
 export function useAbbottVM() {
@@ -31,18 +32,43 @@ export function useAbbottVM() {
     }
 
     const timeoutId = window.setTimeout(() => {
-      setGameState((currentState) => {
-        if (currentState.turn || currentState.checkmate || currentState.stalemate || currentState.draw || currentState.promoting) {
-          return currentState
-        }
+      requestAbbottMove(gameState)
+        .then((move) => {
+          setGameState((currentState) => {
+            if (
+              currentState.turn ||
+              currentState.checkmate ||
+              currentState.stalemate ||
+              currentState.draw ||
+              currentState.promoting
+            ) {
+              return currentState
+            }
 
-        const move = findAbbottMove(currentState)
-        if (!move) {
-          return currentState
-        }
+            const fromSquare = currentState.squares.find((square) => square.id === move.fromId)
+            if (!fromSquare || fromSquare.pieceColor !== currentState.turn) {
+              console.error('Abbott returned an invalid from-square', move)
+              return currentState
+            }
 
-        return applyMoveByIds(currentState, move.fromId, move.toId, move.promotionPiece)
-      })
+            const legalMoves = findMoves(
+              fromSquare,
+              currentState.squares,
+              currentState.castling,
+              currentState.enpassent
+            )
+
+            if (!legalMoves.includes(move.toId)) {
+              console.error('Abbott returned an illegal move', move)
+              return currentState
+            }
+
+            return applyMoveByIds(currentState, move.fromId, move.toId, move.promotionPiece)
+          })
+        })
+        .catch((error) => {
+          console.error('Abbott API request failed', error)
+        })
     }, 0)
 
     return () => window.clearTimeout(timeoutId)
