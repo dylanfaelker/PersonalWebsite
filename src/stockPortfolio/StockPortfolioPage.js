@@ -25,9 +25,11 @@ function StockPortfolioPage() {
 
   return (
     <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>
+      
+      <Box sx={{ height: 100 }}></Box>
+
       <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: { xs: '90vw', lg:'80vw', xl:'60vw'} }}>
         
-        <Box sx={{ height: 100 }}></Box>
 
         <Box sx={{ width: 1, }}>
           <Tabs 

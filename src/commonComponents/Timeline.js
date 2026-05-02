@@ -1,13 +1,39 @@
 import React from 'react'
 import Timepoint from './Timepoint'
-import './Timeline.css'
+import { useTheme } from '@mui/material'
+import { Box } from '@mui/material'
 
 const Timeline = ({ points }) => {
+
+    const theme = useTheme()
+
     return (
-        <div class='flex-col align-center'>
-            <div class="timeline-start">
-                <div class="line-start"></div>
-            </div>
+        <Box 
+            sx={{
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
+            <Box //timeline-start
+                sx={{
+                    position: 'relative',
+                    height: '100px',
+                    width: '36px',
+                }}
+            >
+                <Box // line-start
+                    sx={{
+                        backgroundImage: `linear-gradient(${theme.palette.df.darkGreen}, ${theme.palette.df.maroon})`,
+                        width: '7px',
+                        height: '100px',
+                        position: 'absolute',
+                        left: '50%',
+                        transform: 'translate(-50%, 0)',
+                        top: '3px',
+                    }}
+                ></Box>
+            </Box>
             {points.map((point) => (
                 <Timepoint
                     key={point.id} 
@@ -15,7 +41,7 @@ const Timeline = ({ points }) => {
                     length={points.length}
                 />
             ))}
-        </div>
+        </Box>
     )
 }
 

@@ -1,11 +1,20 @@
 import Square from './Square'
 import PromotionSelector from './PromotionSelector'
+import { Box } from '@mui/material'
 
 const Board = ({ squares, onSelect, moves, selectedNum, lastMove, wcheck, bcheck, }) => {
     return (
         <>
             {Array.from({ length: 8 }, (_, rowIndex) => (
-                <div className="board-row" key={rowIndex}>
+                <Box 
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                    key={rowIndex}
+                >
                     {squares.slice(rowIndex * 8, rowIndex * 8 + 8).map((square) => (
                         <Square
                             key={square.id}
@@ -18,7 +27,7 @@ const Board = ({ squares, onSelect, moves, selectedNum, lastMove, wcheck, bcheck
                             bcheck={bcheck}
                         />
                     ))}
-                </div>
+                </Box>
             ))}
         </>
     )

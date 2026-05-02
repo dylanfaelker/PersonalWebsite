@@ -10,7 +10,7 @@ import ScrollToTop from './commonHooks/ScrollToTop'
 import { Provider } from "react-redux"
 import store from "./redux/store"
 
-const theme = Theme;
+const theme = Theme();
 
 ReactDOM.render(
   <React.StrictMode>

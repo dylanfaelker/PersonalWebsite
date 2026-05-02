@@ -222,7 +222,7 @@ function HomePage() {
       </Box>
       <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', width: '60vw' }}>
         <Avatar src={profile} sx={{ width: '40vmin', height: '40vmin' }}></Avatar>
-        <SectionTitle>ABOUT ME</SectionTitle>
+        <SectionTitle>About Me</SectionTitle>
         <Typography>
           I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.
           I enjoy the problem solving in computer science and the analytics involved with Finance. What better way to combine the two than with data science.
@@ -245,7 +245,7 @@ function HomePage() {
 
         <Box display='flex' sx={{ alignItems: 'center' }}>
           <SectionTitle>CAREER</SectionTitle>
-          <a href={ResumePDF} target="_blank" rel="noreferrer" >
+          <a href={ResumePDF} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
             <DescriptionOutlined sx={{ color: theme.palette.df.lightGreen, height: 75, width: 75 }}/>
           </a>
         </Box>

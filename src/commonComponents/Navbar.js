@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Grid2 container sx={{ justifyContent: 'space-between', alignItems: 'center', marginX:'2vw', width: '100%' }}>
                     <Grid2 size={2} >
                         <Box display='flex' sx={{ justifyContent: 'start' }}>
-                            <Link to="/">
+                            <Link to="/" style={{ textDecoration: 'none' }}>
                                 <Typography variant='h4' sx={{ color: theme.palette.df.white, }}>DF</Typography>
                             </Link>
                         </Box>
@@ -68,32 +68,32 @@ const Navbar = () => {
                                     }}
                                 >
                                     <Box display="flex" gap={1}  sx={{ height: 35 }}>
-                                        <a href={ResumePDF} target="_blank" rel="noreferrer" >
+                                        <a href={ResumePDF} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                                             <DescriptionOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                         </a>
-                                        <a href="mailto:faelkerd@gmail.com" target="_blank" rel="noopener noreferrer" >
+                                        <a href="mailto:faelkerd@gmail.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                             <EmailOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                         </a>
-                                        <a href="https://github.com/dylanfaelker" target="_blank" rel="noopener noreferrer" >
+                                        <a href="https://github.com/dylanfaelker" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                             <GitHub sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/dylanfaelker/" target="_blank" rel="noopener noreferrer" >
+                                        <a href="https://www.linkedin.com/in/dylanfaelker/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                             <LinkedIn sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                         </a>
                                     </Box>
                                 </Popover>
                             </> : <>
                                 <Box display="flex" gap={1} sx={{ height: 35 }}>
-                                    <a href={ResumePDF} target="_blank" rel="noreferrer" >
+                                    <a href={ResumePDF} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                                         <DescriptionOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                     </a>
-                                    <a href="mailto:faelkerd@gmail.com" target="_blank" rel="noopener noreferrer" >
+                                    <a href="mailto:faelkerd@gmail.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                         <EmailOutlined sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                     </a>
-                                    <a href="https://github.com/dylanfaelker" target="_blank" rel="noopener noreferrer" >
+                                    <a href="https://github.com/dylanfaelker" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                         <GitHub sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/dylanfaelker/" target="_blank" rel="noopener noreferrer" >
+                                    <a href="https://www.linkedin.com/in/dylanfaelker/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                                         <LinkedIn sx={{ color: theme.palette.df.lightGreen, height: 35, width: 35 }}/>
                                     </a>
                                 </Box>

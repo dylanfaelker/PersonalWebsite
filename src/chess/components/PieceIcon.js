@@ -42,7 +42,16 @@ function PieceIcon({ square }) {
     return null
   }
 
-  return <img src={icon.src} className="piece-img" alt={icon.alt} />
+  return <img 
+    src={icon.src} 
+    style={{
+      minHeight: '9vmin',
+      maxHeight: '9vmin',
+      minWidth: '9vmin',
+      maxWidth: '9vmin',
+    }} 
+    alt={icon.alt} 
+  />
 }
 
 export default PieceIcon

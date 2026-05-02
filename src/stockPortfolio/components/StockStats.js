@@ -2,7 +2,7 @@ import { Grid2, } from "@mui/material"
 import { useEffect, useState } from "react"
 import StockStat from "./StockStat"
 import { useSelector } from "react-redux"
-import {returnsCalculation, variance, standardDeviation, covariance} from './stockCalc'
+import {returnsCalculation, variance, standardDeviation, covariance} from '../domain/stockCalc'
 
 const StockStats = () => {
 

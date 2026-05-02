@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Image from './Image'
-import './PhotoGallery.css'
 
 export default function PhotoGallery(props) {
     const { images } = props;
@@ -21,8 +20,26 @@ export default function PhotoGallery(props) {
 
     return (
         <>
-            <div class="photo-gallery fill">
-                <Image fileName={currentImage} alt='Photo Gallery' className='' />
+            <div 
+                style={{
+                    display: 'flex',
+                    flexFlow: 'row wrap',
+                    alignItems: 'center',
+                    width: '40vw',
+                    height: '40vw',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                }}
+            >
+                <Image 
+                    fileName={currentImage} 
+                    alt='Photo Gallery' 
+                    style={{
+                        objectFit: 'cover',
+                        minWidth: '100%',
+                        minHeight: '100%',
+                    }} 
+                />
             </div>
         </>
     )
