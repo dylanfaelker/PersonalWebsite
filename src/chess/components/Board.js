@@ -36,7 +36,7 @@ const Board = ({ gameState, onSelectSquare, fileShift, }) => {
                                     gameState.selectedNum === square.id ? theme.palette.df.lightGreen
                                     : gameState.moves.includes(square.id) ? theme.palette.df.white
                                     : square.id === gameState.wcheck || square.id === gameState.bcheck ? theme.palette.df.peach
-                                    : square.id === gameState.lastMove ? theme.palette.df.maroon
+                                    : square.id === gameState.lastmove ? theme.palette.df.maroon
                                     : (square.id%8 + Math.floor((square.id-1) / 8))%2 ? '#d4b187'
                                     : '#613d11'
                                 }
@@ -44,7 +44,7 @@ const Board = ({ gameState, onSelectSquare, fileShift, }) => {
                                     gameState.selectedNum === square.id ? theme.palette.df.darkGreen
                                     : gameState.moves.includes(square.id) ? theme.palette.df.darkGrey
                                     : square.id === gameState.wcheck || square.id === gameState.bcheck ? theme.palette.df.maroon
-                                    : square.id === gameState.lastMove ? theme.palette.df.maroon
+                                    : square.id === gameState.lastmove ? theme.palette.df.maroon
                                     : (square.id%8 + Math.floor((square.id-1) / 8))%2 ? '#d4b187'
                                     : '#613d11'
                                 }
