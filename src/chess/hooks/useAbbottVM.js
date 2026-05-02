@@ -16,13 +16,13 @@ export function useAbbottVM() {
 
   const [gameState, setGameState] = useState(createInitialGameState)
 
-  const onSquareSelect = (square) => {
+  const onSquareSelect = (id) => {
     setGameState((currentState) => {
       if (!currentState.turn) {
         return currentState
       }
 
-      return selectSquare(currentState, square.id)
+      return selectSquare(currentState, id)
     })
   }
 

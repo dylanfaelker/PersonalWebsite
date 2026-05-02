@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { SectionTitle } from '../commonComponents'
-import { Board, PromotionSelector, EngineButton, StatusText } from './components'
+import { EngineButton, StatusText } from './components'
 import { useInfinityChessVM } from './hooks/useInfinityChessVM'
 import { useTheme } from '@mui/material'
 import { Typography, Box } from '@mui/material'
+import InfinityChess from './components/InfinityChess'
 
 function InfinityChessPage() {
   const {
@@ -24,18 +25,10 @@ function InfinityChessPage() {
         {statusText}
       </StatusText>
 
-      {gameState.promoting ? (
-        <PromotionSelector onSelect={onPromotionSelect} />
-      ) : null}
-
-      <Board
-        squares={gameState.squares}
-        onSelect={onSquareSelect}
-        moves={gameState.moves}
-        selectedNum={gameState.selectedPiece.square.id}
-        lastMove={gameState.lastmove}
-        wcheck={gameState.wcheck}
-        bcheck={gameState.bcheck}
+      <InfinityChess
+        onPromotionSelect={onPromotionSelect}
+        onSquareSelect={onSquareSelect}
+        gameState={gameState}
       />
 
       <Box sx={{ height: '30px' }}></Box>

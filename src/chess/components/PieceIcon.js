@@ -31,12 +31,12 @@ const pieceIcons = {
   },
 }
 
-function PieceIcon({ square }) {
-  if (!square.piece) {
+function PieceIcon({ piece }) {
+  if (!piece.pieceType) {
     return null
   }
 
-  const icon = pieceIcons[String(square.pieceColor)]?.[square.piece]
+  const icon = pieceIcons[String(piece.pieceColour)]?.[piece.pieceType]
 
   if (!icon) {
     return null

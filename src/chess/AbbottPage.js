@@ -1,9 +1,10 @@
-import { Board, PromotionSelector, StatusText } from './components'
+import { StatusText } from './components'
 import { SectionTitle, Timeline } from '../commonComponents'
 import chessBotVersionData from './data/ChessBotVersionData.json'
 import { useAbbottVM } from './hooks/useAbbottVM'
 import { useTheme } from '@mui/material'
 import { Typography, Box } from '@mui/material'
+import InfinityChess from './components/InfinityChess'
 
 function AbbottPage() {
   const {
@@ -24,17 +25,10 @@ function AbbottPage() {
         {statusText}
       </StatusText>
 
-      {gameState.promoting ? <PromotionSelector onSelect={onPromotionSelect} /> : null}
-
-
-      <Board
-        squares={gameState.squares}
-        onSelect={onSquareSelect}
-        moves={gameState.moves}
-        selectedNum={gameState.selectedPiece.square.id}
-        lastMove={gameState.lastmove}
-        wcheck={gameState.wcheck}
-        bcheck={gameState.bcheck}
+      <InfinityChess
+        onPromotionSelect={onPromotionSelect}
+        onSquareSelect={onSquareSelect}
+        gameState={gameState}
       />
 
       <Box sx={{ height: '50px' }}></Box>

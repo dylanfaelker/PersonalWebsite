@@ -9,8 +9,8 @@ export function useInfinityChessVM() {
 
   const [gameState, setGameState] = useState(createInitialGameState)
 
-  const onSquareSelect = (square) => {
-    setGameState((currentState) => selectSquare(currentState, square.id))
+  const onSquareSelect = (id) => {
+    setGameState((currentState) => selectSquare(currentState, id))
   }
 
   const onPromotionSelect = (piece) => {
