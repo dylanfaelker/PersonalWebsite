@@ -10,6 +10,15 @@ import ScrollToTop from './commonHooks/ScrollToTop'
 import { Provider } from "react-redux"
 import store from "./redux/store"
 
+import { ABBOTT_API_BASE_URL, ABBOTT_HEALTH_PATH } from './chess/domain/abbottApi'
+
+// Wake up call to chess api
+fetch(`${ABBOTT_API_BASE_URL}${ABBOTT_HEALTH_PATH}`, {
+  method: 'GET',
+  mode: 'cors',
+  cache: 'no-store',
+}).catch(() => {})
+
 const theme = Theme();
 
 ReactDOM.render(
