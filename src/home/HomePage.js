@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import profile from './assets/ProfileCircle.png'
+import profile from './assets/Profile.jpg'
 import { ProjectCard } from './components'
 import { PhotoGallery, SectionTitle, Timeline } from '../commonComponents'
 
@@ -222,11 +222,15 @@ function HomePage() {
         <Avatar src={profile} sx={{ width: '40vmin', height: '40vmin' }}></Avatar>
         <SectionTitle>About Me</SectionTitle>
         <Typography>
-          I am currently taking my undergraduate degree at Waterloo for Computing and Financial Management (BCFM). The program is similar to a double major in Computer Science and Finance.
-          I enjoy the problem solving in computer science and the analytics involved with Finance. What better way to combine the two than with data science.
+          I am a quantitative and investment analyst with interests at the intersection of computer science, finance and statistics.
+          I completed my undergraduate degree at Waterloo for Computer Science and Financial Management (BCFM). The program is essentially a double major.
           <br></br>
           <br></br>
-          This website will serve as a personal portfolio of my projects and a little introduction as to who I am.
+          I enjoy working on problems that combine quantitative think with practical implementation. 
+          This involves developing optimisation models for porfolio allocation or building machine learning models for financial signals.
+          <br></br>
+          <br></br>
+          This website will serve as a personal portfolio for my side projects and a little introduction for who I am.
         </Typography>
 
         <Box sx={{ height: 100 }}></Box>
@@ -251,25 +255,6 @@ function HomePage() {
 
         <Box sx={{ height: 100 }}></Box>
 
-        <SectionTitle>HOBBIES</SectionTitle>
-        <PhotoGallery images={['hobbyImg/1.jpg', 'hobbyImg/2.jpg', 'hobbyImg/3.jpg', 'hobbyImg/4.jpg', 'hobbyImg/5.jpg', 'hobbyImg/6.jpg', 'hobbyImg/7.jpg']}/>
-        <Box sx={{ height: 25 }}></Box>
-        <Typography>
-          Running has always been important to me since I was able I small child.
-          In grade 10, I trained throughout the summer for cross country in the fall and secured my placement at OFSAA which is something I am still proud of.
-          Since then, I continued to set some PRs but moved my focus to other things.
-          <br></br>
-          <br></br>
-          In the first summer of the pandemic, I started road biking with a couple big goals in mind. The biggest was biking to Niagara Falls and back (200km) in a day, which I successfully completed in 2020.
-          <br></br>
-          <br></br>
-          In 2022 I decided to try another new sport. Rock climbing. This is now one my favourites and something I continue to do regularly.
-          <br></br>
-          <br></br>
-          Once again in 2023, I tried yet another sport, this time it was dragon boat for the UWaterloo Dargon Warriors. We have competed at nationals and have podiumed in multiple regattas.
-        </Typography>
-
-        <Box sx={{ height: 100 }}></Box>
       </Box>
     </Box>
   );
