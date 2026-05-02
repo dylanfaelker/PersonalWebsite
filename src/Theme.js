@@ -31,7 +31,51 @@ const Theme = () => {
             },
           },
         typography: {
-            fontFamily: "BeVietnamPro, Arial, sans-serif"
+            fontFamily: "BeVietnamPro, Arial, sans-serif",
+            h2: {
+                fontSize: '128px',
+                fontWeight: 500,
+                letterSpacing: '0em',
+                textAlign: 'center',
+                color: white,
+                marginBottom: '1vh',
+                whiteSpace: 'pre-wrap',
+                textTransform: 'uppercase',
+            },
+            // Map your CSS h4 styles here
+            h4: {
+                fontSize: '34px',
+                fontWeight: 400,
+                letterSpacing: '0em',
+                textAlign: 'center',
+                color: white,
+                marginBottom: '0.5vh',
+                whiteSpace: 'pre-wrap',
+                textTransform: 'uppercase',
+            },
+            // Map your CSS p styles to body1[cite: 2]
+            body1: {
+                fontSize: '18px',
+                fontWeight: 500,
+                letterSpacing: '0em',
+                color: white,
+                textAlign: 'left',
+                // Note: For margins, it's often better to handle 
+                // layout in the Box container rather than the text
+                // marginLeft: '20vw',
+                // marginRight: '20vw',
+                whiteSpace: 'pre-wrap',
+            }
+        },
+        components: {
+            MuiCssBaseline: {
+                styleOverrides: {
+                    '*': {
+                        margin: 0,
+                        padding: 0,
+                    }
+                }
+            }
         },
         palette: {
             text: {

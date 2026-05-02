@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import PortfolioList from '../../assets/data/stocks/PortfolioList.json'
-import TimeframeList from '../../assets/data/stocks/TimeframeList.json'
-import RiskyValueData from '../../assets/data/stocks/RiskyValueData.json'
-import SafeValueData from '../../assets/data/stocks/SafeValueData.json'
-import RiskyWeightData from '../../assets/data/stocks/RiskyWeightData.json'
-import SafeWeightData from '../../assets/data/stocks/SafeWeightData.json'
+import PortfolioList from '../../stockPortfolio/data/PortfolioList.json'
+import TimeframeList from '../../stockPortfolio/data/TimeframeList.json'
+import RiskyValueData from '../../stockPortfolio/data/RiskyValueData.json'
+import SafeValueData from '../../stockPortfolio/data/SafeValueData.json'
+import RiskyWeightData from '../../stockPortfolio/data/RiskyWeightData.json'
+import SafeWeightData from '../../stockPortfolio/data/SafeWeightData.json'
 
 const allValueData = [RiskyValueData, SafeValueData]
 const allWeightData = [RiskyWeightData, SafeWeightData]

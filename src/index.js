@@ -6,11 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, } from "react-router-dom"
 import { ThemeProvider } from '@mui/material'
 import Theme from './Theme'
-import ScrollToTop from './hooks/ScrollToTop'
+import ScrollToTop from './commonHooks/ScrollToTop'
 import { Provider } from "react-redux"
 import store from "./redux/store"
 
-const theme = Theme;
+import { ABBOTT_API_BASE_URL, ABBOTT_HEALTH_PATH } from './chess/domain/abbottApi'
+
+// Wake up call to chess api
+fetch(`${ABBOTT_API_BASE_URL}${ABBOTT_HEALTH_PATH}`, {
+  method: 'GET',
+  mode: 'cors',
+  cache: 'no-store',
+}).catch(() => {})
+
+const theme = Theme();
 
 ReactDOM.render(
   <React.StrictMode>
