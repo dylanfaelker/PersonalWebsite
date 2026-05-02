@@ -1,7 +1,7 @@
 import Square from './Square'
 import { Box, useTheme } from '@mui/material'
 
-const Board = ({ gameState, onSelectSquare, fileShift, }) => { //TODO just take in gameState and onSelectSquare
+const Board = ({ gameState, onSelectSquare, fileShift, }) => {
 
     const theme = useTheme()
 
