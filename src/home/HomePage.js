@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import profile from './assets/Profile.jpg'
 import { ProjectCard } from './components'
-import { PhotoGallery, SectionTitle, Timeline } from '../commonComponents'
+import { SectionTitle, Timeline } from '../commonComponents'
 
 import { DescriptionOutlined, KeyboardArrowDownRounded } from '@mui/icons-material';
 import { Avatar, Box, Typography } from '@mui/material';

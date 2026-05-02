@@ -8,7 +8,7 @@ const useImage = (fileName) => {
     useEffect(() => {
         const fetchImage = async () => {
             try {
-                const response = await import(`../assets/${fileName}`)
+                const response = await import(`${fileName}`)
                 setImage(response.default)
             } catch (err) {
                 console.log('error loading image ' + fileName)

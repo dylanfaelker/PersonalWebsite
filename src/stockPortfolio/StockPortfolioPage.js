@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ConstituentChart, StockGraph } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import { SectionSubtitle, SectionTitle } from '../commonComponents'

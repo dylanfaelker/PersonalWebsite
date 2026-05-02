@@ -1,5 +1,4 @@
 import Square from './Square'
-import PromotionSelector from './PromotionSelector'
 import { Box } from '@mui/material'
 
 const Board = ({ squares, onSelect, moves, selectedNum, lastMove, wcheck, bcheck, }) => {
