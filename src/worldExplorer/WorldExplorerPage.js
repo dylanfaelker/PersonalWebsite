@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { EquirectangleMap, CoordInterface } from './components'
-import { useDispatch } from 'react-redux'
-import { setTitle } from '../redux/slice/globalSlice'
 import { Box, Typography, useTheme } from '@mui/material'
+import usePageTitle from '../commonHooks/usePageTitle'
 
 function WorldExplorerPage() {
 
-  const dispatch = useDispatch()
-  useEffect(() => {dispatch(setTitle("WORLD EXPLORER MAP"))})
+  usePageTitle('World Explorer Map')
 
   const theme = useTheme()
 

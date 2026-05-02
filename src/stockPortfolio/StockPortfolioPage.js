@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { ConstituentChart, StockGraph } from './components'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTitle } from '../redux/slice/globalSlice'
 import { SectionSubtitle, SectionTitle } from '../commonComponents'
 import { Box, List, Tab, Tabs, Typography, useTheme } from '@mui/material'
 import { setTab } from '../redux/slice/portfolioSlice'
 import PortfolioList from './data/PortfolioList.json'
 import StockStats from './components/StockStats'
+import usePageTitle from '../commonHooks/usePageTitle'
 
 function StockPortfolioPage() {
 
@@ -21,7 +21,7 @@ function StockPortfolioPage() {
     dispatch(setTab(newValue))
   }
 
-  useEffect(() => {dispatch(setTitle("PORTFOLIO GENERATOR"))})
+  usePageTitle('Portfolio Generator')
 
   return (
     <Box type='flex' sx={{ flexDirection: 'column', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.df.darkGreen }}>

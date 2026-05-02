@@ -10,8 +10,7 @@ import { useTheme } from '@mui/material'
 import ResumePDF from '../commonAssets/pdfs/Resume.pdf'
 import projectsData from './data/ProjectsData.json'
 import careersData from './data/CareersData.json'
-import { useDispatch } from 'react-redux'
-import { setTitle } from '../redux/slice/globalSlice'
+import usePageTitle from '../commonHooks/usePageTitle'
 
 function HomePage() {
 
@@ -19,8 +18,7 @@ function HomePage() {
   // const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   // const isComputer = useMediaQuery(theme.breakpoints.up("lg"))
 
-  const dispatch = useDispatch()
-  useEffect(() => {dispatch(setTitle(""))})
+  usePageTitle('')
 
   const [scrollPosition, setScrollPosition] = useState(0);
 

@@ -8,8 +8,12 @@ import {
 } from '../domain/chessModel'
 import { requestAbbottMove } from '../domain/abbottApi'
 import { createInitialGameState } from '../domain/chessState'
+import usePageTitle from '../../commonHooks/usePageTitle'
 
 export function useAbbottVM() {
+
+  usePageTitle('Abbott AI')
+
   const [gameState, setGameState] = useState(createInitialGameState)
 
   const onSquareSelect = (square) => {
