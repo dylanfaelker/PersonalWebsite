@@ -39,17 +39,14 @@ function AbbottPage() {
 
         <SectionTitle>ABOUT</SectionTitle>
         <Typography>
-          This engine (Abbott) is very simple and probably rated about 600-700. It can only see
-          one move into the future (1 move for white, 1 move for black) and evaluates positions
-          based on material, king safety and control of squares. I did not put too much effort
-          into the engine since I did not have enough time to commit to it, but I still wanted
-          to have something to play against.
+          This engine (Abbott) is very simple and probably rated about 200. It can only see
+          one move into the future (2 ply) and evaluates positions based on material,
+          king safety and control of squares. It is really just a simple opponent that can be played against.
           <br />
           <br />
           Its main skill is in its vision. It will never not take a free piece you blundered due
-          to the infinite edge. This is only version 1 (V1) and I plan to develop it further in
-          the future with more evaluation features and efficiency techniques like improved move
-          ordering for alpha beta pruning.
+          to the infinite edge. This is only a basic engine and I plan to develop it further in
+          the future with more evaluation features and efficiency techniques.
           <br />
           <br />
           For now though, this is the only engine for Infinity Chess.
