@@ -11,7 +11,7 @@ The website can be found at [dylanfaelker.com](https://www.dylanfaelker.com/)
 * [React.js](https://reactjs.org/)
   * Redux
   * MUI
-* Firebase
+* Flask (https://github.com/dylanfaelker/Abbott-Chess-Engine)
 
 
 
@@ -26,83 +26,49 @@ See the [open issues](https://github.com/dylanfaelker/PersonalWebsite/issues) fo
 # App Layout
 
 ```
-root    
-│
-├───public
-│   │   [standard public react folder]
-│   
-└───src
-    ├───assets
-    │   ├───data
-    │   │   ├───[folders containing data for each page]
-    │   │   └───...
-    │   │   
-    │   ├───fonts
-    │   │   ├───[folders containing custom font files]
-    │   │   └───...
-    │   │   
-    │   ├───images
-    │   │   ├───[folders containing custom image files]
-    │   │   ├───...
-    │   │   │   
-    │   │   │   [loose image files]
-    │   │   
-    │   ├───pdfs
-    │   │   [pdf files]
-    │
-    ├───components
-    │   ├───common
-    │   │   │   [common components]
-    │   │
-    │   ├───[folders containing components for each page]
-    │   └───...
-    │
-    ├───hooks
-    │   │   [custom hooks]
-    │
-    ├───pages
-    │   │   [file for each page]
-    │
-    ├───redux
-    │   ├───slice
-    │   │   │   [redux slices]
-    │   │
-    │   │   store.js [redux store]
-    │
-    │   index.js [what is mounted into index.js <root> object, also contains site wrapper objects]
-    │   App.js [base for all visual react components, also contains routing logic]
-    │   Theme.js [where MUI theme is set]
+root
+|
++---public
+|   [standard React public folder]
+|
+\---src
+    +---commonAssets
+    |   +---fonts
+    |   +---icons
+    |   \---pdfs
+    |
+    +---commonComponents
+    |   [shared UI used across features]
+    |
+    +---commonHooks
+    |   [shared hooks used across features]
+    |
+    +---redux
+    |   +---slice
+    |   \---store.js
+    |
+    +---home
+    +---chess
+    +---stockPortfolio
+    \---worldExplorer
+        [each feature follows the same general structure]
+        +---assets      [feature-specific static files]
+        +---components  [feature-specific UI components]
+        +---data        [feature-specific JSON/content]
+        +---domain      [business logic/helpers when needed]
+        +---hooks       [feature-specific hooks when needed]
+        +---index.js    [feature entry point]
+        \---*Page.js    [top-level page component]
+
+    App.js     [top-level app component and routing]
+    index.js   [application entry point and global wrappers]
+    Theme.js   [MUI theme configuration]
 ```
-
-# Making Changes
-
-## Getting started
-
-Clone repository and make a new branch
-
-Open and command prompt and navigate to the local repo
-
-Run `npm install` to install packages
-
-Run `npm start` to start development server on localhost:3000
-
-## Publishing changes
-
-Makes commits to branch for developing
-
-Open PR from dev branch to `main`
-
-Wait for netlify to create a deploy of the new site
-
-Review the deploy and make sure the site preview behaves as expected
-
-Merge PR into `main`
 
 
 
 # Contact
 
-Dylan Faelker - [linkedin](https://www.linkedin.com/in/dylanfaelker/) - faelkerd@gmail.com
+Dylan Faelker - [linkedin](https://www.linkedin.com/in/dylanfaelker/)
 
 Project Link: [github.com/dylpykill/PersonalWebsite](https://github.com/dylpykill/PersonalWebsite)
-
