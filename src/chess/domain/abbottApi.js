@@ -6,7 +6,7 @@ const localConfig = {
     (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'),
 }
 
-export const ABBOTT_API_BASE_URL = localConfig.devAbbottMode
+export const ABBOTT_API_BASE_URL = false
   ? 'http://127.0.0.1:5000'
   : 'https://abbott-chess-engine.onrender.com'
 export const ABBOTT_HEALTH_PATH = '/health'
@@ -31,6 +31,9 @@ const uciPromotionToPiece = {
 }
 
 export async function requestAbbottMove(gameState, depth = DEFAULT_SEARCH_DEPTH) {
+
+  console.log(gameStateToFen(gameState))
+
   const response = await fetch(`${ABBOTT_API_BASE_URL}${ABBOTT_MOVE_PATH}`, {
     method: 'POST',
     headers: {
@@ -92,7 +95,7 @@ export function gameStateToFen(gameState) {
     gameState.turn ? 'w' : 'b',
     castlingToFen(gameState.castling),
     enPassentToFen(gameState),
-    String(gameState.move50),
+    String(gameState.move50 * 2),
     String(Math.floor(gameState.history.length / 2) + 1),
   ].join(' ')
 }
