@@ -6,7 +6,7 @@ const localConfig = {
     (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'),
 }
 
-export const ABBOTT_API_BASE_URL = false
+export const ABBOTT_API_BASE_URL = localConfig.devAbbottMode
   ? 'http://127.0.0.1:5000'
   : 'https://abbott-chess-engine.onrender.com'
 export const ABBOTT_HEALTH_PATH = '/health'
