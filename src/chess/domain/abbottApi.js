@@ -12,7 +12,9 @@ export const ABBOTT_API_BASE_URL = localConfig.devAbbottMode
 export const ABBOTT_HEALTH_PATH = '/health'
 export const ABBOTT_MOVE_PATH = '/move'
 
-const DEFAULT_SEARCH_DEPTH = 2
+export const ABBOTT_VERSION = 'latest'
+const DEFAULT_SEARCH_DEPTH = 64
+const DEFAULT_SEARCH_TIME = 1
 
 const pieceToFen = {
   [PIECES.PAWN]: 'p',
@@ -30,7 +32,7 @@ const uciPromotionToPiece = {
   r: PIECES.ROOK,
 }
 
-export async function requestAbbottMove(gameState, depth = DEFAULT_SEARCH_DEPTH) {
+export async function requestAbbottMove(gameState, depth = DEFAULT_SEARCH_DEPTH, time_limit = DEFAULT_SEARCH_TIME, version = ABBOTT_VERSION) {
 
   console.log(gameStateToFen(gameState))
 
@@ -41,7 +43,9 @@ export async function requestAbbottMove(gameState, depth = DEFAULT_SEARCH_DEPTH)
     },
     body: JSON.stringify({
       fen: gameStateToFen(gameState),
-      depth,
+      depth: depth,
+      time_limit: time_limit,
+      engine: version,
     }),
   })
 
