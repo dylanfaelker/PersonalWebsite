@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { CoordInput, distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '.'
+import { CoordInput, } from '.'
+import { distanceEast, transposeLatitudeToMapBounds, transposeLongitudeToMapBounds } from '../domain'
 import { Box, Checkbox, FormControlLabel, useTheme, useMediaQuery, Accordion, AccordionSummary, Typography, AccordionDetails, IconButton } from '@mui/material'
 import { DoneAll, ExpandMore, Home, RemoveDone, ZoomOutMap } from '@mui/icons-material'
 import Grid from '@mui/material/Grid2'
